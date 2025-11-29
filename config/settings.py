@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -37,11 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",
 
     # Tailwind integration
     "django_tailwind_cli",
 
-    # my apps
+    # Third-party apps
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+
+    # local apps
     "club",
 ]
 
@@ -53,6 +60,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "allauth.account.middleware.AccountMiddleware",
+
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -133,6 +143,22 @@ TAILWIND_CLI_USE_DAISY_UI = True
 # Tell django-tailwind-cli where the Tailwind SOURCE and OUTPUT live
 TAILWIND_CLI_SRC_CSS = "assets/css/styles.css"
 TAILWIND_CLI_DIST_CSS = "css/tailwind.css"
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+LOGIN_REDIRECT_URL = "club:home"
+LOGOUT_REDIRECT_URL = "club:home"
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"  # or "mandatory" later
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 # Default primary key field type

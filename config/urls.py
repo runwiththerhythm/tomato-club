@@ -21,6 +21,7 @@ from club import views as club_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", club_views.home, name="home"),
-    path("", include("club.urls")),  # include club app URLs
+    path("", include("club.urls")),
+    path("accounts/", include("allauth.urls")),
 
 ]
