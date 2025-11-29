@@ -16,12 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from club import views as club_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", club_views.home, name="home"),
-    path("", include("club.urls")),
     path("accounts/", include("allauth.urls")),
-
+    path("seeds/", include("seeds.urls")),  # ← Seed Library
+    path("", include("club.urls")),
 ]
