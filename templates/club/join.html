@@ -1,3 +1,97 @@
 {% extends "base.html" %}
 
-{% block title %}Join us{% endblock title %}
+{% block title %}Join – Heritage Tomato Club{% endblock title %}
+
+{% block content %}
+<main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
+
+  <!-- Intro -->
+  <section class="space-y-4">
+    <h1 class="text-3xl md:text-4xl font-bold">
+      Join the Heritage Tomato Club
+    </h1>
+    <p class="text-base md:text-lg max-w-3xl">
+      Ready to grow something more interesting than supermarket tomatoes?
+      Joining the club gives you access to our Seed Library, seasonal seed
+      offers, and a small, supportive community of UK growers.
+    </p>
+  </section>
+
+  <!-- How to join: steps -->
+  <section class="grid gap-6 md:grid-cols-3">
+    <article class="card bg-base-100 shadow-md border border-base-300/60">
+      <div class="card-body">
+        <h2 class="card-title text-xl">1. Explore membership</h2>
+        <p class="text-sm md:text-base">
+          Take a look at the membership tiers and choose the level that fits
+          your growing plans and budget.
+        </p>
+        <div class="card-actions mt-3">
+          <a href="{% url 'club:membership' %}" class="btn btn-sm btn-outline">
+            View membership options
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card bg-base-100 shadow-md border border-base-300/60">
+      <div class="card-body">
+        <h2 class="card-title text-xl">2. Create your account</h2>
+        <p class="text-sm md:text-base">
+          Sign up with your email so we can keep you updated and, later on,
+          link your membership to your Seed Library activity.
+        </p>
+        <div class="card-actions mt-3">
+          <a href="{% url 'account_signup' %}" class="btn btn-sm btn-primary">
+            Create an account
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card bg-base-100 shadow-md border border-base-300/60">
+      <div class="card-body">
+        <h2 class="card-title text-xl">3. Start exploring seeds</h2>
+        <p class="text-sm md:text-base">
+          Browse the Seed Library, note varieties you’d like to try, and keep
+          an eye out for seasonal seed offers as the club grows.
+        </p>
+        <div class="card-actions mt-3">
+          <a href="{% url 'seeds:variety_list' %}" class="btn btn-sm btn-outline">
+            Browse Seed Library
+          </a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- MVP note -->
+  <section class="card bg-base-200 shadow-inner">
+    <div class="card-body space-y-3">
+      <h2 class="card-title text-2xl">Early days, honest expectations</h2>
+      <p class="text-base max-w-3xl">
+        The club is in its early “seedling” phase. Features like member
+        dashboards, online payments, and automated seed allocations will be
+        added gradually. For now, we’re focusing on getting the basics right:
+        good varieties, clear communication, and a welcoming community.
+      </p>
+      <p class="text-sm opacity-80">
+        If you’re happy to be part of that early shaping process — and don’t
+        mind a few rough edges — you’re exactly the kind of member we’d love
+        to have onboard.
+      </p>
+    </div>
+  </section>
+
+  <!-- Login helper -->
+  <section class="text-sm flex flex-wrap gap-3 items-center">
+    <span class="opacity-80">
+      Already a member?
+    </span>
+    <a href="{% url 'account_login' %}" class="link link-primary font-medium">
+      Log in to your account →
+    </a>
+  </section>
+
+</main>
+{% endblock content %}
