@@ -1,3 +1,121 @@
 {% extends "base.html" %}
 
-{% block title %}About{% endblock title %}
+{% block title %}About – Heritage Tomato Club{% endblock title %}
+
+{% block content %}
+<main class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+
+  <!-- Hero intro -->
+  <section class="space-y-4">
+    <h1 class="text-3xl md:text-4xl font-bold">
+      About the Heritage Tomato Club
+    </h1>
+    <p class="text-base md:text-lg max-w-3xl">
+      The Heritage Tomato Club is a small, friendly, UK-focused community
+      dedicated to preserving flavourful, rare, and historic tomato varieties.
+      We support growers of all levels — whether you have a greenhouse, an
+      allotment, or just a sunny kitchen windowsill.
+    </p>
+  </section>
+
+  <!-- Card: Our mission -->
+  <section class="card bg-base-100 shadow-md border border-base-300/60">
+    <div class="card-body space-y-3">
+      <h2 class="card-title text-2xl">Our mission</h2>
+      <p class="text-base leading-relaxed">
+        Supermarket tomatoes prioritise transport, yield, and uniformity —
+        but they’ve lost much of the flavour and diversity that once existed
+        in kitchen gardens across the UK and beyond.
+      </p>
+      <p>
+        Our mission is to keep heritage and heirloom tomatoes in active
+        cultivation by sharing seeds, knowledge, and stories. Each saved seed
+        keeps a piece of living history alive.
+      </p>
+      <p class="text-sm opacity-75">
+        As a community-led project, we grow slowly and intentionally —
+        improving the club with the help, feedback, and contributions of our
+        members.
+      </p>
+    </div>
+  </section>
+
+  <!-- Three-column values -->
+  <section class="grid gap-6 md:grid-cols-3">
+    <article class="card bg-base-100 shadow-md border border-base-300/50">
+      <div class="card-body">
+        <h3 class="card-title text-xl">Preserve diversity</h3>
+        <p class="text-sm md:text-base">
+          We prioritise open-pollinated heritage varieties, many of which
+          are at risk of disappearing from mainstream cultivation.
+        </p>
+      </div>
+    </article>
+
+    <article class="card bg-base-100 shadow-md border border-base-300/50">
+      <div class="card-body">
+        <h3 class="card-title text-xl">Share knowledge</h3>
+        <p class="text-sm md:text-base">
+          Members share sowing tips, grow journals, space-saving techniques,
+          greenhouse advice, and seasonal encouragement.
+        </p>
+      </div>
+    </article>
+
+    <article class="card bg-base-100 shadow-md border border-base-300/50">
+      <div class="card-body">
+        <h3 class="card-title text-xl">Keep stories alive</h3>
+        <p class="text-sm md:text-base">
+          Heritage tomatoes often come with tales — who saved them, where
+          they travelled, and why they were loved. We try to preserve those
+          stories alongside the seeds.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- How the club works -->
+  <section class="space-y-4">
+    <h2 class="text-2xl font-semibold">How the club works</h2>
+    <p class="text-base max-w-3xl">
+      Membership gives you access to the Seed Library, seasonal seed offers,
+      and club-only updates. We don’t aim to be a large social network —
+      our focus is on a warm, helpful, small-scale community.
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 text-base">
+      <li>Choose a membership tier based on your growing interest</li>
+      <li>Receive heritage varieties suited to UK conditions</li>
+      <li>Grow, save seed, and share your results with the club</li>
+      <li>Help keep rare tomato lines in active circulation</li>
+    </ul>
+
+    <p class="text-sm opacity-80 max-w-2xl">
+      In time, we’ll expand the Seed Library, release growing guides, and
+      support members in saving, drying, and storing seed properly.
+    </p>
+  </section>
+
+  <!-- Call to action -->
+  <section class="mt-10">
+    <div class="card bg-base-200 shadow-inner">
+      <div class="card-body space-y-4">
+        <h2 class="card-title text-2xl">Join us</h2>
+        <p class="text-base max-w-xl">
+          Whether you're a seasoned tomato enthusiast or growing your first
+          plant this year, there’s a place for you in the Heritage Tomato Club.
+        </p>
+        <div class="flex gap-3">
+          <a href="{% url 'club:join' %}" class="btn btn-primary">
+            Join the Club
+          </a>
+          <a href="{% url 'seeds:variety_list' %}" class="btn btn-outline">
+            Browse Seed Library
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock content %}
