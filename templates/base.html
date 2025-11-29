@@ -1,12 +1,20 @@
-{% load tailwind_cli %}
+{% load tailwind_cli static %}
+
 <!doctype html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="pomodoro">
   <head>
     <meta charset="utf-8" />
     <title>{% block title %}Heritage Tomato Club{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {# Tailwind (compiled by django-tailwind-cli) #}
     {% tailwind_css %}
+
+    {# Extra CSS #}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
   </head>
+  
   <body class="min-h-screen bg-base-100 text-base-content flex flex-col">
 
     {% block navbar %}

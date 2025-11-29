@@ -130,6 +130,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Daisyui
 TAILWIND_CLI_USE_DAISY_UI = True
+# Tell django-tailwind-cli where the Tailwind SOURCE and OUTPUT live
+TAILWIND_CLI_SRC_CSS = "assets/css/styles.css"
+TAILWIND_CLI_DIST_CSS = "css/tailwind.css"
 
 
 # Default primary key field type
