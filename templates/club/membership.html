@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-5xl mx-auto px-4 py-12">
+  <!-- Page heading -->
+  <section class="text-center mb-10">
+    <h1 class="text-3xl md:text-4xl font-bold mb-3">
+      Join the Heritage Tomato Club
+    </h1>
+    <p class="text-base md:text-lg text-base-content/80 max-w-2xl mx-auto">
+      Choose a membership tier that fits your tomato-growing journey – 
+      from curious seedling to seasoned seed saver.
+    </p>
+  </section>
+
+  <!-- Pricing grid -->
+  <section class="grid gap-6 md:grid-cols-3">
+    <!-- Tier 1: Seedling -->
+    <article class="card bg-base-100 shadow-xl border border-base-300">
+      <div class="card-body">
+        <h2 class="card-title flex items-center justify-between">
+          Seedling
+          <span class="badge badge-outline">Starter</span>
+        </h2>
+        <p class="text-sm text-base-content/80">
+          Perfect if you’re just getting started with heritage tomatoes.
+        </p>
+
+        <p class="mt-4">
+          <span class="text-3xl font-bold">£3</span>
+          <span class="text-sm text-base-content/70">/ month</span>
+        </p>
+
+        <ul class="mt-4 space-y-2 text-sm">
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Access to monthly newsletter & seasonal tips
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Basic seed list access
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Member profile & garden notes
+          </li>
+        </ul>
+
+        <div class="card-actions mt-6">
+          <a
+            href="#"
+            class="btn btn-outline btn-primary w-full"
+          >
+            Choose Seedling
+          </a>
+          <!-- TODO: wire this up to checkout URL -->
+        </div>
+      </div>
+    </article>
+
+    <!-- Tier 2: Vine (featured) -->
+    <article class="card bg-base-100 shadow-2xl border-2 border-primary relative">
+      <div class="absolute -top-3 inset-x-0 flex justify-center">
+        <span class="badge badge-primary badge-lg shadow-md">
+          Most popular
+        </span>
+      </div>
+      <div class="card-body pt-8">
+        <h2 class="card-title flex items-center justify-between">
+          Vine
+          <span class="badge badge-outline badge-primary">Club Favourite</span>
+        </h2>
+        <p class="text-sm text-base-content/80">
+          For active growers who want access to the full seed library
+          and community perks.
+        </p>
+
+        <p class="mt-4">
+          <span class="text-3xl font-bold">£7</span>
+          <span class="text-sm text-base-content/70">/ month</span>
+        </p>
+
+        <ul class="mt-4 space-y-2 text-sm">
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Everything in <strong>Seedling</strong>
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Full heritage seed swap access
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Priority on limited-stock varieties
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Members-only guides & printables
+          </li>
+        </ul>
+
+        <div class="card-actions mt-6">
+          <a
+            href="#"
+            class="btn btn-primary w-full"
+          >
+            Choose Vine
+          </a>
+          <!-- TODO: wire this up to checkout URL -->
+        </div>
+      </div>
+    </article>
+
+    <!-- Tier 3: Heirloom -->
+    <article class="card bg-base-100 shadow-xl border border-base-300">
+      <div class="card-body">
+        <h2 class="card-title flex items-center justify-between">
+          Heirloom
+          <span class="badge badge-outline">Patron</span>
+        </h2>
+        <p class="text-sm text-base-content/80">
+          Support the club’s long-term projects and conservation work.
+        </p>
+
+        <p class="mt-4">
+          <span class="text-3xl font-bold">£12</span>
+          <span class="text-sm text-base-content/70">/ month</span>
+        </p>
+
+        <ul class="mt-4 space-y-2 text-sm">
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Everything in <strong>Vine</strong>
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Extra seed pack each season
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Early access to new varieties & trials
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Name listed (optional) on supporter page
+          </li>
+        </ul>
+
+        <div class="card-actions mt-6">
+          <a
+            href="#"
+            class="btn btn-outline btn-accent w-full"
+          >
+            Choose Heirloom
+          </a>
+          <!-- TODO: wire this up to checkout URL -->
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Small reassurance text -->
+  <section class="mt-10 text-center text-sm text-base-content/70">
+    <p>
+      You can upgrade, downgrade, or cancel your membership at any time.
+      No minimum term.
+    </p>
+  </section>
+</main>
+{% endblock content %}
