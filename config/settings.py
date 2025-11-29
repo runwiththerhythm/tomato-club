@@ -27,8 +27,17 @@ SECRET_KEY = 'django-insecure-g%fijvts#vmdu%p3_$sdfcawc^v%#1)+r@)zpn6$y2y5f+g%)6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "cassiterite.digital",
+    "tomatoes.cassiterite.digital",
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://cassiterite.digital",
+    "https://tomatoes.cassiterite.digital",
+]
 
 # Application definition
 
@@ -178,6 +187,9 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
+# Good basic security flags
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

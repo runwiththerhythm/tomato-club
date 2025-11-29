@@ -11,6 +11,13 @@ class TomatoVariety(models.Model):
 
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=220, unique=True, help_text="Used in the URL.")
+
+    image = models.ImageField(
+        upload_to="tomato_varieties/",
+        blank=True,
+        null=True,
+    )
+
     origin = models.CharField(
         max_length=200,
         blank=True,
