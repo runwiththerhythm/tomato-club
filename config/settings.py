@@ -13,8 +13,23 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# --- Simple .env loader (no extra packages needed) ---
+ENV_FILE = BASE_DIR / ".env"
+
+if ENV_FILE.exists():
+    with open(ENV_FILE) as f:
+        for line in f:
+            line = line.strip()
+            # Skip comments and blank lines
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            # Don't overwrite anything already set in the environment
+            os.environ.setdefault(key, value)
+# -----------------------------------------------------
+
 
 SITE_ID = 1
 
@@ -22,10 +37,14 @@ SITE_ID = 1
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g%fijvts#vmdu%p3_$sdfcawc^v%#1)+r@)zpn6$y2y5f+g%)6'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-g%fijvts#vmdu%p3_$sdfcawc^v%#1)+r@)zpn6$y2y5f+g%)6")
+
+DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
+
+CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "")
 
 ALLOWED_HOSTS = [
     "localhost",
