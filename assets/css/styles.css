@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Tell Tailwind where to scan for class names */
+@source "templates/**/*.{html,js,py}";
+@source "club/**/*.{html,js,py}";
+
+/* Enable DaisyUI but disable ALL built-in themes */
+@plugin "daisyui" {
+  themes: false;
+}
+
+/* Your custom DaisyUI theme */
+@plugin "daisyui/theme" {
+  name: "pomodoro";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #F6F1E8;
+  --color-base-200: oklch(93% 0.0081 61.42);
+  --color-base-300: oklch(90% 0.010 61.42);
+  --color-base-content: oklch(40% 0.0081 61.42);
+
+  --color-primary: #355E3B;
+  --color-primary-content: #F6F1E8;
+
+  --color-secondary: #C3423F;
+  --color-secondary-content: #F6F1E8;
+
+  --color-accent: #D96F3B;
+  --color-accent-content: #1D1D1B;
+
+  --color-neutral: #1D1D1B;
+  --color-neutral-content: oklch(80% 0.0081 61.42);
+
+  --color-info: #C9D2B0;
+  --color-info-content: #1D1D1B;
+
+  --color-success: #355E3B;
+  --color-success-content: #F6F1E8;
+
+  --color-warning: #D6A84B;
+  --color-warning-content: #1D1D1B;
+
+  --color-error: #C3423F;
+  --color-error-content: #F6F1E8;
+
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
