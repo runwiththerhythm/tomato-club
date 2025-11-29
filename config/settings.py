@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
 
-    # Cloudinary
+    # Cloudinary - keep above any apps using files
     "cloudinary",
     "cloudinary_storage",
 
