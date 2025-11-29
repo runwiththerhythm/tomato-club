@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Email verification sent – Heritage Tomato Club{% endblock title %}
+
+{% block content %}
+<main class="max-w-md mx-auto px-4 py-10">
+  <section class="card bg-base-100 shadow-md border border-base-300/70">
+    <div class="card-body space-y-4">
+      <h1 class="card-title text-2xl">
+        {% trans "Check your email" %}
+      </h1>
+      <p class="text-sm opacity-80">
+        {% trans "We’ve sent a verification link to your email address. Please click the link to confirm your account." %}
+      </p>
+      <p class="text-xs opacity-70">
+        {% trans "If you don’t see it within a few minutes, check your spam or junk folder." %}
+      </p>
+
+      <a href="{% url 'club:home' %}" class="btn btn-outline w-full">
+        {% trans "Back to home" %}
+      </a>
+    </div>
+  </section>
+</main>
+{% endblock content %}
