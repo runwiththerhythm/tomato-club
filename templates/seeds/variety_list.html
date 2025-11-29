@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Seed Library – Heritage Tomato Club{% endblock title %}
+
+{% block content %}
+<main class="max-w-6xl mx-auto px-4 py-10 space-y-8">
+  <section class="space-y-3">
+    <h1 class="text-3xl md:text-4xl font-bold">Seed Library</h1>
+    <p class="text-base md:text-lg max-w-3xl">
+      Browse the club’s collection of heritage and heirloom tomato varieties.
+      This is an evolving list as we trial new lines and retire others.
+    </p>
+  </section>
+
+  {% if varieties %}
+    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {% for variety in varieties %}
+        <article class="card bg-base-100 shadow-md border border-base-300/60">
+          <div class="card-body">
+            <h2 class="card-title text-xl">
+              <a href="{{ variety.get_absolute_url }}" class="link link-hover">
+                {{ variety.name }}
+              </a>
+            </h2>
+
+            {% if variety.origin %}
+              <p class="text-sm opacity-80">
+                Origin: {{ variety.origin }}
+              </p>
+            {% endif %}
+
+            <ul class="text-sm space-y-1 mt-2">
+              {% if variety.growth_habit %}
+                <li>
+                  <span class="font-semibold">Habit:</span>
+                  {{ variety.get_growth_habit_display }}
+                </li>
+              {% endif %}
+              {% if variety.fruit_color %}
+                <li>
+                  <span class="font-semibold">Fruit colour:</span>
+                  {{ variety.fruit_color }}
+                </li>
+              {% endif %}
+              {% if variety.days_to_maturity %}
+                <li>
+                  <span class="font-semibold">Days to maturity:</span>
+                  ~{{ variety.days_to_maturity }} days
+                </li>
+              {% endif %}
+            </ul>
+
+            {% if variety.description %}
+              <p class="mt-3 text-sm">
+                {{ variety.description }}
+              </p>
+            {% endif %}
+
+            <div class="card-actions justify-end mt-4">
+              <a href="{{ variety.get_absolute_url }}" class="btn btn-sm btn-primary">
+                View details
+              </a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </section>
+
+    {% if is_paginated %}
+      <div class="mt-6 flex justify-center">
+        <div class="join">
+          {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm join-item">
+              « Prev
+            </a>
+          {% endif %}
+          <button class="btn btn-sm join-item btn-ghost">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </button>
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm join-item">
+              Next »
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  {% else %}
+    <p class="mt-6 opacity-80">
+      No varieties in the Seed Library yet. Once you add some in the admin,
+      they’ll appear here.
+    </p>
+  {% endif %}
+</main>
+{% endblock content %}
