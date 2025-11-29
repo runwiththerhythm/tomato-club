@@ -26,6 +26,95 @@
     <button class="btn btn-accent">Learn More</button>
   </div>
 
+  <!-- Featured varieties -->
+  {% if featured_varieties %}
+  <section class="space-y-4">
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <h2 class="text-2xl md:text-3xl font-bold">
+        Featured varieties from the Seed Library
+      </h2>
+      <a href="{% url 'seeds:variety_list' %}" class="btn btn-sm btn-outline">
+        View all varieties
+      </a>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {% for variety in featured_varieties %}
+        <article class="card bg-base-100 shadow-md border border-base-300/70">
+          <div class="card-body">
+            <h3 class="card-title text-lg">
+              <a href="{{ variety.get_absolute_url }}" class="link link-hover">
+                {{ variety.name }}
+              </a>
+            </h3>
+
+            {% if variety.origin %}
+              <p class="text-sm opacity-80">
+                Origin: {{ variety.origin }}
+              </p>
+            {% endif %}
+
+            <ul class="text-sm space-y-1 mt-2">
+              {% if variety.growth_habit %}
+                <li>
+                  <span class="font-semibold">Habit:</span>
+                  {{ variety.get_growth_habit_display }}
+                </li>
+              {% endif %}
+              {% if variety.fruit_color %}
+                <li>
+                  <span class="font-semibold">Fruit colour:</span>
+                  {{ variety.fruit_color }}
+                </li>
+              {% endif %}
+              {% if variety.days_to_maturity %}
+                <li>
+                  <span class="font-semibold">Days to maturity:</span>
+                  ~{{ variety.days_to_maturity }} days
+                </li>
+              {% endif %}
+            </ul>
+
+            {% if variety.description %}
+              <p class="mt-3 text-sm">
+                {{ variety.description|truncatechars:140 }}
+              </p>
+            {% endif %}
+
+            <div class="card-actions justify-end mt-4">
+              <a href="{{ variety.get_absolute_url }}" class="btn btn-sm btn-primary">
+                View details
+              </a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Why heritage tomatoes -->
+  <section class="grid gap-8 md:grid-cols-2 items-start">
+    <div class="space-y-4">
+      <h2 class="text-2xl md:text-3xl font-bold">
+        Why heritage tomatoes?
+      </h2>
+      <p class="text-base md:text-lg">
+        Heritage and heirloom tomatoes often have deeper, more complex
+        flavours, beautiful shapes and colours, and stories attached to
+        how they were grown and passed down.
+      </p>
+      <p>
+        By growing and sharing them, we keep living genetic diversity alive
+        – a small but meaningful act against blandness in both gardens and
+        food systems.
+      </p>
+      <a href="{% url 'club:about' %}" class="link link-primary font-medium">
+        Learn more about the club →
+      </a>
+    </div>
+
+
   <div class="alert alert-info mt-6">
     <span>New heritage varieties added for the spring sowing calendar.</span>
   </div>
