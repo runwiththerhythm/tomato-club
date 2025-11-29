@@ -5,7 +5,14 @@ from seeds.models import TomatoVariety
 
 
 def home(request):
-    return render(request, "home.html")
+    featured_varieties = (
+        TomatoVariety.objects.filter(is_active=True, is_featured=True)
+        .order_by("name")[:6]
+    )
+    context = {
+        "featured_varieties": featured_varieties,
+    }
+    return render(request, "home.html", context)
 
 
 class MembershipView(TemplateView):
