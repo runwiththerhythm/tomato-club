@@ -1,0 +1,90 @@
+{% load tailwind_cli %}
+<!doctype html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Heritage Tomato Club{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% tailwind_css %}
+  </head>
+  <body class="min-h-screen bg-base-100 text-base-content flex flex-col">
+
+    {% block navbar %}
+    <header class="navbar bg-base-200 border-b border-base-300">
+      <div class="container mx-auto flex items-center">
+        <!-- Brand -->
+        <div class="flex-1">
+          <a href="{% url 'home' %}" class="btn btn-ghost normal-case text-xl font-bold">
+            🍅 Heritage Tomato Club
+          </a>
+        </div>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex gap-2 items-center">
+          {# these URL names will exist as we add the views; for now you can temporarily use '#' if you like #}
+          <a class="btn btn-ghost" href="#">Seed Library</a>
+          <a class="btn btn-ghost" href="#">Pricing</a>
+
+          {% if user.is_authenticated %}
+            <a class="btn btn-ghost" href="#">Dashboard</a>
+            <a class="btn btn-error btn-sm" href="#">Log out</a>
+          {% else %}
+            <a class="btn btn-ghost btn-sm" href="#">Log in</a>
+            <a class="btn btn-primary btn-sm" href="#">Join</a>
+          {% endif %}
+        </nav>
+
+        <!-- Mobile menu (optional – we can wire JS later) -->
+        <div class="md:hidden">
+          <details class="dropdown dropdown-end">
+            <summary class="btn btn-ghost btn-square">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </summary>
+            <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a href="#">Seed Library</a></li>
+              <li><a href="#">Pricing</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Log out</a></li>
+              {% else %}
+                <li><a href="#">Log in</a></li>
+                <li><a href="#">Join</a></li>
+              {% endif %}
+            </ul>
+          </details>
+        </div>
+      </div>
+    </header>
+    {% endblock %}
+
+    <!-- Messages -->
+    <section class="container mx-auto mt-4 px-4">
+      {% if messages %}
+        <div class="space-y-2">
+          {% for message in messages %}
+            <div class="alert alert-info">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- Page content -->
+    <main class="container mx-auto p-6 flex-1">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-4 bg-base-200 text-base-content">
+      <aside>
+        <p>© 2025 Heritage Tomato Club · Private UK heritage seed membership club (non-commercial)</p>
+      </aside>
+    </footer>
+
+  </body>
+</html>

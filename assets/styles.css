@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Tailwind needs to scan Django templates */
+@source "../templates/**/*.{html,js,py}";
+@source "../club/**/*.{html,js,py}";
+
+/* DaisyUI enabled via django-tailwind-cli setting */
+@plugin "daisyui";
+
+/* (We’ll add a custom WCAG AA theme later) */

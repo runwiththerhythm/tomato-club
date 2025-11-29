@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+.venv/
+venv/
+
+# Django
+db.sqlite3
+*.log
+
+# Django Tailwind CLI (binary cache)
+.django_tailwind_cli/
+
+# Tailwind (django-tailwind)
+theme/node_modules/
+theme/static_src/.cache/
+
+# Node
+node_modules/
+
+# Static files (generated)
+staticfiles/
+media/
+
+# Environment variables
+.env
+
+# OS / Editor
+.DS_Store
+.vscode/
