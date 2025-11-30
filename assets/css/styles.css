@@ -54,3 +54,26 @@
   --depth: 1;
   --noise: 0;
 }
+
+
+/* GLOBAL FORMS OVERRIDES — make sure these stay last */
+
+/* All text inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="date"],
+input[type="datetime-local"],
+textarea,
+select {
+    @apply input input-bordered w-full;
+}
+
+/* Checkboxes should stay looking like checkboxes */
+input[type="checkbox"] {
+    @apply checkbox checkbox-primary;
+}
