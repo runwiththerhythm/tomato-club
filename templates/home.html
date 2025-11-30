@@ -4,6 +4,41 @@
 {% block content %}
 <main class="max-w-6xl mx-auto px-4 py-10 space-y-10">
 
+  <!-- HERO SECTION -->
+  <section 
+    class="hero min-h-[70vh] bg-cover bg-center relative"
+    style="background-image: url('{% static 'img/heritage-tomatoes.jpg' %}');"
+  >
+    <!-- dark overlay for contrast -->
+    <div class="absolute inset-0 bg-base-200/60"></div>
+
+    <div class="hero-content relative z-10 text-neutral-content text-center md:text-left px-6">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Grow, Save & Share Heritage Tomatoes
+        </h1>
+
+        <p class="text-base md:text-lg opacity-90 mb-6 leading-relaxed">
+          Join a friendly UK community of home growers passionate about preserving rare, flavourful
+          heirloom tomato varieties.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <a href="{% url 'seeds:variety_list' %}" 
+             class="btn btn-primary btn-lg">
+            Browse Varieties
+          </a>
+
+          <a href="{% url 'club:membership' %}" 
+             class="btn btn-secondary btn-lg">
+            Join the Club
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- Hero -->
   <section class="space-y-4">
     <h1 class="text-3xl md:text-4xl font-bold">
