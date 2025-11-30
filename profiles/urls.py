@@ -1,0 +1,10 @@
+# profiles/urls.py
+from django.urls import path
+from .views import ProfileDetailView, ProfileUpdateView
+
+app_name = "profiles"
+
+urlpatterns = [
+    path("", ProfileDetailView.as_view(), name="profile-detail"),
+    path("edit/", ProfileUpdateView.as_view(), name="profile-edit"),
+]
