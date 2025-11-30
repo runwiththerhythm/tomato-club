@@ -55,6 +55,24 @@
   --noise: 0;
 }
 
+/* ----- Typography ----- */
+
+@layer base {
+  :root {
+    --font-heading: "Bitter", serif;
+    --font-body: "Crimson Text", serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+
 /* Ensure form messages wrap properly */
 label .label-text-alt,
 .label-text-alt,
