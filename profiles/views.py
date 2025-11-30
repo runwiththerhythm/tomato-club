@@ -10,17 +10,20 @@ from .forms import ProfileForm
 class ProfileDetailView(LoginRequiredMixin, DetailView):
     """
     Show the currently logged-in user's profile.
+    If it doesn't exist yet (e.g. old users), create it.
     """
     model = Profile
     template_name = "profile/profile_detail.html"
 
     def get_object(self, queryset=None):
-        return self.request.user.profile
+        profile, created = Profile.objects.get_or_create(user=self.request.user)
+        return profile
 
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     """
     Edit the currently logged-in user's profile.
+    If it doesn't exist yet, create it first.
     """
     model = Profile
     form_class = ProfileForm
@@ -28,4 +31,5 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy("profiles:profile-detail")
 
     def get_object(self, queryset=None):
-        return self.request.user.profile
+        profile, created = Profile.objects.get_or_create(user=self.request.user)
+        return profile

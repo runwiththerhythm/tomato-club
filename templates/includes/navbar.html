@@ -13,11 +13,22 @@
     <a href="{% url 'club:contact' %}" class="btn btn-ghost btn-sm">Contact</a>
 
     {% if user.is_authenticated %}
-      <a href="#" class="btn btn-ghost btn-sm">Dashboard</a> {# TODO: wire later #}
-      <a href="{% url 'account_logout' %}" class="btn btn-error btn-sm">Log out</a>
+      <a href="{% url 'profiles:profile-detail' %}" class="btn btn-ghost btn-sm">
+        My profile
+      </a>
+      <a href="#" class="btn btn-ghost btn-sm" aria-disabled="true">
+        Dashboard <span class="text-xs opacity-60">(coming soon)</span>
+      </a> {# TODO: wire dashboard URL later #}
+      <a href="{% url 'account_logout' %}" class="btn btn-error btn-sm">
+        Log out
+      </a>
     {% else %}
-      <a href="{% url 'account_login' %}" class="btn btn-ghost btn-sm">Log in</a>
-      <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">Join</a>
+      <a href="{% url 'account_login' %}" class="btn btn-ghost btn-sm">
+        Log in
+      </a>
+      <a href="{% url 'account_signup' %}" class="btn btn-primary btn-sm">
+        Join the club
+      </a>
     {% endif %}
   </nav>
 
@@ -32,7 +43,8 @@
         </svg>
       </label>
 
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li><a href="{% url 'club:home' %}">Home</a></li>
         <li><a href="{% url 'club:about' %}">About</a></li>
         <li><a href="{% url 'club:membership' %}">Membership</a></li>
@@ -40,11 +52,24 @@
         <li><a href="{% url 'club:contact' %}">Contact</a></li>
 
         {% if user.is_authenticated %}
-          <li><a href="#">Dashboard</a></li> {# TODO: wire later #}
-          <li><a href="{% url 'account_logout' %}">Log out</a></li>
+          <li>
+            <a href="{% url 'profiles:profile-detail' %}">
+              My profile
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-disabled="true">
+              Dashboard <span class="text-xs opacity-60">(coming soon)</span>
+            </a> {# TODO: wire dashboard URL later #}
+          </li>
+          <li>
+            <a href="{% url 'account_logout' %}">
+              Log out
+            </a>
+          </li>
         {% else %}
           <li><a href="{% url 'account_login' %}">Log in</a></li>
-          <li><a href="{% url 'account_signup' %}">Join</a></li>
+          <li><a href="{% url 'account_signup' %}">Join the club</a></li>
         {% endif %}
       </ul>
     </div>
