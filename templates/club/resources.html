@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
+
+  <!-- Hero / Intro -->
+  <section class="hero bg-base-200 rounded-3xl p-6 md:p-10">
+    <div class="hero-content flex-col md:flex-row gap-8">
+      <div class="flex-1 space-y-4">
+        <h1 class="text-3xl md:text-4xl font-bold">
+          Tomato Growing Resources
+        </h1>
+        <p class="text-base md:text-lg text-base-content/80">
+          A friendly hub of guides, calendars, and tips to help you grow
+          beautiful heritage tomatoes in UK gardens, allotments, and pots.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#getting-started" class="btn btn-primary">
+            Start growing
+          </a>
+          <a href="#calendar" class="btn btn-outline">
+            View tomato calendar
+          </a>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="card bg-base-100 shadow-xl border border-base-300">
+          <div class="card-body">
+            <h2 class="card-title">New to tomatoes?</h2>
+            <p>
+              Don’t worry – you don’t need a greenhouse or acres of space.
+              Start with a few pots, a sunny spot, and the basics below.
+            </p>
+            <ul class="mt-3 space-y-1 text-sm">
+              <li>• Choose the right varieties for the UK</li>
+              <li>• Sow at the right time (not too early!)</li>
+              <li>• Feed and water little and often</li>
+            </ul>
+            <div class="card-actions justify-end mt-4">
+              <a href="{% url 'club:join' %}" class="btn btn-sm btn-secondary">
+                Join the club
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting started basics -->
+  <section id="getting-started" aria-labelledby="getting-started-heading" class="space-y-4">
+    <div class="flex items-center justify-between gap-4">
+      <h2 id="getting-started-heading" class="text-2xl font-semibold">
+        Getting Started with Heritage Tomatoes
+      </h2>
+      <span class="badge badge-primary badge-outline hidden md:inline-flex">
+        Beginner friendly
+      </span>
+    </div>
+    <p class="text-base-content/80">
+      These three steps will take you from seed packet to sturdy young plants
+      that are ready to grow on.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Card 1 -->
+      <article class="card bg-base-100 shadow-md border border-base-300">
+        <div class="card-body">
+          <h3 class="card-title text-lg">1. Seed starting</h3>
+          <p class="text-sm text-base-content/80">
+            Sow in late February to April for most of the UK. Use a fine seed
+            compost, barely cover the seed, and keep gently moist and warm
+            (18–22°C) until germination.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Use clean pots or modules</li>
+            <li>• Label with variety &amp; date</li>
+            <li>• Provide bright light after germination</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card bg-base-100 shadow-md border border-base-300">
+        <div class="card-body">
+          <h3 class="card-title text-lg">2. Potting on</h3>
+          <p class="text-sm text-base-content/80">
+            Once seedlings have two true leaves, move them into individual pots
+            with fresh compost. Bury the stem a little deeper to encourage
+            stronger roots.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Avoid waterlogged compost</li>
+            <li>• Turn plants regularly for even growth</li>
+            <li>• Start very light feeding after a few weeks</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card bg-base-100 shadow-md border border-base-300">
+        <div class="card-body">
+          <h3 class="card-title text-lg">3. Hardening off</h3>
+          <p class="text-sm text-base-content/80">
+            Before plants move outside, give them 7–10 days of “hardening off”
+            – short daily trips outdoors, gradually increasing time to toughen
+            them up.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Shelter from wind at first</li>
+            <li>• Avoid sudden temperature drops</li>
+            <li>• Plant out after the last frosts</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Month-by-month calendar -->
+  <section id="calendar" aria-labelledby="calendar-heading" class="space-y-4">
+    <h2 id="calendar-heading" class="text-2xl font-semibold">
+      UK Tomato Growing Calendar
+    </h2>
+    <p class="text-base-content/80">
+      Every garden is a little different, but this month-by-month outline works
+      well for most of the UK. Adjust slightly for very mild or very cold areas.
+    </p>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      <!-- Jan–Feb -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">January – February</h3>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Plan varieties and order seeds</li>
+            <li>• Clean pots, trays, and labels</li>
+            <li>• Check propagators / windowsills</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Mar–Apr -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">March – April</h3>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Main sowing time for most varieties</li>
+            <li>• Pot on seedlings as they grow</li>
+            <li>• Start gentle airflow / ventilation</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- May -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">May</h3>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Harden off plants gradually</li>
+            <li>• Plant out under cover earlier</li>
+            <li>• Outdoors after last frost risk</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Jun–Jul -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">June – July</h3>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Tie in and support tall plants</li>
+            <li>• Remove side shoots on cordons</li>
+            <li>• Start regular feeding when fruits set</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Aug–Sep -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">August – September</h3>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Main harvest period</li>
+            <li>• Remove leaves shading ripening fruit</li>
+            <li>• Save seed from favourite fruits</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Oct–Dec -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">October – December</h3>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Clear old plants and compost healthy material</li>
+            <li>• Clean tools, pots, and supports</li>
+            <li>• Make notes for next season</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Pests & diseases -->
+  <section id="pests" aria-labelledby="pests-heading" class="space-y-4">
+    <h2 id="pests-heading" class="text-2xl font-semibold">
+      Common Tomato Problems (and Calm Fixes)
+    </h2>
+    <p class="text-base-content/80">
+      A quick, non-panicky cheat sheet for the issues UK tomato growers see most
+      often.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Blight -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">Blight</h3>
+          <p class="text-sm text-base-content/80">
+            Brown patches on leaves and stems, often in warm, humid, showery
+            weather.
+          </p>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Remove and bin affected plants (do not compost)</li>
+            <li>• Improve airflow and avoid overhead watering</li>
+            <li>• Consider blight-resistant varieties outdoors</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Blossom end rot -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">Blossom end rot</h3>
+          <p class="text-sm text-base-content/80">
+            Dark, sunken patch at the base of the fruit. Caused by irregular
+            watering, not a disease.
+          </p>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Keep watering steady and even</li>
+            <li>• Mulch pots / beds to reduce drying out</li>
+            <li>• Damaged fruits are safe but unpretty</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Yellowing leaves -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">Yellowing leaves</h3>
+          <p class="text-sm text-base-content/80">
+            Lower leaves naturally age and yellow; upper yellowing can mean feed
+            or watering issues.
+          </p>
+          <ul class="mt-2 text-sm space-y-1">
+            <li>• Remove very tatty lower leaves</li>
+            <li>• Check watering and drainage</li>
+            <li>• Feed regularly once fruits set</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Companion planting & containers -->
+  <section id="companion" aria-labelledby="companion-heading" class="space-y-4">
+    <h2 id="companion-heading" class="text-2xl font-semibold">
+      Companion Planting & Container Tips
+    </h2>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">Good companions</h3>
+          <p class="text-sm text-base-content/80">
+            These plants play nicely with tomatoes and can help with pests,
+            pollinators, or space.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Basil – classic partner, attracts pollinators</li>
+            <li>• Marigolds – can help distract pests</li>
+            <li>• Lettuce – enjoys shade under tall plants</li>
+            <li>• Spring onions / chives – useful in the kitchen too</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h3 class="font-semibold">Container essentials</h3>
+          <p class="text-sm text-base-content/80">
+            Tomatoes are happy in pots, grow bags, and buckets as long as a few
+            basics are right.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Use at least 10–12L of compost per plant</li>
+            <li>• Add slow-release feed or feed weekly</li>
+            <li>• Ensure drainage holes are generous</li>
+            <li>• Raise pots slightly off patios for run-off</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Recipes & plant diary teasers -->
+  <section id="club-extras" class="space-y-6">
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Recipes teaser -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h2 class="card-title text-xl">Tomato Recipes & Preserving</h2>
+          <p class="text-sm text-base-content/80">
+            Once the bowls start overflowing, it’s time for sauces, chutneys,
+            and slow-roasted trays of flavour.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Simple passata and freezer-friendly sauces</li>
+            <li>• Slow-roasted cherry tomatoes in oil</li>
+            <li>• Fresh salads showcasing heritage colours</li>
+          </ul>
+          <div class="card-actions justify-end mt-4">
+            <a href="#" class="btn btn-sm btn-primary">
+              View recipes <!-- TODO: wire up recipes/blog URL -->
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Plant diary teaser -->
+      <article class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <h2 class="card-title text-xl">Keep a Tomato Plant Diary</h2>
+          <p class="text-sm text-base-content/80">
+            Track when you sow, plant out, and harvest – and which varieties you
+            loved – so each year gets better.
+          </p>
+          <ul class="mt-3 text-sm space-y-1">
+            <li>• Note sowing dates and germination time</li>
+            <li>• Record feed, watering, and weather quirks</li>
+            <li>• Compare flavour, yield, and disease resistance</li>
+          </ul>
+          <div class="card-actions justify-end mt-4">
+            <a href="#" class="btn btn-sm btn-secondary">
+              Open plant diary <!-- TODO: wire up diary URL -->
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="rounded-3xl bg-base-200 p-6 md:p-8 space-y-4">
+    <div class="flex flex-col md:flex-row md:items-center gap-4">
+      <div class="flex-1 space-y-2">
+        <h2 class="text-2xl font-semibold">
+          Join the Heritage Tomato Dispatch
+        </h2>
+        <p class="text-sm md:text-base text-base-content/80">
+          Occasional emails with seasonal reminders, new varieties, and club
+          updates. No spam, just tomatoes.
+        </p>
+      </div>
+      <div class="flex-1">
+        <form method="post" action="#">
+          <!-- TODO: update action to newsletter signup URL -->
+          {% csrf_token %}
+          <div class="form-control">
+            <label for="id_email" class="label">
+              <span class="label-text">Email address</span>
+            </label>
+            <div class="join w-full">
+              <input
+                id="id_email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com"
+                class="input join-item w-full"
+              />
+              <button type="submit" class="btn btn-primary join-item">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock content %}
