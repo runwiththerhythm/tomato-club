@@ -64,3 +64,10 @@ class ContactView(FormView):
             "Thanks for getting in touch. Your message has been sent and we’ll get back to you as soon as we can."
         )
         return super().form_valid(form)
+
+
+class ResourcesView(TemplateView):
+    """
+    Read-only page for the Tomato Growing Resources hub.
+    """
+    template_name = "club/resources.html"
