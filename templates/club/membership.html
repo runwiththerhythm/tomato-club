@@ -9,56 +9,61 @@
     </h1>
     <p class="text-base md:text-lg text-base-content/80 max-w-2xl mx-auto">
       Choose a membership tier that fits your tomato-growing journey – 
-      from curious seedling to seasoned seed saver.
+      from curious seedling to dedicated heritage keeper.
     </p>
   </section>
 
   <!-- Pricing grid -->
   <section class="grid gap-6 md:grid-cols-3">
-    <!-- Tier 1: Seedling -->
+    <!-- Tier 1: Free Gardener -->
     <article class="card bg-base-100 shadow-xl border border-base-300">
       <div class="card-body">
         <h2 class="card-title flex items-center justify-between">
-          Seedling
-          <span class="badge badge-outline">Starter</span>
+          Free Gardener
+          <span class="badge badge-outline">Free</span>
         </h2>
         <p class="text-sm text-base-content/80">
-          Perfect if you’re just getting started with heritage tomatoes.
+          A gentle way to dip your toes into the world of heritage tomatoes.
+          Always free, no card required.
         </p>
 
         <p class="mt-4">
-          <span class="text-3xl font-bold">£3</span>
-          <span class="text-sm text-base-content/70">/ month</span>
+          <span class="text-3xl font-bold">£0</span>
+          <span class="text-sm text-base-content/70">/ year</span>
         </p>
 
         <ul class="mt-4 space-y-2 text-sm">
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Access to monthly newsletter & seasonal tips
+            Access to basic growing guides and starter resources
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Basic seed list access
+            A small selection of heritage tomato variety profiles
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Member profile & garden notes
+            Monthly email newsletter with seasonal tips and club updates
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Ability to upgrade to a seed-by-post tier at any time
           </li>
         </ul>
 
         <div class="card-actions mt-6">
           <a
-            href="#"
+            href="{% url 'account_signup' %}"
             class="btn btn-outline btn-primary w-full"
           >
-            Choose Seedling
+            Join as a Free Gardener
           </a>
-          <!-- TODO: wire this up to checkout URL -->
+          <!-- TODO: adjust once you have a dedicated "join as free" flow -->
         </div>
       </div>
     </article>
 
-    <!-- Tier 2: Vine (featured) -->
+    <!-- Tier 2: Seed Club (featured) -->
     <article class="card bg-base-100 shadow-2xl border-2 border-primary relative">
       <div class="absolute -top-3 inset-x-0 flex justify-center">
         <span class="badge badge-primary badge-lg shadow-md">
@@ -67,35 +72,39 @@
       </div>
       <div class="card-body pt-8">
         <h2 class="card-title flex items-center justify-between">
-          Vine
-          <span class="badge badge-outline badge-primary">Club Favourite</span>
+          Seed Club
+          <span class="badge badge-outline badge-primary">Seed drops by post</span>
         </h2>
         <p class="text-sm text-base-content/80">
-          For active growers who want access to the full seed library
-          and community perks.
+          For home growers who want real seeds in the post plus deeper
+          access to the club’s resources.
         </p>
 
         <p class="mt-4">
-          <span class="text-3xl font-bold">£7</span>
-          <span class="text-sm text-base-content/70">/ month</span>
+          <span class="text-3xl font-bold">£9</span>
+          <span class="text-sm text-base-content/70">/ year</span>
         </p>
 
         <ul class="mt-4 space-y-2 text-sm">
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Everything in <strong>Seedling</strong>
+            Everything in <strong>Free Gardener</strong>
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Full heritage seed swap access
+            Annual seed drop by post (3 curated heritage tomato varieties)
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Priority on limited-stock varieties
+            Labels and sowing instructions included with each seed pack
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Members-only guides & printables
+            Full access to the extended Seed Library and variety notes
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Downloadable A4 printables (sowing calendar, feeding & pruning guides)
           </li>
         </ul>
 
@@ -104,45 +113,54 @@
             href="#"
             class="btn btn-primary w-full"
           >
-            Choose Vine
+            Choose Seed Club
           </a>
-          <!-- TODO: wire this up to checkout URL -->
+          <!-- TODO: wire this up to Stripe/checkout or an expression of interest form -->
         </div>
       </div>
     </article>
 
-    <!-- Tier 3: Heirloom -->
+    <!-- Tier 3: Heritage Keeper -->
     <article class="card bg-base-100 shadow-xl border border-base-300">
       <div class="card-body">
         <h2 class="card-title flex items-center justify-between">
-          Heirloom
-          <span class="badge badge-outline">Patron</span>
+          Heritage Keeper
+          <span class="badge badge-outline">Premium supporter</span>
         </h2>
         <p class="text-sm text-base-content/80">
-          Support the club’s long-term projects and conservation work.
+          For passionate tomato nerds and supporters who want extra seeds,
+          early access, and a say in future upgrades.
         </p>
 
         <p class="mt-4">
-          <span class="text-3xl font-bold">£12</span>
-          <span class="text-sm text-base-content/70">/ month</span>
+          <span class="text-3xl font-bold">£19</span>
+          <span class="text-sm text-base-content/70">/ year</span>
         </p>
 
         <ul class="mt-4 space-y-2 text-sm">
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Everything in <strong>Vine</strong>
+            Everything in <strong>Seed Club</strong>
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Extra seed pack each season
+            Extra seed variety in your annual seed drop (4 varieties total)
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Early access to new varieties & trials
+            Occasional bonus seeds (e.g. companion basil) when stock allows
           </li>
           <li class="flex gap-2 items-start">
             <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Name listed (optional) on supporter page
+            Priority dispatch and first access to limited trial varieties
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Early access to new features and upgrades as the club develops
+          </li>
+          <li class="flex gap-2 items-start">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+            Optional name listing on a “Heritage Keepers” supporter page
           </li>
         </ul>
 
@@ -151,19 +169,23 @@
             href="#"
             class="btn btn-outline btn-accent w-full"
           >
-            Choose Heirloom
+            Choose Heritage Keeper
           </a>
-          <!-- TODO: wire this up to checkout URL -->
+          <!-- TODO: wire this up to Stripe/checkout or an expression of interest form -->
         </div>
       </div>
     </article>
   </section>
 
-  <!-- Small reassurance text -->
-  <section class="mt-10 text-center text-sm text-base-content/70">
+  <!-- Small reassurance / seed timing text -->
+  <section class="mt-10 text-center text-sm text-base-content/70 space-y-1">
     <p>
-      You can upgrade, downgrade, or cancel your membership at any time.
-      No minimum term.
+      Seed drops are planned for the UK sowing season – typically 
+      <strong>December to March</strong>, depending on variety and availability.
+    </p>
+    <p>
+      You can upgrade or downgrade between tiers as the club grows. 
+      During the early stages, some perks may roll out gradually.
     </p>
   </section>
 </main>
