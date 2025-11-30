@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     # local apps
     "club",
     "seeds",
+    "recipes",
     "profiles.apps.ProfilesConfig",
 ]
 
