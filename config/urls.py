@@ -11,6 +11,7 @@ urlpatterns = [
 
     # Main site (club) - namespaced
     path("", include(("club.urls", "club"), namespace="club")),
+    path("recipes/", include("recipes.urls")),
 ]
 
 if settings.DEBUG:
