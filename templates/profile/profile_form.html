@@ -75,23 +75,40 @@
         </div>
 
         <div class="form-control">
-          <label class="label" for="id_avatar">
-            <span class="label-text font-semibold">Profile picture</span>
-          </label>
-          {{ form.avatar }}
-          <label class="label">
-            <span class="label-text-alt text-base-content/60">
-              Optional – a friendly face, garden, or favourite tomato photo.
-            </span>
-          </label>
-          {% if form.avatar.errors %}
-            <label class="label">
-              <span class="label-text-alt text-error">
-                {{ form.avatar.errors|striptags }}
-              </span>
-            </label>
-          {% endif %}
-        </div>
+  <label class="label" for="id_avatar">
+    <span class="label-text font-semibold">Profile picture</span>
+  </label>
+
+  {% if user.profile.avatar %}
+  <div class="avatar mb-4">
+    <div class="w-24 rounded-full ring ring-primary ring-offset-2 mb-2">
+      <img src="{{ user.profile.avatar.url }}" alt="Current profile picture">
+    </div>
+  </div>
+{% endif %}
+
+  <input
+    type="file"
+    name="avatar"
+    id="id_avatar"
+    class="file-input file-input-bordered w-full max-w-xs"
+  />
+
+  <label class="label">
+    <span class="label-text-alt text-base-content/60">
+      Optional – a friendly face, garden, or favourite tomato photo.
+    </span>
+  </label>
+
+  {% if form.avatar.errors %}
+    <label class="label">
+      <span class="label-text-alt text-error">
+        {{ form.avatar.errors|striptags }}
+      </span>
+    </label>
+  {% endif %}
+</div>
+
 
         <div class="card-actions justify-between pt-4">
           <a href="{% url 'profiles:profile-detail' %}" class="btn btn-ghost">
