@@ -2508,6 +2508,12 @@
       border-color: color-mix(in oklab, var(--color-base-300) 70%, transparent);
     }
   }
+  .border-error\/50 {
+    border-color: var(--color-error);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-error) 50%, transparent);
+    }
+  }
   .border-primary {
     border-color: var(--color-primary);
   }

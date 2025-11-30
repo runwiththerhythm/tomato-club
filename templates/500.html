@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="min-h-[70vh] flex items-center justify-center px-4">
+  <section class="max-w-xl w-full text-center">
+    <div class="inline-flex items-center justify-center rounded-full border border-dashed border-error/50 px-4 py-1 mb-4 text-[0.7rem] tracking-[0.25em] uppercase text-error">
+      500 · Something’s gone wonky in the greenhouse
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+      Oh dear… the tomatoes knocked over a server.
+    </h1>
+
+    <p class="text-base-content/80 mb-6">
+      That one’s on us. Something unexpected sprouted behind the scenes<br>
+      and we’re working to prune it back into shape.
+    </p>
+
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="{% url 'home' %}" class="btn btn-primary">
+        ← Back to the garden
+      </a>
+      <a href="{% url 'contact' %}" class="btn btn-ghost">
+        Contact the club
+      </a>
+    </div>
+
+    <p class="mt-6 text-sm text-base-content/60">
+      If this keeps happening, feel free to let us know — we’ll compost the bug.
+    </p>
+  </section>
+</main>
+{% endblock %}
