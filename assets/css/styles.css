@@ -59,21 +59,25 @@
 /* GLOBAL FORMS OVERRIDES — make sure these stay last */
 
 /* All text inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="search"],
-input[type="url"],
-input[type="tel"],
-input[type="date"],
-input[type="datetime-local"],
-textarea,
-select {
-    @apply input input-bordered w-full;
-}
+@layer components {
+  /* Text-like inputs, selects, textareas */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="datetime-local"],
+  textarea,
+  select {
+    @apply border border-base-300 rounded-md px-3 py-2 w-full bg-base-100 text-base-content
+           focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
+  }
 
-/* Checkboxes should stay looking like checkboxes */
-input[type="checkbox"] {
-    @apply checkbox checkbox-primary;
+  /* Checkboxes */
+  input[type="checkbox"] {
+    @apply w-4 h-4 border border-base-300 rounded;
+  }
 }
