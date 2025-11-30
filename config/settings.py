@@ -83,7 +83,9 @@ INSTALLED_APPS = [
     # local apps
     "club",
     "seeds",
+    "profiles.apps.ProfilesConfig",
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
