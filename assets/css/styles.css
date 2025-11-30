@@ -55,6 +55,15 @@
   --noise: 0;
 }
 
+/* Ensure form messages wrap properly */
+label .label-text-alt,
+.label-text-alt,
+.form-error,
+.errorlist,
+.errorlist li {
+    @apply whitespace-normal break-words;
+}
+
 
 /* GLOBAL FORMS OVERRIDES — make sure these stay last */
 
