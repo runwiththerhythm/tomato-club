@@ -121,6 +121,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -184,8 +185,6 @@ TAILWIND_CLI_USE_DAISY_UI = True
 # Tell django-tailwind-cli where the Tailwind SOURCE and OUTPUT live
 TAILWIND_CLI_SRC_CSS = "assets/css/styles.css"
 TAILWIND_CLI_DIST_CSS = "css/tailwind.css"
-
-FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 
 AUTHENTICATION_BACKENDS = [
