@@ -1,4 +1,6 @@
 from django import forms
+from .models import NewsletterSubscriber
+
 
 
 BASE_INPUT_CLASSES = (
@@ -58,3 +60,15 @@ class ContactForm(forms.Form):
             }
         ),
     )
+
+
+class NewsletterSignupForm(forms.ModelForm):
+    class Meta:
+        model = NewsletterSubscriber
+        fields = ["email"]
+
+    def clean_email(self):
+        email = self.cleaned_data["email"].strip().lower()
+        if NewsletterSubscriber.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError("You’re already subscribed with this email.")
+        return email

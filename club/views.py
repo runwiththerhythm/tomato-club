@@ -1,5 +1,5 @@
 # club/views.py
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
@@ -7,8 +7,10 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 
+from django.views.decorators.http import require_POST
+
 from seeds.models import TomatoVariety
-from .forms import ContactForm
+from .forms import ContactForm, NewsletterSignupForm
 
 
 def home(request):
@@ -71,3 +73,28 @@ class ResourcesView(TemplateView):
     Read-only page for the Tomato Growing Resources hub.
     """
     template_name = "club/resources.html"
+
+
+@require_POST
+def newsletter_signup(request):
+    """
+    Handle newsletter signup from the resources page.
+    Always redirects back to the resources hub.
+    """
+    form = NewsletterSignupForm(request.POST)
+    if form.is_valid():
+        form.save()
+        messages.success(
+            request,
+            "Thanks for subscribing! We’ll send occasional seasonal tomato updates."
+        )
+    else:
+        # Pull out the email field error if present
+        if "email" in form.errors:
+            # form.errors['email'] is an ErrorList – join it nicely
+            error_text = " ".join(form.errors["email"])
+            messages.error(request, error_text)
+        else:
+            messages.error(request, "Please enter a valid email address.")
+
+    return redirect("club:resources")

@@ -363,8 +363,7 @@
         </p>
       </div>
       <div class="flex-1">
-        <form method="post" action="#">
-          <!-- TODO: update action to newsletter signup URL -->
+        <form method="post" action="{% url 'club:newsletter_signup' %}">
           {% csrf_token %}
           <div class="form-control">
             <label for="id_email" class="label">
