@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-3xl mx-auto px-4 py-8">
+  <div class="breadcrumbs text-sm mb-4">
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'profiles:profile-detail' %}">My Profile</a></li>
+      <li>Edit</li>
+    </ul>
+  </div>
+
+  <section class="card bg-base-100 shadow-xl border border-base-300">
+    <div class="card-body space-y-6">
+      <header class="space-y-1">
+        <h1 class="text-2xl font-bold">Edit your profile</h1>
+        <p class="text-sm text-base-content/70">
+          Share a little about where you grow and which tomatoes you love.
+        </p>
+      </header>
+
+      <form method="post" enctype="multipart/form-data" class="space-y-4">
+        {% csrf_token %}
+
+        <div class="form-control">
+          <label class="label" for="id_display_name">
+            <span class="label-text font-semibold">Display name</span>
+          </label>
+          {{ form.display_name }}
+          {% if form.display_name.errors %}
+            <label class="label">
+              <span class="label-text-alt text-error">
+                {{ form.display_name.errors|striptags }}
+              </span>
+            </label>
+          {% endif %}
+        </div>
+
+        <div class="form-control">
+          <label class="label" for="id_location">
+            <span class="label-text font-semibold">Location</span>
+          </label>
+          {{ form.location }}
+          <label class="label">
+            <span class="label-text-alt text-base-content/60">
+              You can just add your county or town (e.g. “Cornwall”, “Manchester”).
+            </span>
+          </label>
+          {% if form.location.errors %}
+            <label class="label">
+              <span class="label-text-alt text-error">
+                {{ form.location.errors|striptags }}
+              </span>
+            </label>
+          {% endif %}
+        </div>
+
+        <div class="form-control">
+          <label class="label" for="id_favourite_tomato">
+            <span class="label-text font-semibold">Favourite tomato</span>
+          </label>
+          {{ form.favourite_tomato }}
+          <label class="label">
+            <span class="label-text-alt text-base-content/60">
+              For example: “Black Krim”, “Gardener’s Delight”, “Tigerella”.
+            </span>
+          </label>
+          {% if form.favourite_tomato.errors %}
+            <label class="label">
+              <span class="label-text-alt text-error">
+                {{ form.favourite_tomato.errors|striptags }}
+              </span>
+            </label>
+          {% endif %}
+        </div>
+
+        <div class="form-control">
+          <label class="label" for="id_avatar">
+            <span class="label-text font-semibold">Profile picture</span>
+          </label>
+          {{ form.avatar }}
+          <label class="label">
+            <span class="label-text-alt text-base-content/60">
+              Optional – a friendly face, garden, or favourite tomato photo.
+            </span>
+          </label>
+          {% if form.avatar.errors %}
+            <label class="label">
+              <span class="label-text-alt text-error">
+                {{ form.avatar.errors|striptags }}
+              </span>
+            </label>
+          {% endif %}
+        </div>
+
+        <div class="card-actions justify-between pt-4">
+          <a href="{% url 'profiles:profile-detail' %}" class="btn btn-ghost">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary">
+            Save changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+{% endblock %}
