@@ -1,0 +1,660 @@
+/* ---------- Design tokens ---------- */
+
+:root {
+  --htc-font-heading: "Bitter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --htc-font-body: "Lora", "Georgia", serif;
+
+  --htc-bg-page: #f3f4f6;        /* light neutral grey */
+  --htc-bg-card: #ffffff;        /* white cards */
+  --htc-border-subtle: #e5e7eb;  /* light grey borders */
+
+  --htc-text-main: #111827;      /* almost-black for main text */
+  --htc-text-muted: #6b7280;     /* muted grey */
+  --htc-text-light: #f9fafb;     /* for text on dark bg */
+
+  --htc-accent: #b5312a;         /* tomato red, used sparingly */
+  --htc-accent-dark: #8c241f;
+
+  --htc-green: #4c7a3b;       /* primary leaf green */
+  --htc-green-dark: #3b5e2c;  /* darker shade for hover */
+  --htc-green-muted: #6b8f63; /* mid muted green for links */
+  --htc-green-light: #dce7d8; /* pale green background highlight */
+
+}
+
+/* ---------- Global typography ---------- */
+
+body,
+input,
+select,
+textarea {
+  font-family: var(--htc-font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--htc-text-main);
+}
+
+/* Main heading in top-left */
+.htc-admin-title {
+  font-family: var(--htc-font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--htc-text-light); /* ensure contrast against dark header */
+}
+
+/* ---------- Header / Top Bar (Warm Heritage Orange) ---------- */
+
+#header {
+  background: linear-gradient(
+    to bottom,
+    #e78f1c 0%,
+    #d97706 100%
+  );
+  color: #fffaf0;
+  padding-block: 0.55rem;
+}
+
+.htc-admin-title {
+  font-family: var(--htc-font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fffaf0; /* creamy off-white for vintage vibe & contrast */
+}
+
+#header a:link,
+#header a:visited {
+  color: #fffaf0;
+}
+
+#header a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
+/* User tools but toned-down */
+#user-tools {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+}
+
+/* ---------- Page background & content ---------- */
+
+#container {
+  background-color: var(--htc-bg-page);
+}
+
+#content {
+  padding: 24px 24px 32px;
+}
+
+/* Page title & breadcrumbs */
+#content h1 {
+  font-family: var(--htc-font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.breadcrumbs {
+  font-size: 0.8rem;
+  color: var(--htc-text-muted);
+}
+
+/* ---------- Modules / Dashboard cards ---------- */
+
+.module {
+  border-radius: 0.75rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--htc-border-subtle);
+  background: var(--htc-bg-card);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  margin-bottom: 1rem;
+}
+
+.module h2 {
+  font-family: var(--htc-font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Changelist table (list view) ---------- */
+
+#changelist {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--htc-border-subtle);
+  background: var(--htc-bg-card);
+}
+
+/* top toolbar area */
+#changelist #toolbar {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--htc-border-subtle);
+}
+
+/* table */
+#changelist .results table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#changelist .results thead th {
+  background: #f9fafb;
+  padding: 8px 10px;
+  font-family: var(--htc-font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--htc-border-subtle);
+}
+
+#changelist .results tbody td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.86rem;
+}
+
+/* subtle zebra striping */
+#changelist .results tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+#changelist .results tbody tr:hover {
+  background-color: #eef2ff; /* gentle hover */
+}
+
+/* ---------- Search bar ---------- */
+
+#changelist-search {
+  margin-bottom: 10px;
+}
+
+#changelist-search input[type="text"] {
+  border-radius: 999px;
+  border: 1px solid #d4d4d8;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+}
+
+/* ---------- Buttons / submit rows ---------- */
+
+.submit-row {
+  padding: 10px 14px;
+  border-top: 1px solid var(--htc-border-subtle);
+  background: #f9fafb;
+}
+
+/* base button styles */
+.submit-row input,
+.button,
+input[type="submit"].default {
+  border-radius: 999px;
+  border: none;
+  padding: 7px 14px;
+  font-weight: 600;
+  font-family: var(--htc-font-heading);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* primary = tomato, but only here */
+input[type="submit"].default {
+  background: var(--htc-accent);
+  color: #ffffff;
+}
+
+input[type="submit"].default:hover {
+  background: var(--htc-accent-dark);
+}
+
+/* secondary buttons = neutral */
+.submit-row input[name="_continue"],
+.submit-row input[name="_addanother"],
+.button {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.submit-row input[name="_continue"]:hover,
+.submit-row input[name="_addanother"]:hover,
+.button:hover {
+  background: #d4d4d8;
+}
+
+/* ---------- Forms ---------- */
+
+.form-row {
+  padding-block: 6px;
+}
+
+.form-row label {
+  font-weight: 500;
+  font-family: var(--htc-font-heading);
+  font-size: 0.9rem;
+}
+
+/* inputs, selects, textareas */
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row input[type="email"],
+.form-row input[type="url"],
+.form-row input[type="password"],
+.form-row select,
+.form-row textarea {
+  border-radius: 0.5rem;
+  border: 1px solid #d4d4d8;
+  padding: 5px 9px;
+  font-size: 0.9rem;
+}
+
+/* focus */
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 1px;
+  border-color: #60a5fa;
+}
+
+/* help text */
+.help {
+  color: var(--htc-text-muted);
+  font-size: 0.78rem;
+}
+
+/* ---------- Object tools (Edit, History links) ---------- */
+
+.object-tools a {
+  border-radius: 999px;
+  padding: 3px 10px;
+  border: 1px solid #d4d4d8;
+  background: #ffffff;
+  font-size: 0.8rem;
+}
+
+.object-tools a:hover {
+  background: #f3f4f6;
+}
+
+/* ---------- Messages ---------- */
+
+.messagelist li {
+  border-radius: 0.6rem;
+  padding: 7px 10px;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+}
+
+/* success, warning, error indicators */
+.messagelist li.success {
+  border-left: 4px solid #16a34a;
+}
+
+.messagelist li.warning {
+  border-left: 4px solid #eab308;
+}
+
+.messagelist li.error {
+  border-left: 4px solid #b91c1c;
+}
+
+/* ---------- Links ---------- */
+
+a:link,
+a:visited {
+  color: var(--htc-green);
+}
+
+a:hover {
+  color: var(--htc-green-dark);
+  text-decoration: underline;
+}
+
+/* ---------- Object Tools (top-right buttons) ---------- */
+
+.object-tools a {
+  border-radius: 999px;
+  padding: 3px 10px;
+  border: 1px solid var(--htc-green-muted);
+  background: #ffffff;
+  color: var(--htc-green);
+  font-size: 0.8rem;
+}
+
+.object-tools a:hover {
+  background: var(--htc-green-light);
+}
+
+/* ---------- Form Inputs: Green Focus ---------- */
+
+.form-row input:focus,
+.form-row textarea:focus,
+.form-row select:focus {
+  outline: 2px solid var(--htc-green);
+  outline-offset: 1px;
+  border-color: var(--htc-green);
+}
+
+/* ---------- Secondary Buttons ---------- */
+
+.button,
+.submit-row input[name="_continue"],
+.submit-row input[name="_addanother"] {
+  background: var(--htc-green);
+  color: #ffffff;
+  border: 1px solid var(--htc-green-dark);
+}
+
+.button:hover,
+.submit-row input[name="_continue"]:hover,
+.submit-row input[name="_addanother"]:hover {
+  background: var(--htc-green-dark);
+}
+
+
+/* ---------- Changelist Row Hover ---------- */
+
+#changelist .results tbody tr:hover {
+  background-color: var(--htc-green-light);
+}
+
+/* ---------- Pagination ---------- */
+
+p.paginator a:link,
+p.paginator a:visited {
+  color: var(--htc-green);
+}
+
+p.paginator a:hover {
+  color: var(--htc-green-dark);
+}
+
+p.paginator .this-page {
+  background: var(--htc-green);
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* ---------- Inline Add Another ---------- */
+
+.add-row a {
+  color: var(--htc-green);
+}
+
+.add-row a:hover {
+  color: var(--htc-green-dark);
+  text-decoration: underline;
+}
+
+/* ---------- Help Text ---------- */
+
+.help {
+  color: var(--htc-green-muted);
+}
+
+/* ---------- Table Base Backgrounds in Green Theme ---------- */
+
+#changelist .results table {
+  background: var(--htc-green-light); /* soft pale green */
+}
+
+#changelist .results thead th {
+  background: #e9f2e6; /* pale heritage green */
+  color: var(--htc-text-main);
+}
+
+#changelist .results tbody td {
+  background: #f5faf3; /* very soft green-tinted white */
+}
+
+/* Override Django's dark alternating rows */
+#changelist .results tbody tr.row1 td,
+#changelist .results tbody tr.row2 td {
+  background: #f5faf3 !important;
+}
+
+/* Our own calm zebra striping */
+#changelist .results tbody tr:nth-child(even) td {
+  background: #eef6ea !important; /* slightly greener */
+}
+
+/* Row hover: soft leaf highlight */
+#changelist .results tbody tr:hover td {
+  background-color: #ddebd7 !important; /* warm leafy green */
+}
+
+/* Sorted column header background override */
+#changelist .results thead th.sorted,
+#changelist .results thead th.sorted a {
+  background: #d1e6ce !important; /* soft green */
+  color: var(--htc-text-main) !important;
+}
+
+/* Arrow icons (▲▼) should be green instead of blue */
+#changelist .results thead th.sorted .sortoptions a {
+  color: var(--htc-green) !important;
+}
+
+/* Left checkbox column background */
+#changelist .action-checkbox,
+#changelist .action-checkbox-column {
+  background: #eef6ea !important; /* pale green */
+}
+
+/* Checkbox hover */
+#changelist .action-checkbox:hover,
+#changelist .action-checkbox-column:hover {
+  background: #ddebd7 !important;
+}
+
+/* Action toolbar */
+#changelist #toolbar,
+#changelist .actions {
+  background: #e9f2e6 !important;
+  border-bottom: 1px solid var(--htc-border-subtle);
+}
+
+/* Action dropdown + button */
+#changelist .actions select,
+#changelist .actions button {
+  border: 1px solid var(--htc-green-muted);
+  background: #ffffff;
+  color: var(--htc-green);
+}
+
+#changelist .actions button:hover {
+  background: var(--htc-green-light);
+}
+
+/* ---------- Module Captions: Dark Green Text ---------- */
+
+.module caption,
+.module h2,
+fieldset.module h2,
+.inline-group h2,
+.inline-related h2,
+#changelist-filter h2 {
+  background: #e9f2e6 !important;     /* pale green background */
+  color: var(--htc-green-dark) !important;  /* dark green text */
+  padding: 8px 12px !important;
+  font-family: var(--htc-font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 1px solid #d6e4d2;
+}
+
+
+.inline-group {
+  background: #f5faf3 !important; /* clean pale green-tinted white */
+  border: 1px solid #d6e4d2 !important;
+  border-radius: 0.6rem;
+  padding: 12px;
+  margin-bottom: 1rem;
+}
+
+.module {
+  border: 1px solid #d6e4d2 !important; /* soft green border */
+  background: #ffffff !important;
+}
+
+#changelist-filter {
+  background: #f5faf3 !important;
+  border: 1px solid #d6e4d2 !important;
+  border-radius: 0.6rem;
+  padding: 12px;
+}
+
+#changelist-filter h2 {
+  background: #e9f2e6 !important;
+  border-bottom: 1px solid #d6e4d2;
+}
+
+body,
+#content,
+#container,
+#changelist,
+#changelist .results tbody td,
+#changelist .results thead th,
+.module,
+.module * {
+  color: var(--htc-green-dark) !important;
+}
+
+a:link,
+a:visited {
+  color: var(--htc-green-dark) !important;
+}
+
+a:hover {
+  color: var(--htc-green) !important;
+  text-decoration: underline;
+}
+
+.form-row label {
+  color: var(--htc-green-dark) !important;
+}
+
+p.paginator,
+p.paginator a,
+p.paginator .this-page,
+.breadcrumbs {
+  color: var(--htc-green-dark) !important;
+}
+
+/* Breadcrumb bar full restyle */
+div.breadcrumbs {
+    background: #e9f2e6 !important;        /* pale leafy green */
+    padding: 8px 12px !important;
+    border-radius: 0.5rem;
+    border: 1px solid #d6e4d2 !important;
+    color: var(--htc-green-dark) !important;
+    font-size: 0.85rem;
+}
+
+div.breadcrumbs a {
+    color: var(--htc-green-dark) !important;
+}
+
+div.breadcrumbs a:hover {
+    color: var(--htc-green) !important;
+}
+
+/* ---------- Input Background Override ---------- */
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+select,
+textarea,
+.form-row input,
+.form-row textarea,
+.form-row select {
+    background: #ffffff !important;      /* clean white */
+    color: var(--htc-green-dark) !important;
+    border: 1px solid #d4d4d8 !important;
+    border-radius: 0.5rem !important;
+    padding: 6px 10px !important;
+    box-shadow: none !important;          /* removes the dark inset shadow */
+}
+
+/* ---------- Inputs on Focus ---------- */
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: #ffffff !important;                /* stay white */
+    border-color: var(--htc-green) !important;
+    outline: 2px solid var(--htc-green) !important;
+    outline-offset: 1px !important;
+}
+
+/* ---------- Login Page Input Fix ---------- */
+
+.login input[type="text"],
+.login input[type="password"] {
+    background: #ffffff !important;
+    color: var(--htc-green-dark) !important;
+    border: 1px solid #d4d4d8 !important;
+    box-shadow: none !important;
+}
+
+/* ---------- Related Field Widgets (FK selector) ---------- */
+
+.related-widget-wrapper input,
+.related-widget-wrapper select {
+    background: #ffffff !important;
+    color: var(--htc-green-dark) !important;
+    border: 1px solid #d4d4d8 !important;
+    box-shadow: none !important;
+}
+
+/* ---------- Many-to-Many Selection Box ---------- */
+
+.selector select {
+    background: #ffffff !important;
+    color: var(--htc-green-dark) !important;
+    border: 1px solid #d4d4d8 !important;
+}
+
+/* Override Django dark body background variable */
+:root {
+    --body-bg: #f3f4f6 !important;   /* soft light grey */
+    --darkened-bg: #f5faf3 !important; /* pale leaf green or choose your tone */
+
+}
+
+body,
+#container {
+    background: var(--body-bg) !important;
+}
+
+.inline-group,
+.inline-related,
+fieldset.module {
+    background: #ffffff !important;  /* clean white */
+}
+
+html,
+body {
+    background-color: #f3f4f6 !important;
+}
+
+#content-related h2 {
+    background: #e9f2e6 !important;         /* pale green header bar */
+    color: var(--htc-green-dark) !important;
+    padding: 6px 10px;
+    font-family: var(--htc-font-heading);
+    font-size: 0.9rem;
+    border-bottom: 1px solid #d6e4d2;
+    border-radius: 0.4rem;
+}
+
+

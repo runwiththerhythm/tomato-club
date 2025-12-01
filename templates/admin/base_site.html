@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Heritage Tomato Club Admin{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  {# Optional: load our Google Fonts just for admin #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Lora:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="{% static 'css/admin-custom.css' %}">
+{% endblock %}
+
+{% block branding %}
+  <h1 class="htc-admin-title">
+    🍅 Heritage Tomato Club Admin
+  </h1>
+{% endblock %}
+
+{% block nav-global %}
+  {# You can add quick links here later if you want #}
+{% endblock %}
