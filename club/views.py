@@ -1,4 +1,7 @@
 # club/views.py
+from django.views.decorators.csrf import csrf_exempt
+
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
@@ -115,39 +118,57 @@ def newsletter_signup(request):
     return redirect("club:resources")
 
 
+@csrf_exempt
+@csrf_exempt
 @login_required
 def create_membership_checkout_session(request, slug):
     """
     Create a Stripe Checkout Session for a paid membership tier.
     """
     if request.method != "POST":
-        return HttpResponseBadRequest("POST required")
+        return JsonResponse({"error": "POST required"}, status=400)
 
     tier = get_object_or_404(MembershipTier, slug=slug, is_active=True)
 
     # Don’t allow Stripe checkout for free tiers
-    if tier.price_per_year <= 0 or not tier.stripe_price_id:
-        return HttpResponseBadRequest("This tier does not require payment.")
+    if tier.price_per_year <= 0:
+        return JsonResponse({"error": "This tier is free – no payment required."}, status=400)
+
+    if not tier.stripe_price_id:
+        return JsonResponse({"error": "No Stripe price id configured for this tier."}, status=500)
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
-    checkout_session = stripe.checkout.Session.create(
-        mode="subscription",
-        payment_method_types=["card"],
-        customer_email=request.user.email,
-        line_items=[
-            {
-                "price": tier.stripe_price_id,
-                "quantity": 1,
-            }
-        ],
-        success_url=f"{settings.STRIPE_SUCCESS_URL}?session_id={{CHECKOUT_SESSION_ID}}",
-        cancel_url=settings.STRIPE_CANCEL_URL,
-        metadata={
-            "user_id": request.user.id,
-            "tier_slug": tier.slug,
-        },
-    )
+    if not stripe.api_key:
+        return JsonResponse({"error": "Stripe secret key is missing from settings."}, status=500)
+
+    # Only include customer_email if we actually have one
+    customer_kwargs = {}
+    email = (request.user.email or "").strip()
+    if email:
+        customer_kwargs["customer_email"] = email
+
+    try:
+        checkout_session = stripe.checkout.Session.create(
+            mode="subscription",
+            payment_method_types=["card"],
+            line_items=[
+                {
+                    "price": tier.stripe_price_id,
+                    "quantity": 1,
+                }
+            ],
+            success_url=f"{settings.STRIPE_SUCCESS_URL}?session_id={{CHECKOUT_SESSION_ID}}",
+            cancel_url=settings.STRIPE_CANCEL_URL,
+            metadata={
+                "user_id": request.user.id,
+                "tier_slug": tier.slug,
+            },
+            **customer_kwargs,
+        )
+    except Exception as e:
+        print("Stripe error while creating Checkout Session:", repr(e))
+        return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse(
         {

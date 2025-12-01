@@ -658,3 +658,57 @@ body {
 }
 
 
+/* ---------- Object tools (top-right "ADD EMAIL ADDRESS", etc.) ---------- */
+
+.object-tools li,
+.object-tools li a,
+.object-tools a.addlink,
+.object-tools a.addlink:link,
+.object-tools a.addlink:visited {
+  display: inline-block;
+  background: #ffffff !important;              /* no dark bg */
+  color: var(--htc-green-dark) !important;     /* dark green text */
+  border: 1px solid var(--htc-green-muted) !important;
+  border-radius: 999px !important;
+  padding: 4px 10px !important;
+  font-size: 0.8rem;
+  font-family: var(--htc-font-heading);
+  text-decoration: none;
+  box-shadow: none !important;                 /* kill any dark/blue shadow */
+}
+
+/* Hover state – soft leafy highlight */
+.object-tools li a:hover,
+.object-tools a.addlink:hover {
+  background: var(--htc-green-light) !important;
+  color: var(--htc-green-dark) !important;
+  text-decoration: none;
+}
+
+
+/* ---------- "Add email address" and other add links in object-tools ---------- */
+
+ul.object-tools li a.addlink,
+ul.object-tools li a.addlink:link,
+ul.object-tools li a.addlink:visited,
+ul.object-tools li a.addlink:focus,
+ul.object-tools li a.addlink:active {
+  display: inline-block;
+  background: #ffffff !important;              /* no dark bg */
+  color: var(--htc-green-dark) !important;     /* dark green text */
+  border: 1px solid var(--htc-green-muted) !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+  font-size: 0.8rem;
+  font-family: var(--htc-font-heading);
+  text-decoration: none;
+  box-shadow: none !important;
+  background-image: none !important;           /* kill Django sprite/gradient */
+}
+
+/* Hover state */
+ul.object-tools li a.addlink:hover {
+  background: var(--htc-green-light) !important;  /* soft pale green */
+  color: var(--htc-green-dark) !important;
+  text-decoration: none;
+}

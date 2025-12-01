@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import home, MembershipView, AboutView, JoinView, ContactView, ResourcesView, newsletter_signup
+from . import views
+
 
 app_name = "club"
 

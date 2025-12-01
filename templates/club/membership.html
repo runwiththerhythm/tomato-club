@@ -15,166 +15,124 @@
 
   <!-- Pricing grid -->
   <section class="grid gap-6 md:grid-cols-3">
-    <!-- Tier 1: Free Gardener -->
-    <article class="card bg-base-100 shadow-xl border border-base-300">
-      <div class="card-body">
-        <h2 class="card-title flex items-center justify-between">
-          Free Gardener
-          <span class="badge badge-outline">Free</span>
-        </h2>
-        <p class="text-sm text-base-content/80">
-          A gentle way to dip your toes into the world of heritage tomatoes.
-          Always free, no card required.
-        </p>
+    {# ---------- FREE TIER(S) ---------- #}
+    {% for tier in free_tiers %}
+      <article class="card bg-base-100 shadow-xl border border-base-300">
+        <div class="card-body">
+          <h2 class="card-title flex items-center justify-between">
+            {{ tier.name }}
+            <span class="badge badge-outline">Free</span>
+          </h2>
 
-        <p class="mt-4">
-          <span class="text-3xl font-bold">£0</span>
-          <span class="text-sm text-base-content/70">/ year</span>
-        </p>
+          {% if tier.short_tagline %}
+            <p class="text-sm text-base-content/80">
+              {{ tier.short_tagline }}
+            </p>
+          {% else %}
+            <p class="text-sm text-base-content/80">
+              A gentle way to dip your toes into the world of heritage tomatoes.
+              Always free, no card required.
+            </p>
+          {% endif %}
 
-        <ul class="mt-4 space-y-2 text-sm">
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Access to basic growing guides and starter resources
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            A small selection of heritage tomato variety profiles
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Monthly email newsletter with seasonal tips and club updates
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Ability to upgrade to a seed-by-post tier at any time
-          </li>
-        </ul>
+          <p class="mt-4">
+            <span class="text-3xl font-bold">£0</span>
+            <span class="text-sm text-base-content/70">/ year</span>
+          </p>
 
-        <div class="card-actions mt-6">
-          <a
-            href="{% url 'account_signup' %}"
-            class="btn btn-outline btn-primary w-full"
-          >
-            Join as a Free Gardener
-          </a>
-          <!-- TODO: adjust once you have a dedicated "join as free" flow -->
+          {% if tier.feature_list %}
+            <ul class="mt-4 space-y-2 text-sm">
+              {% for line in tier.feature_list.splitlines %}
+                {% if line %}
+                  <li class="flex gap-2 items-start">
+                    <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+                    {{ line }}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div class="card-actions mt-6">
+            <a
+              href="{% url 'account_signup' %}"
+              class="btn btn-outline btn-primary w-full"
+            >
+              Join for free
+            </a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    {% endfor %}
 
-    <!-- Tier 2: Seed Club (featured) -->
-    <article class="card bg-base-100 shadow-2xl border-2 border-primary relative">
-      <div class="absolute -top-3 inset-x-0 flex justify-center">
-        <span class="badge badge-primary badge-lg shadow-md">
-          Most popular
-        </span>
-      </div>
-      <div class="card-body pt-8">
-        <h2 class="card-title flex items-center justify-between">
-          Seed Club
-          <span class="badge badge-outline badge-primary">Seed drops by post</span>
-        </h2>
-        <p class="text-sm text-base-content/80">
-          For home growers who want real seeds in the post plus deeper
-          access to the club’s resources.
-        </p>
+    {# ---------- PAID TIER(S) ---------- #}
+    {% for tier in paid_tiers %}
+      {# Highlight the first paid tier as 'Most popular' #}
+      <article class="
+        card bg-base-100
+        {% if forloop.first %}
+          shadow-2xl border-2 border-primary relative
+        {% else %}
+          shadow-xl border border-base-300
+        {% endif %}
+      ">
+        {% if forloop.first %}
+          <div class="absolute -top-3 inset-x-0 flex justify-center">
+            <span class="badge badge-primary badge-lg shadow-md">
+              Most popular
+            </span>
+          </div>
+        {% endif %}
 
-        <p class="mt-4">
-          <span class="text-3xl font-bold">£9</span>
-          <span class="text-sm text-base-content/70">/ year</span>
-        </p>
+        <div class="card-body {% if forloop.first %}pt-8{% endif %}">
+          <h2 class="card-title flex items-center justify-between">
+            {{ tier.name }}
+            <span class="badge badge-outline badge-primary">
+              Seed drops by post
+            </span>
+          </h2>
 
-        <ul class="mt-4 space-y-2 text-sm">
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Everything in <strong>Free Gardener</strong>
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Annual seed drop by post (3 curated heritage tomato varieties)
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Labels and sowing instructions included with each seed pack
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Full access to the extended Seed Library and variety notes
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Downloadable A4 printables (sowing calendar, feeding & pruning guides)
-          </li>
-        </ul>
+          {% if tier.short_tagline %}
+            <p class="text-sm text-base-content/80">
+              {{ tier.short_tagline }}
+            </p>
+          {% else %}
+            <p class="text-sm text-base-content/80">
+              For home growers who want real seeds in the post plus deeper
+              access to the club’s resources.
+            </p>
+          {% endif %}
 
-        <div class="card-actions mt-6">
-          <a
-            href="#"
-            class="btn btn-primary w-full"
-          >
-            Choose Seed Club
-          </a>
-          <!-- TODO: wire this up to Stripe/checkout or an expression of interest form -->
+          <p class="mt-4">
+            <span class="text-3xl font-bold">£{{ tier.price_per_year }}</span>
+            <span class="text-sm text-base-content/70">/ year</span>
+          </p>
+
+          {% if tier.feature_list %}
+            <ul class="mt-4 space-y-2 text-sm">
+              {% for line in tier.feature_list.splitlines %}
+                {% if line %}
+                  <li class="flex gap-2 items-start">
+                    <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
+                    {{ line }}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div class="card-actions mt-6">
+            <button
+              type="button"
+              class="btn {% if forloop.first %}btn-primary{% else %}btn-outline btn-accent{% endif %} w-full join-tier-btn"
+              data-tier-slug="{{ tier.slug }}"
+            >
+              Join {{ tier.name }}
+            </button>
+          </div>
         </div>
-      </div>
-    </article>
-
-    <!-- Tier 3: Heritage Keeper -->
-    <article class="card bg-base-100 shadow-xl border border-base-300">
-      <div class="card-body">
-        <h2 class="card-title flex items-center justify-between">
-          Heritage Keeper
-          <span class="badge badge-outline">Premium supporter</span>
-        </h2>
-        <p class="text-sm text-base-content/80">
-          For passionate tomato nerds and supporters who want extra seeds,
-          early access, and a say in future upgrades.
-        </p>
-
-        <p class="mt-4">
-          <span class="text-3xl font-bold">£19</span>
-          <span class="text-sm text-base-content/70">/ year</span>
-        </p>
-
-        <ul class="mt-4 space-y-2 text-sm">
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Everything in <strong>Seed Club</strong>
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Extra seed variety in your annual seed drop (4 varieties total)
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Occasional bonus seeds (e.g. companion basil) when stock allows
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Priority dispatch and first access to limited trial varieties
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Early access to new features and upgrades as the club develops
-          </li>
-          <li class="flex gap-2 items-start">
-            <span class="mt-1 inline-block w-2 h-2 rounded-full bg-success"></span>
-            Optional name listing on a “Heritage Keepers” supporter page
-          </li>
-        </ul>
-
-        <div class="card-actions mt-6">
-          <a
-            href="#"
-            class="btn btn-outline btn-accent w-full"
-          >
-            Choose Heritage Keeper
-          </a>
-          <!-- TODO: wire this up to Stripe/checkout or an expression of interest form -->
-        </div>
-      </div>
-    </article>
+      </article>
+    {% endfor %}
   </section>
 
   <!-- Small reassurance / seed timing text -->
@@ -189,4 +147,51 @@
     </p>
   </section>
 </main>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".join-tier-btn");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const slug = btn.dataset.tierSlug;
+
+        try {
+          const response = await fetch(`/membership/checkout/${slug}/`, {
+            method: "POST",
+            headers: {
+              "X-Requested-With": "XMLHttpRequest",
+              // CSRF exempt on the view, so we don't strictly need this now
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+          });
+
+          if (!response.ok) {
+            const text = await response.text();
+            console.error("Checkout error", response.status, text);
+            alert("Error starting checkout: " + text);
+            return;
+          }
+
+          const data = await response.json();
+          const stripe = Stripe(data.publicKey);
+
+          const { error } = await stripe.redirectToCheckout({
+            sessionId: data.sessionId,
+          });
+
+          if (error) {
+            console.error(error);
+            alert(error.message);
+          }
+        } catch (err) {
+          console.error("Network or JS error", err);
+          alert("Network error, please try again.");
+        }
+      });
+    });
+  });
+</script>
+
 {% endblock content %}
