@@ -11,4 +11,22 @@ urlpatterns = [
     path("contact/", ContactView.as_view(), name="contact"),
     path("resources/", ResourcesView.as_view(), name="resources"),
     path("newsletter/signup/", newsletter_signup, name="newsletter_signup"),
+
+     # Stripe membership endpoints
+    path(
+        "membership/checkout/<slug:slug>/",
+        views.create_membership_checkout_session,
+        name="membership_checkout",
+    ),
+    path(
+        "membership/success/",
+        views.MembershipSuccessView.as_view(),
+        name="membership_success",
+    ),
+    path(
+        "membership/cancel/",
+        views.MembershipCancelView.as_view(),
+        name="membership_cancel",
+    ),
+
 ]

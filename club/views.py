@@ -1,5 +1,5 @@
 # club/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
@@ -11,6 +11,14 @@ from django.views.decorators.http import require_POST
 
 from seeds.models import TomatoVariety
 from .forms import ContactForm, NewsletterSignupForm
+
+import stripe
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.views.generic import TemplateView
+
+from .models import MembershipTier, Membership
+
 
 
 def home(request):
@@ -26,6 +34,13 @@ def home(request):
 
 class MembershipView(TemplateView):
     template_name = "club/membership.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        tiers = MembershipTier.objects.filter(is_active=True)
+        context["free_tiers"] = tiers.filter(price_per_year__lte=0)
+        context["paid_tiers"] = tiers.filter(price_per_year__gt=0)
+        return context
 
 
 class AboutView(TemplateView):
@@ -98,3 +113,91 @@ def newsletter_signup(request):
             messages.error(request, "Please enter a valid email address.")
 
     return redirect("club:resources")
+
+
+@login_required
+def create_membership_checkout_session(request, slug):
+    """
+    Create a Stripe Checkout Session for a paid membership tier.
+    """
+    if request.method != "POST":
+        return HttpResponseBadRequest("POST required")
+
+    tier = get_object_or_404(MembershipTier, slug=slug, is_active=True)
+
+    # Don’t allow Stripe checkout for free tiers
+    if tier.price_per_year <= 0 or not tier.stripe_price_id:
+        return HttpResponseBadRequest("This tier does not require payment.")
+
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    checkout_session = stripe.checkout.Session.create(
+        mode="subscription",
+        payment_method_types=["card"],
+        customer_email=request.user.email,
+        line_items=[
+            {
+                "price": tier.stripe_price_id,
+                "quantity": 1,
+            }
+        ],
+        success_url=f"{settings.STRIPE_SUCCESS_URL}?session_id={{CHECKOUT_SESSION_ID}}",
+        cancel_url=settings.STRIPE_CANCEL_URL,
+        metadata={
+            "user_id": request.user.id,
+            "tier_slug": tier.slug,
+        },
+    )
+
+    return JsonResponse(
+        {
+            "sessionId": checkout_session["id"],
+            "publicKey": settings.STRIPE_PUBLISHABLE_KEY,
+        }
+    )
+
+
+class MembershipSuccessView(TemplateView):
+    template_name = "club/membership_success.html"
+
+    def get(self, request, *args, **kwargs):
+        session_id = request.GET.get("session_id")
+        membership = None
+
+        if request.user.is_authenticated and session_id:
+            try:
+                stripe.api_key = settings.STRIPE_SECRET_KEY
+                session = stripe.checkout.Session.retrieve(
+                    session_id,
+                    expand=["subscription"],
+                )
+                tier_slug = session.metadata.get("tier_slug")
+                subscription = session.subscription  # may be an object if expanded
+
+                tier = MembershipTier.objects.get(slug=tier_slug)
+                membership, created = Membership.objects.get_or_create(
+                    user=request.user,
+                    defaults={
+                        "tier": tier,
+                        "stripe_subscription_id": getattr(subscription, "id", None) or session.get("subscription"),
+                        "active": True,
+                    },
+                )
+                if not created:
+                    membership.tier = tier
+                    membership.stripe_subscription_id = getattr(subscription, "id", None) or session.get("subscription")
+                    membership.active = True
+                    membership.save()
+            except Exception:
+                # swallow errors for now – still show success page
+                membership = None
+
+        context = self.get_context_data(**kwargs)
+        context["membership"] = membership
+        return self.render_to_response(context)
+
+
+class MembershipCancelView(TemplateView):
+    template_name = "club/membership_cancel.html"
+
+
