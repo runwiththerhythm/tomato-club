@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-3xl mx-auto px-4 py-12 text-center">
+  <h1 class="text-3xl md:text-4xl font-bold mb-4">
+    Welcome to the Seed Club 🌱
+  </h1>
+
+  <p class="text-base md:text-lg text-base-content/80 mb-6">
+    Your membership payment was successful. Thank you for supporting the Heritage Tomato Club!
+  </p>
+
+  {% if membership %}
+    <div class="card bg-base-100 shadow-lg border border-base-300 max-w-md mx-auto mb-8">
+      <div class="card-body">
+        <h2 class="card-title justify-center mb-2">
+          {{ membership.tier.name }}
+        </h2>
+        <p class="text-sm text-base-content/70 mb-2">
+          Status: 
+          {% if membership.active %}
+            <span class="badge badge-success badge-sm ml-1">Active</span>
+          {% else %}
+            <span class="badge badge-ghost badge-sm ml-1">Pending</span>
+          {% endif %}
+        </p>
+        <p class="text-sm text-base-content/70">
+          You’ll receive an email with your receipt shortly, and seed drop details will follow closer to sowing season.
+        </p>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="flex flex-col sm:flex-row gap-3 justify-center">
+    <a href="{% url 'club:resources' %}" class="btn btn-primary">
+      Explore growing resources
+    </a>
+    <a href="{% url 'club:home' %}" class="btn btn-outline">
+      Back to the garden
+    </a>
+  </div>
+</main>
+{% endblock %}
