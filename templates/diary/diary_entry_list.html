@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-5xl mx-auto px-4 py-8 space-y-6">
+  <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-1">
+        My Grow Diary
+      </h1>
+      <p class="text-base-content/80">
+        Track how your heritage tomatoes are getting on this season.
+      </p>
+    </div>
+    <div>
+      <a href="{% url 'diary:entry_add' %}" class="btn btn-primary">
+        + New diary entry
+      </a>
+    </div>
+  </header>
+
+  {% if entries %}
+    <section class="grid gap-4 md:gap-6">
+      {% for entry in entries %}
+        <article class="card bg-base-100 shadow-md border border-base-300">
+          <div class="card-body flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+              <h2 class="card-title">
+                <a href="{% url 'diary:entry_detail' entry.pk %}" class="link link-hover">
+                  {{ entry.title|default:entry.variety.name }}
+                </a>
+              </h2>
+              <p class="text-sm text-base-content/70">
+                {{ entry.date }} · {{ entry.variety.name }} · {{ entry.get_stage_display }}
+              </p>
+              {% if entry.notes %}
+                <p class="mt-2 line-clamp-2 text-sm text-base-content/80">
+                  {{ entry.notes|truncatewords:25 }}
+                </p>
+              {% endif %}
+            </div>
+            <div class="flex gap-2 justify-end">
+              <a href="{% url 'diary:entry_edit' entry.pk %}" class="btn btn-sm btn-ghost">
+                Edit
+              </a>
+              <a href="{% url 'diary:entry_delete' entry.pk %}" class="btn btn-sm btn-ghost">
+                Delete
+              </a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </section>
+  {% else %}
+    <section class="text-center py-10">
+      <p class="mb-4">
+        You haven’t added any diary entries yet.
+      </p>
+      <a href="{% url 'diary:entry_add' %}" class="btn btn-primary">
+        Start your grow diary
+      </a>
+    </section>
+  {% endif %}
+</main>
+{% endblock %}
