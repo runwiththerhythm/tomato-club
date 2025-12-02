@@ -9,6 +9,7 @@ django-cloudinary-storage==0.3.0
 django-tailwind-cli==4.4.2
 django-typer==3.5.0
 idna==3.11
+gunicorn==21.2.0
 pillow==12.0.0
 requests==2.32.5
 semver==3.0.4
