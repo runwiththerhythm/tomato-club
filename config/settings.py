@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     "club",
     "seeds",
     "recipes",
+    "diary",
     "profiles.apps.ProfilesConfig",
 ]
 
