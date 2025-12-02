@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-3xl mx-auto px-4 py-8">
+  <article class="card bg-base-100 shadow-xl border border-base-300">
+    <div class="card-body space-y-4">
+      <header class="flex flex-col gap-2">
+        <p class="text-sm text-base-content/70">
+          {{ entry.date }} · {{ entry.variety.name }} · {{ entry.get_stage_display }}
+        </p>
+        <h1 class="card-title text-2xl md:text-3xl">
+          {{ entry.title|default:entry.variety.name }}
+        </h1>
+      </header>
+
+      {% if entry.photo %}
+        <figure class="mt-2">
+          <img src="{{ entry.photo.url }}" alt="Diary photo for {{ entry.variety.name }}" class="w-full rounded-xl">
+        </figure>
+      {% endif %}
+
+      {% if entry.notes %}
+        <section class="prose max-w-none">
+          <p>{{ entry.notes|linebreaksbr }}</p>
+        </section>
+      {% endif %}
+
+      <footer class="flex justify-between items-center pt-4 border-t border-base-300">
+        <a href="{% url 'diary:entry_list' %}" class="btn btn-ghost btn-sm">
+          ← Back to diary
+        </a>
+        <div class="flex gap-2">
+          <a href="{% url 'diary:entry_edit' entry.pk %}" class="btn btn-sm">
+            Edit
+          </a>
+          <a href="{% url 'diary:entry_delete' entry.pk %}" class="btn btn-sm btn-ghost">
+            Delete
+          </a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</main>
+{% endblock %}
