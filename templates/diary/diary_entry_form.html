@@ -15,7 +15,7 @@
           <label class="label" for="id_variety">
             <span class="label-text font-semibold">Tomato variety</span>
           </label>
-          {{ form.variety|as_widget }}
+            {{ form.variety }}
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
@@ -23,14 +23,14 @@
             <label class="label" for="id_date">
               <span class="label-text font-semibold">Date</span>
             </label>
-            {{ form.date|as_widget }}
+            {{ form.date }}
           </div>
 
           <div class="form-control">
             <label class="label" for="id_stage">
               <span class="label-text font-semibold">Stage</span>
             </label>
-            {{ form.stage|as_widget }}
+            {{ form.stage }}
           </div>
         </div>
 
@@ -38,14 +38,14 @@
           <label class="label" for="id_title">
             <span class="label-text font-semibold">Title (optional)</span>
           </label>
-          {{ form.title|as_widget }}
+          {{ form.title }}
         </div>
 
         <div class="form-control">
           <label class="label" for="id_notes">
             <span class="label-text font-semibold">Notes</span>
           </label>
-          {{ form.notes|as_widget }}
+          {{ form.notes }}
           <label class="label">
             <span class="label-text-alt text-base-content/70">
               Jot down weather, soil, pot size, pests, anything you like.
@@ -57,7 +57,7 @@
           <label class="label" for="id_photo">
             <span class="label-text font-semibold">Photo (optional)</span>
           </label>
-          {{ form.photo|as_widget }}
+          {{ form.photo }}
         </div>
 
         <div class="flex justify-end gap-2 pt-4">
