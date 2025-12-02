@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="max-w-xl mx-auto px-4 py-8">
+  <section class="card bg-base-100 shadow-xl border border-base-300">
+    <div class="card-body space-y-4">
+      <h1 class="card-title text-2xl">
+        Delete diary entry
+      </h1>
+      <p>
+        Are you sure you want to delete this diary entry for
+        <strong>{{ object.variety.name }}</strong> on <strong>{{ object.date }}</strong>?
+      </p>
+      <form method="post" class="flex justify-end gap-2 pt-4">
+        {% csrf_token %}
+        <a href="{% url 'diary:entry_detail' object.pk %}" class="btn btn-ghost">
+          Cancel
+        </a>
+        <button type="submit" class="btn btn-error">
+          Delete
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+{% endblock %}
