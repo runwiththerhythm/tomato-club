@@ -1,0 +1,38 @@
+name: Mark project as deployed
+
+on:
+  workflow_dispatch:  # lets you run it manually from the Actions tab
+
+permissions:
+  deployments: write
+
+jobs:
+  create-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub deployment + status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Create a deployment object on the current ref (main branch usually)
+            const deployment = await github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.ref,
+              environment: 'production',
+              auto_merge: false,
+              required_contexts: [], // allow deployment even without CI checks
+              description: 'Heritage Tomato Club deployed to VPS',
+            });
+
+            // Mark that deployment as successful and attach the live URL
+            await github.rest.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: deployment.data.id,
+              state: 'success',
+              environment: 'production',
+              environment_url: 'https://tomatoes.cassiterite.digital',
+              log_url: 'https://tomatoes.cassiterite.digital',
+              description: 'Live on VPS',
+            });
