@@ -145,3 +145,80 @@ label .label-text-alt,
     @apply w-4 h-4 border border-base-300 rounded;
   }
 }
+
+@layer components {
+  .htc-nav-link {
+    @apply inline-flex items-center gap-1 px-1 py-2 text-sm font-medium text-base-content/80;
+    position: relative;
+    transition: color 150ms ease;
+  }
+
+  .htc-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.6rem;   /* inset from left */
+    right: 0.6rem;  /* inset from right */
+    bottom: 0.15rem;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      color-mix(in srgb, var(--color-accent) 80%, transparent) 20%,
+      var(--color-accent) 50%,
+      color-mix(in srgb, var(--color-accent) 80%, transparent) 80%,
+      transparent 100%
+    );
+    opacity: 0;
+    transform: scaleX(0.6);
+    transform-origin: center;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+    pointer-events: none;
+  }
+
+  .htc-nav-link:hover {
+    color: var(--color-accent) !important;
+  }
+
+  .htc-nav-link:hover::after {
+    opacity: 0.7;
+    transform: scaleX(1);
+  }
+
+  .htc-nav-link--active {
+    color: var(--color-accent) !important;
+  }
+
+  .htc-nav-link--active::after {
+    opacity: 1;
+    transform: scaleX(1.05);
+  }
+}
+
+
+@layer components {
+  .htc-heading {
+    position: relative;
+    padding-bottom: 0.25rem;
+  }
+
+  .htc-heading::after {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    right: 0.2rem;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in srgb, var(--color-primary) 60%, white),
+      transparent
+    );
+    opacity: 0.4;
+    border-radius: 999px;
+  }
+}
+
