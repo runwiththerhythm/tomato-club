@@ -222,3 +222,110 @@ label .label-text-alt,
   }
 }
 
+@layer components {
+  .htc-heading {
+    position: relative;
+    padding-bottom: 0.25rem;
+  }
+
+  .htc-heading::after {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    right: 0.2rem;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in srgb, var(--color-primary) 60%, white),
+      transparent
+    );
+    opacity: 0.4;
+    border-radius: 999px;
+  }
+
+  /* ---------------------------------------------
+     Tomato colour pills (filter buttons)
+     --------------------------------------------- */
+
+  /* ACTIVE pills (aria-pressed=true) */
+  .btn[data-filter-name="colour"][data-colour="red" i][aria-pressed="true"] {
+    @apply text-red-50;
+    background-color: rgb(185 28 28) !important;  /* red-700 */
+    border-color: rgb(76 5 25) !important;        /* close to red-900 */
+  }
+
+  .btn[data-filter-name="colour"][data-colour="orange" i][aria-pressed="true"] {
+    @apply text-orange-50;
+    background-color: rgb(234 88 12) !important;  /* orange-600 */
+    border-color: rgb(154 52 18) !important;      /* orange-800-ish */
+  }
+
+  .btn[data-filter-name="colour"][data-colour="yellow" i][aria-pressed="true"] {
+    @apply text-yellow-50;
+    background-color: rgb(234 179 8) !important;  /* yellow-500 */
+    border-color: rgb(133 77 14) !important;      /* yellow-700-ish */
+  }
+
+  .btn[data-filter-name="colour"][data-colour="green" i][aria-pressed="true"] {
+    @apply text-green-50;
+    background-color: rgb(21 128 61) !important;  /* green-700 */
+    border-color: rgb(22 101 52) !important;      /* green-800-ish */
+  }
+
+  .btn[data-filter-name="colour"][data-colour="black" i][aria-pressed="true"] {
+    @apply text-gray-50;
+    background-color: rgb(31 41 55) !important;   /* gray-800 */
+    border-color: rgb(17 24 39) !important;       /* gray-900 */
+  }
+
+  .btn[data-filter-name="colour"][data-colour="pink" i][aria-pressed="true"] {
+    @apply text-pink-50;
+    background-color: rgb(219 39 119) !important; /* pink-600 */
+    border-color: rgb(157 23 77) !important;      /* pink-800-ish */
+  }
+
+  /* Striped / bi-colour */
+  .btn[data-filter-name="colour"][data-colour="striped" i][aria-pressed="true"] {
+    background: linear-gradient(135deg, #b91c1c, #f59e0b) !important;
+    border-color: #b45309 !important;
+    color: #fff7ed !important;
+  }
+
+  /* INACTIVE pills (outline style) */
+  .btn[data-filter-name="colour"][data-colour="red" i][aria-pressed="false"] {
+    border-color: rgb(185 28 28) !important;
+    color: rgb(127 29 29) !important;
+  }
+
+  .btn[data-filter-name="colour"][data-colour="orange" i][aria-pressed="false"] {
+    border-color: rgb(234 88 12) !important;
+    color: rgb(154 52 18) !important;
+  }
+
+  .btn[data-filter-name="colour"][data-colour="yellow" i][aria-pressed="false"] {
+    border-color: rgb(234 179 8) !important;
+    color: rgb(133 77 14) !important;
+  }
+
+  .btn[data-filter-name="colour"][data-colour="green" i][aria-pressed="false"] {
+    border-color: rgb(21 128 61) !important;
+    color: rgb(22 101 52) !important;
+  }
+
+  .btn[data-filter-name="colour"][data-colour="black" i][aria-pressed="false"] {
+    border-color: rgb(17 24 39) !important;
+    color: rgb(17 24 39) !important;
+  }
+
+  .btn[data-filter-name="colour"][data-colour="pink" i][aria-pressed="false"] {
+    border-color: rgb(219 39 119) !important;
+    color: rgb(157 23 77) !important;
+  }
+
+  .btn[data-filter-name="colour"][data-colour="striped" i][aria-pressed="false"] {
+    border-color: #b45309 !important;
+    color: #92400e !important;
+  }
+}
