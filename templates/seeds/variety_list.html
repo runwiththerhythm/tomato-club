@@ -64,6 +64,18 @@
           </div>
         </div>
 
+
+        <!-- Clear all filters pill -->
+        <div class="flex justify-end">
+          <button
+            type="button"
+            class="btn btn-xs md:btn-sm rounded-full btn-ghost"
+            data-clear-filters="true"
+          >
+            Clear all filters
+          </button>
+        </div>
+
         <!-- Pills groups -->
         <div class="space-y-3">
           <!-- Colour pills -->
@@ -276,6 +288,8 @@
       sort: document.getElementById("filter-sort"),
     };
 
+    const DEFAULT_SORT = "name";
+
     function setHiddenValue(filterName, value) {
       const input = hiddenInputs[filterName];
       if (!input) return;
@@ -299,6 +313,48 @@
     }
 
     form.addEventListener("click", function (event) {
+      // -----------------------------
+      // Clear-all filters pill
+      // -----------------------------
+      const clearBtn = event.target.closest("[data-clear-filters]");
+      if (clearBtn) {
+        event.preventDefault();
+
+        // Reset hidden inputs: clear all, set sort back to default
+        Object.keys(hiddenInputs).forEach(function (name) {
+          if (name === "sort") {
+            hiddenInputs[name].value = DEFAULT_SORT;
+          } else {
+            hiddenInputs[name].value = "";
+          }
+        });
+
+        // Clear search input
+        const searchInput = form.querySelector('input[name="q"]');
+        if (searchInput) {
+          searchInput.value = "";
+        }
+
+        // Reset visual state of all pills
+        const allPills = form.querySelectorAll("[data-filter-name]");
+        allPills.forEach(function (btn) {
+          const filterName = btn.getAttribute("data-filter-name");
+          const filterValue = btn.getAttribute("data-filter-value");
+          const isDefaultSort =
+            filterName === "sort" && filterValue === DEFAULT_SORT;
+
+          btn.classList.toggle("btn-primary", isDefaultSort);
+          btn.classList.toggle("btn-outline", !isDefaultSort);
+          btn.setAttribute("aria-pressed", isDefaultSort ? "true" : "false");
+        });
+
+        autoSubmit();
+        return;
+      }
+
+      // -----------------------------
+      // Individual filter pills
+      // -----------------------------
       const btn = event.target.closest("[data-filter-name]");
       if (!btn) return;
 
