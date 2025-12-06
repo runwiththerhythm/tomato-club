@@ -5,7 +5,7 @@ Developer: ([runwiththerhythm](https://www.github.com/runwiththerhythm))
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club)
-[![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://tomatoes.cassiterite.digital)
+[![badge](https://img.shields.io/badge/deployment-VPS-purple)](https://tomatoes.cassiterite.digital)
 
 ## Table of Contents
 
@@ -176,14 +176,13 @@ Together, these colours create a vintage-inspired, horticulturally grounded pale
 
 ### Typography
 
-- [Modern Thrash](https://thebrandedquotes.sellfy.store/p/modern-thrash-font/) 
-The typography choices for the Heritage Tomato Club were selected to evoke the feel of vintage seed packets, traditional gardening guides, and classic printed ephemera — all while maintaining clear readability across devices.
+- The typography choices for the Heritage Tomato Club were selected to evoke the feel of vintage seed packets, traditional gardening guides, and classic printed ephemera — all while maintaining clear readability across devices.
 
-**<span style="color:#C3423F;font-weight:700;">Headings — Bitter (Serif)</span>**  
+**<span style="color:#C3423F;font-weight:700;">Headings — [Bitter](https://fonts.google.com/specimen/Bitter/) (Serif)</span>**  
 Bitter provides a strong, traditional serif style that feels rooted in heritage print design. Its sturdy letterforms pair well with the gardening theme while remaining highly readable on screens.  
 Used for: all headings (H1–H6), key section titles, and feature highlights.
 
-**<span style="color:#355E3B;font-weight:700;">Body Text — Lora (Serif)</span>**  
+**<span style="color:#355E3B;font-weight:700;">Body Text — [Lora](https://fonts.google.com/specimen/Lora/) (Serif)</span>**  
 Lora offers a warm, humanist serif that complements Bitter without competing with it. It is softer and more fluid, making longer paragraphs comfortable to read.  
 Used for: paragraphs, descriptions, seed profile text, and general content areas.
 
@@ -293,77 +292,113 @@ The final result is a cohesive type system that feels authentic to the heritage 
 
 ### Data Model
 
-Gig Vault uses a relational schema built in PostgreSQL with models representing users, gigs, bands, venues, images, videos and genres.
+Heritage Tomato Club uses a relational schema built in PostgreSQL with models representing users, membership, profile, tomato variety, recipe, grow diary and newsletter.
 
 ![screenshot](documentation/erd.png)
 
  [`Mermaid flowchart`](https://mermaid.live). 
 I have used `Mermaid` to generate an ERD of my project.
 
+---
+config:
+  theme: forest
+---
 erDiagram
-    direction TB
     User {
-        int id PK
-        string username
-        string email
+      int id PK
+      string username
+      string email
     }
 
-    Band {
-        int id PK
-        string name
+    Profile {
+      int id PK
+      int user_id FK
+      string display_name
+      string location
+      string favourite_tomato
+      string avatar        "Cloudinary"
     }
 
-    Venue {
-        int id PK
-        string venue_name
-        string venue_city
-        string venue_country
-        string address_text "optional"
+    MembershipTier {
+      int id PK
+      string slug          "unique"
+      string name
+      decimal price_per_year
+      boolean is_active
+      int sort_order
+      string short_tagline
+      text feature_list    "one feature per line"
+      string stripe_price_id  "Stripe Price (price_...)"
     }
 
-    Genre {
-        int id PK
-        string name
+    Membership {
+      int id PK
+      int user_id FK       "OneToOne -> User"
+      int tier_id FK       "MembershipTier"
+      string stripe_subscription_id "sub_... (optional)"
+      boolean active
+      datetime started_at
     }
 
-    GigImage {
-        int id PK
-        string image "Cloudinary"
-        string caption "optional"
-        boolean is_cover "max one per gig"
-        int gig_id FK
+    NewsletterSubscriber {
+      int id PK
+      string email         "unique"
+      datetime date_joined
     }
 
-    GigVideo {
-        int id PK
-        string url
-        datetime added_at
-        int gig_id FK
-        int added_by_id FK "nullable → User"
+    TomatoVariety {
+      int id PK
+      string name          "unique"
+      string slug          "unique"
+      string image         "ImageField (Cloudinary storage)"
+      string origin        "optional"
+      string growth_habit  "choice"
+      smallint days_to_maturity "optional"
+      string fruit_color   "optional"
+      text description     "optional"
+      boolean is_featured
+      boolean is_active
+      datetime created_at
+      datetime updated_at
     }
 
-    Gig {
-        int id PK
-        date date
-        boolean is_festival
-        string tour_title
-        string status "upcoming / attended"
-        text notes "rich text (Summernote)"
-        int user_id FK
-        int band_id FK "headliner"
-        int venue_id FK
+    GrowDiaryEntry {
+      int id PK
+      int user_id FK
+      int variety_id FK    "TomatoVariety"
+      date date
+      string stage         "choice (sown/harvest/etc.)"
+      string title         "optional"
+      text notes           "optional"
+      string photo         "Cloudinary (optional)"
+      datetime created_at
+      datetime updated_at
     }
 
-    User ||--o{ Gig : "owns"
-    Band ||--o{ Gig : "headliner"
-    Venue ||--o{ Gig : "hosted at"
-    Gig }o--o{ Band : "other_artists (supports)"
-    Genre ||--o{ Gig : "genres"
-    Gig ||--o{ GigImage : "images"
-    Gig ||--o{ GigVideo : "videos"
-    User ||--o{ GigVideo : "added_by (optional)"
+    Recipe {
+      int id PK
+      string title
+      string slug          "unique"
+      text intro
+      text ingredients     "one per line"
+      text instructions
+      int prep_time_minutes    "optional"
+      int cook_time_minutes    "optional"
+      int serves              "optional"
+      string difficulty        "easy/medium/advanced"
+      boolean is_freezer_friendly
+      boolean is_good_for_gluts
+      string image             "ImageField (optional)"
+      datetime created
+      datetime updated
+    }
+    User ||--|| Profile : "has profile"
+    User ||--|| Membership : "has membership"
+    MembershipTier ||--o{ Membership : "tiers"
+    User ||--o{ GrowDiaryEntry : "logs entries"
+    TomatoVariety ||--o{ GrowDiaryEntry : "diary entries"
 
-source: [Mermaid](https://www.mermaidchart.com/app/projects/9d020117-8aa3-4abc-879e-0ce435a4ec55/diagrams/74682d3b-637b-42e9-ae1d-65b4f302a37f/version/v0.1/edit)
+source: [Mermaid](https://www.mermaidchart.com/play?utm_source=mermaid_live_editor&utm_medium=toggle#pako:eNqlVktz0zAQ_iuanNpD0nsOXIAyDAN0aOGUGY9ire0FWWukdYpp-99ZOfUjzqPpkIMjr77Vvr5d-WGWkoHZcjafz1cuJZdhvlw5pbiAEpYqIw-BV67dBv8Ode51GQFKfQ_g1cN2rRQ6VmjUzadOENijy1UtKKdLmIih1Gi3sqeV2y5uPGVo4cSZURAPTER6PbVkMFRWN8kBa5ZSzUhuIs70hmqPDAlTqZkm23qjWXv1_FvN3lqqDTrtm9Vs4vpnKNfgQ4HVHZ6TlWDrXKnh6Nrh7xq6Y3vYOBQDKZbaqspjCkklSWhA-253TWRBO4Uh0SnjBsYeBPKckDfgp24UcYd1btH1Ggx_WGWgufaQWAy8dZEcdFIl1lWrMnU4_lXiXeujBC56t61IiisidbHdWSwWlydyeDYD-vx9dXBH8lDzNy0vB8eiAuOewm7BjsUR6nVIZRW5Ew9YzUQSvVcX1Aq1vRx0uxrsFsBoBsYS5EztGUyieRL4F7gPFpjB327trc-hUNtBJyjU242L5CdJuczE8F3L-h_aI3DzssXIxjNIeya3hcw5jGAf4_s1gjXqYug0QZOXjcs9ffKYoxv0u4LsAXNP91wkhV4jR2BakHBwBJOusjFmo5sgkyApI8lRMnLi0MzXyElKlvwR620bGej5c9TNUes-95d5sav74qZeVEakGm3VldEH-fZBEiKT3DfvHfvm1eM2SjdbzgxNtZrtkGmXhu1jr8N2y7-tiroIdO-uCu03cu9cAaeL_cozsh2rHsm9I4aglDqDIlVBTOrQpD_Y6P-V_W8yxyt4udvaKF_ZWm3ccqCniSQXUiE4DmoY5vtD_Bksxuo0Bh3GPlYeqiSGlpTo6ufUHsppBKdEv84GC8M2O5U6XSyDWYZpbaVBezDo0FyVEmNdXmmz0S6VJjrYYR7grzA6E5o6Y5sDkJzIJPLhk-S25nByau1PrjPYcowqPU_6j6vHx_n88bH_LlqKrUIHqUT73lkYQ0d3aIcue1GnMPlYiar0MFWNd2bYMyG4yfSIWEt5UMIuyWmvsnu3HNc18XVQnj39A_kyV8s)
 
 ## Agile Development Process
 
