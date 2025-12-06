@@ -143,38 +143,47 @@ I used [coolors.co](https://coolors.co) to finalise my color palette.
 
 ![screenshot](documentation/coolors.png)
 
-#### Colour Palette Rationale
+#### Colour Palette
 
-The Heritage Tomato Club palette was chosen to reflect the warmth, charm, and vintage character of traditional seed packets and heritage gardening culture. The colours are inspired by tomato varieties themselves, paired with earthy tones that evoke allotments, potting sheds, and parchment labels.
+The Heritage Tomato Club colour palette takes inspiration from vintage seed packets, garden twine, soil, and the natural colours found in tomato plants.  
+Each hue contributes to a warm, earthy, accessible aesthetic that supports the brand identity.
 
-**Pomodoro Reds (#C73F34 – #E8594F)**  
-Inspired by the deep, rich tones of heritage tomato skins — from beefsteaks to oxhearts. These reds provide warmth and familiarity, making key elements such as headings, accents, and buttons feel inviting rather than harsh.
+**<span style="color:#1D1D1B;font-weight:700;background:#F6F1E8;padding:2px 6px;">Dark Soil — #1D1D1B</span>**  
+The deepest tone in the palette, inspired by rich garden soil and vintage ink.  
+Used for headings, text, and strong contrast elements.
 
-**Vine Greens (#4E6B41 – #7FA66A)**  
-Drawn from tomato foliage and garden twine, these greens introduce balance and calm. They ground the interface and support accessibility by offering contrast when paired with cream backgrounds.
+**<span style="color:#355E3B;font-weight:700;">Vine Green — #355E3B</span>**  
+A classic tomato-vine green offering balance and an organic feel.  
+Used for accents, badges, and supportive UI components.
 
-**Golden Seed Yellow (#E6C77A)**  
-Echoing heirloom seed packets and dried tomato seeds, this muted yellow adds a nostalgic touch without becoming overly bright. It works well for highlights, badges, and subtle decorative elements.
+**<span style="color:#F6F1E8;font-weight:700;background:#1D1D1B;padding:2px 6px;">Seed Packet Cream — #F6F1E8</span>**  
+A warm, parchment-like neutral echoing traditional seed envelopes.  
+Used for page backgrounds and high-readability surfaces.
 
-**Light Mode Foundations (#FAF6EC background, #1A1A1A text)**  
-A parchment-like cream background provides excellent readability and a heritage feel. Paired with dark text, it achieves strong contrast while keeping the site warm and organic.
+**<span style="color:#C3423F;font-weight:700;">Pomodoro Red — #C3423F</span>**  
+A ripe tomato red used for buttons, CTAs, and key highlights.  
+Warm and inviting, without overwhelming the interface.
 
-**Dark Mode Foundations (#1B1A18 deep soil brown, #F2EDE5 text)**  
-Inspired by soil, hessian sacks, and old greenhouse shelving. This dark palette supports low-light browsing while maintaining the rustic tone of the brand.
+**<span style="color:#D96F3B;font-weight:700;">Heirloom Orange — #D96F3B</span>**  
+Reflecting the colour of heirloom varieties like ‘Orange Banana’ and ‘Valencia’.  
+Used for warm accents and supportive emphasis elements.
 
-By combining warm reds, earthy greens, and vintage cream foundations, the Heritage Tomato Club presents a friendly, accessible, and distinctly horticultural aesthetic that aligns closely with its theme — all while maintaining WCAG AA contrast throughout.
+**<span style="color:#D6A84B;font-weight:700;">Golden Seed Yellow — #D6A84B</span>**  
+Inspired by dried tomato seeds and aged paper.  
+Used for highlights, decorative touches, and gentle emphasis.
 
+Together, these colours create a vintage-inspired, horticulturally grounded palette that enhances readability, brand warmth, and accessibility.
 
 ### Typography
 
 - [Modern Thrash](https://thebrandedquotes.sellfy.store/p/modern-thrash-font/) 
 The typography choices for the Heritage Tomato Club were selected to evoke the feel of vintage seed packets, traditional gardening guides, and classic printed ephemera — all while maintaining clear readability across devices.
 
-**Headings — Bitter (Serif)**  
+**<span style="color:#C3423F;font-weight:700;">Headings — Bitter (Serif)</span>**  
 Bitter provides a strong, traditional serif style that feels rooted in heritage print design. Its sturdy letterforms pair well with the gardening theme while remaining highly readable on screens.  
 Used for: all headings (H1–H6), key section titles, and feature highlights.
 
-**Body Text — Lora (Serif)**  
+**<span style="color:#355E3B;font-weight:700;">Body Text — Lora (Serif)</span>**  
 Lora offers a warm, humanist serif that complements Bitter without competing with it. It is softer and more fluid, making longer paragraphs comfortable to read.  
 Used for: paragraphs, descriptions, seed profile text, and general content areas.
 
@@ -360,18 +369,18 @@ source: [Mermaid](https://www.mermaidchart.com/app/projects/9d020117-8aa3-4abc-8
 
 ### GitHub Projects
 
-[GitHub Projects](https://www.github.com/runwiththerhythm/gig_vault/projects) served as an Agile management tool for this project. Through it, User Stories, issues/bugs and tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
+[GitHub Projects](https://www.github.com/runwiththerhythm/tomato-club/projects) served as an Agile management tool for this project. Through it, User Stories, issues/bugs and tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
 
 ![screenshot](documentation/gh-projects.png)
 
 ### GitHub Issues
 
-[GitHub Issues](https://www.github.com/runwiththerhythm/gig_vault/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks and tracked any issues/bugs.
+[GitHub Issues](https://www.github.com/runwiththerhythm/tomato-club/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks and tracked any issues/bugs.
 
 | Link | Screenshot |
 | --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues/runwiththerhythm/gig_vault)](https://www.github.com/runwiththerhythm/gig_vault/issues) | ![screenshot](documentation/gh-issues-open.png) |
-| [![GitHub closed issues](https://img.shields.io/github/issues-closed/runwiththerhythm/gig_vault)](https://www.github.com/runwiththerhythm/gig_vault/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh-issues-closed.png) |
+| [![GitHub issues](https://img.shields.io/github/issues/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/issues) | ![screenshot](documentation/gh-issues-open.png) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-closed/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh-issues-closed.png) |
 
 ## Testing
 
@@ -380,69 +389,11 @@ source: [Mermaid](https://www.mermaidchart.com/app/projects/9d020117-8aa3-4abc-8
 
 ## Deployment
 
-The live deployed application can be found deployed on [Heroku](https://gig-vault-2fe6800a7bea.herokuapp.com).
-
-### Heroku Deployment
-
-This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-
-Deployment steps are as follows, after account setup:
-
-- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
-- Your app name must be unique, and then choose a region closest to you (EU or USA), then finally, click **Create App**.
-- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py` file.
-
-> [!IMPORTANT]  
-> This is a sample only; you would replace the values with your own if cloning/forking my repository.
-
-| Key | Value |
-| --- | --- |
-| `CLOUDINARY_URL` | user-inserts-own-cloudinary-url |
-| `DATABASE_URL` | user-inserts-own-postgres-database-url |
-| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
-| `SECRET_KEY` | any-random-secret-key |
-
-Heroku needs some additional files in order to deploy properly.
-
-- [requirements.txt](requirements.txt)
-- [Procfile](Procfile)
-- [.python-version](.python-version)
-
-You can install this project's **[requirements.txt](requirements.txt)** (*where applicable*) using:
-
-- `pip3 install -r requirements.txt`
-
-If you have your own packages that have been installed, then the requirements file needs updated using:
-
-- `pip3 freeze --local > requirements.txt`
-
-The **[Procfile](Procfile)** can be created with the following command:
-
-- `echo web: gunicorn app_name.wsgi > Procfile`
-- *replace `app_name` with the name of your primary Django app name; the folder where `settings.py` is located*
-
-The **[.python-version](.python-version)** file tells Heroku the specific version of Python to use when running your application.
-
-- `3.12` (or similar)
-
-For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
-
-Either (*recommended*):
-
-- Select **Automatic Deployment** from the Heroku app.
-
-Or:
-
-- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
-- Set the remote for Heroku: `heroku git:remote -a app_name` (*replace `app_name` with your app name*)
-- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
-	- `git push heroku main`
-
-The project should now be connected and deployed to Heroku!
+The live deployed application can be found deployed on [VPS](https://tomatoes.cassiterite.digital).
 
 ### Cloudinary API
 
-This project uses the [Cloudinary API](https://cloudinary.com) to store media assets online, due to the fact that Heroku doesn't persist this type of data.
+This project uses the [Cloudinary API](https://cloudinary.com) to store media assets online.
 
 To obtain your own Cloudinary API key, create an account and log in.
 
@@ -455,25 +406,11 @@ To obtain your own Cloudinary API key, create an account and log in.
 
 ### PostgreSQL
 
-This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net) for the Relational Database with Django.
-
-> [!CAUTION]
-> - PostgreSQL databases by Code Institute are only available to CI Students.
-> - You must acquire your own PostgreSQL database through some other method if you plan to clone/fork this repository.
-> - Code Institute students are allowed a maximum of 8 databases.
-> - Databases are subject to deletion after 18 months.
-
-To obtain my own Postgres Database from Code Institute, I followed these steps:
-
-- Submitted my email address to the CI PostgreSQL Database link above.
-- An email was sent to me with my new Postgres Database.
-- The Database connection string will resemble something like this:
-    - `postgres://<db_username>:<db_password>@<db_host_url>/<db_name>`
-- You can use the above URL with Django; simply paste it into your `env.py` file and Heroku Config Vars as `DATABASE_URL`.
+This project uses a PostgreSQLfor the Relational Database with Django.
 
 ### WhiteNoise
 
-This project uses the [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to aid with static files temporarily hosted on the live Heroku site.
+This project uses the [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to aid with static files temporarily hosted on the live site.
 
 To include WhiteNoise in your own projects:
 
@@ -540,20 +477,20 @@ If you'd like to backup your database models, use the following command for each
 
 You can clone the repository by following these steps:
 
-1. Go to the [GitHub repository](https://www.github.com/runwiththerhythm/gig_vault).
+1. Go to the [GitHub repository](https://www.github.com/runwiththerhythm/tomato-club).
 2. Locate and click on the green "Code" button at the very top, above the commits and files.
 3. Select whether you prefer to clone using "HTTPS", "SSH", or "GitHub CLI", and click the "copy" button to copy the URL to your clipboard.
 4. Open "Git Bash" or "Terminal".
 5. Change the current working directory to the location where you want the cloned directory.
 6. In your IDE Terminal, type the following command to clone the repository:
-	- `git clone https://www.github.com/runwiththerhythm/gig_vault.git`
+	- `git clone https://www.github.com/runwiththerhythm/tomato-club.git`
 7. Press "Enter" to create your local clone.
 
 #### Forking
 
 By forking the GitHub Repository, you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
 
-1. Log in to GitHub and locate the [GitHub Repository](https://www.github.com/runwiththerhythm/gig_vault).
+1. Log in to GitHub and locate the [GitHub Repository](https://www.github.com/runwiththerhythm/tomato-club).
 2. At the top of the Repository, just below the "Settings" button on the menu, locate and click the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
@@ -565,16 +502,6 @@ There are no remaining major differences between the local version when compared
 
 ### Content
 
-| Source | Notes |
-| --- | --- |
-| [Markdown Builder](https://markdown.2bn.dev) | Help generating Markdown files |
-| [Markdown Table of Contents generator](<!-- https://github.com/ekalinin/github-markdown-toc -->) | Generate TOC for README |
-| [I Think Therefore I Blog](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
-| [Bootstrap](https://getbootstrap.com) | Various components / responsive front-end framework |
-| [Cloudinary API](https://cloudinary.com) | Cloud storage for static/media files |
-| [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
-| [Python Tutor](https://pythontutor.com) | Additional Python help |
-| [ChatGPT](https://chatgpt.com) | Help with code logic and explanations |
 
 ### Media
 
