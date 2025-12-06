@@ -1,11 +1,11 @@
-# [Gig Vault](https://gig-vault-2fe6800a7bea.herokuapp.com)
+# [Heritage Tomato Club](https://tomatoes.cassiterite.digital)
 
 Developer: ([runwiththerhythm](https://www.github.com/runwiththerhythm))
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/runwiththerhythm/gig_vault)](https://www.github.com/runwiththerhythm/gig_vault/commits/main)
-[![GitHub last commit](https://img.shields.io/github/last-commit/runwiththerhythm/gig_vault)](https://www.github.com/runwiththerhythm/gig_vault/commits/main)
-[![GitHub repo size](https://img.shields.io/github/repo-size/runwiththerhythm/gig_vault)](https://www.github.com/runwiththerhythm/gig_vault)
-[![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://gig-vault-2fe6800a7bea.herokuapp.com)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club)
+[![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://tomatoes.cassiterite.digital)
 
 ## Table of Contents
 
@@ -48,16 +48,17 @@ Developer: ([runwiththerhythm](https://www.github.com/runwiththerhythm))
 **Site Mockup**
 ![screenshot](documentation/mockup.png)
 
-source: [gig_vault amiresponsive](https://ui.dev/amiresponsive?url=https://gig-vault-2fe6800a7bea.herokuapp.com)
+source: [tomato-club amiresponsive](https://ui.dev/amiresponsive?url=https://tomatoes.cassiterite.digital)
 
 
 ## Introduction
 
-Gig Vault is a personal live music diary application that helps fans track, organise, and remember their concert experiences. Users can log gigs with band lineups, venues, dates, photos, and videos and create an archive of their concert journey. Unlike generic apps, Gig Vault is designed specifically for concerts and festivals, making it easier to preserve memories and reflect on the role of live music in personal culture.
+Heritage Tomato Club is an online digital membership and subscription service. The site provides information and resources about cultivating heritage tomatoes and offers a yearly subscription service with three tiers including options for basic(free), standard, and premium subscriptions with secure recurring payments using Stripe.
+Subscribed member also get access to the Grow Diary tomato growing tracking app.
 
-Designed to appeal to festival goers who want to remember all the bands they've seen when and where over the years.
+The site is designed to appeal to home gardeners interested in growing heritage tomatoes from seed and furthering education in the importance of heritage seed saving and cultivation.
 
-## [View deployed version](https://gig-vault-2fe6800a7bea.herokuapp.com)
+## [View deployed version](https://tomatoes.cassiterite.digital)
 
 
 ## UX
@@ -66,53 +67,65 @@ Designed to appeal to festival goers who want to remember all the bands they've 
 
 #### 1. Strategy
 
+
 **Purpose**
-- Provide music fans with a dedicated tool to log, organize, and relive their live music experiences.
-- Offer users an intuitive platform to browse their personal gig history, including bands, venues, images, and media links.
-- Support users with features like statistics, reminders, and media integration to make their gig history engaging and meaningful.
+
+- Provide home growers and heritage tomato enthusiasts with a central hub to explore tomato varieties, learn cultivation skills, and engage with a friendly community.
+- Offer users clear, accessible information about the club’s membership tiers, benefits, and resources.
+- Support members with a seed library they can browse, filter, and explore, including detailed variety profiles and images.
+- Deliver a warm, vintage-inspired, mobile-first experience that reflects the heritage gardening theme.
 
 **Primary User Needs**
-- Users need a simple way to record new gigs (band, venue, date, notes, images, videos).
-- Users need the ability to browse past gigs quickly, either by date, band, or venue.
-- Users need a secure, private space where their data and memories are preserved.
-- Users want to see patterns and highlights (e.g, most seen bands, attended festivals, anniversary reminders).
+
+- Users need an easy way to understand what the club offers and which membership tier suits them.
+- Users need intuitive navigation from informational pages to actionable steps (e.g., joining, contacting, or browsing seed varieties).
+- Users need a visually appealing, readable interface with reliable performance on all devices.
+- Members need the ability to explore tomato varieties with clear cultivar information, images, and filters (colour, growth habit, etc.).
+- Prospective members need confidence that the site is trustworthy and secure when making payments.
 
 **Business Goals**
-- Deliver a unique niche platform focusing specifically on live music memories
-- Encourage long-term engagement by giving users reasons to revisit (e.g., stats, reminders, multimedia playback).
-- Demonstrate a well-structured, user-centered Django web application for academic and portfolio purposes.
+
+- Provide a polished, user-centered Django application aligned with academic requirements and portfolio standards.
+- Create a foundation for future expansion into community features, events, or seed-sharing tools.
+- Build a strong brand identity for the Heritage Tomato Club using consistent design, storytelling, and accessible UI components.
+- Encourage engagement through high-quality resources, membership benefits, and a pleasant browsing experience that invites users to return.
 
 #### 2. Scope
 
 **[Features](#features)** (see below)
 
 **Content Requirements**
-- Gig management (create, update, delete).
-- Band management (headliners and support artists).
-- Venue management (integrated with Mapbox Search JS).
-- Image upload and cover image selection (via Cloudinary).
-- YouTube video linking and auto-search.
-- Stats and insights (total gigs, most-seen band, “On This Day”).
-- User authentication (signup, login, logout).
-- Dashboard view with upcoming and attended gigs.
-- Error handling pages (e.g., 404, 500).
+
+- Informational pages for Home, About, Resources, Contact, and Membership.
+- Membership tier display with Stripe-powered checkout for paid plans.
+- Seed Library: list, filter, and detail views for tomato varieties.
+- Tomato variety profiles with images, descriptions, traits, and cultivation info.
+- Image uploading for varieties (via Cloudinary).
+- Filtering and sorting options (e.g., colour, growth habit, alphabetical).
+- Newsletter signup system with admin export functionality.
+- User authentication (signup, login, logout) using Django Allauth.
+- Customised, vintage-inspired UI using Tailwind CSS and DaisyUI.
+- Error handling pages (e.g., 404 and 500) matching the site’s aesthetic.
 
 #### 3. Structure
 
 **Information Architecture**
+
 - **Navigation Menu**:
-  - Links to Home, Dashboard, My Gigs, Add Gig, Logout..
+  - Links to Home, Seed Library, Resources, About, Membership, Join, Contact, Login/Logout.
 - **Hierarchy**:
-  - Dashboard and “My Gigs” provide a clear overview of past and upcoming gigs.
-  - Gig detail pages highlight band, venue, and media.
-  - Create/Edit forms use autocomplete for bands/venues, with clear CTAs for “add new”.
+  - Home introduces the club and guides users toward key areas (Seed Library, Membership, Resources).
+  - Membership pages clearly explain tier benefits and link to Stripe checkout.
+  - Seed Library list and detail views provide structured, easy-to-browse cultivar information.
+  - Resource pages present learning materials in a clean, accessible format.
 
 **User Flow**
-1. Guest user visits Landing Page → learns about Gig Vault, sees a call-to-action to sign up or log in.
-2. User signs up or logs in → gains access to Dashboard and gig tools.
-3. User creates a gig entry → fills band, venue, date, adds images/videos.
-4. User browses past gigs or adds new ones over time → personal archive grows into a complete music history.
-5. User explores stats → checks most-seen bands etc.
+
+1. Guest user arrives on the Home Page → learns about the Heritage Tomato Club, browses varieties, and sees prompts to join.
+2. User visits the Membership page → selects a tier and begins checkout.
+3. User completes Stripe checkout → is redirected to a success page confirming membership.
+4. User browses the Seed Library → filters varieties by traits, views detailed profiles, and explores cultivation notes.
+5. User returns over time to access new resources, explore more varieties, or manage additional features as the club expands.
 
 #### 4. Skeleton
 
@@ -130,26 +143,53 @@ I used [coolors.co](https://coolors.co) to finalise my color palette.
 
 ![screenshot](documentation/coolors.png)
 
-The Gig Vault palette was chosen to reflect the energy and atmosphere of live music, especially the lighting set you experience at concerts and festivals.
+#### Colour Palette Rationale
 
-Fiery Orange (#FF4C1A) & Golden Yellow (#FFDD33)
-Inspired by stage lights, pyrotechnics, and sunset skies at outdoor gigs. These warm tones bring immediacy and excitement to buttons and call-to-action elements.
+The Heritage Tomato Club palette was chosen to reflect the warmth, charm, and vintage character of traditional seed packets and heritage gardening culture. The colours are inspired by tomato varieties themselves, paired with earthy tones that evoke allotments, potting sheds, and parchment labels.
 
-Electric Purple (#8E4CD9) & Magenta Pink (#C2188D)
-Drawn from the neon floods, strobes and lasers. These cooler, high-energy colours balance the warm tones and give a sense of atmosphere and nightlife.
+**Pomodoro Reds (#C73F34 – #E8594F)**  
+Inspired by the deep, rich tones of heritage tomato skins — from beefsteaks to oxhearts. These reds provide warmth and familiarity, making key elements such as headings, accents, and buttons feel inviting rather than harsh.
 
-Light Mode Foundations (#FAF9F6 background, #1A1A1A text)
-Chosen for readability and a clean diary-like feel, so users can comfortably browse and log gigs in daylight settings.
+**Vine Greens (#4E6B41 – #7FA66A)**  
+Drawn from tomato foliage and garden twine, these greens introduce balance and calm. They ground the interface and support accessibility by offering contrast when paired with cream backgrounds.
 
-Dark Mode Foundations (#1E1229 deep purple background, #F5F3FA text)
-Inspired by the low-light conditions of concert venues, with a subtle purple tint to feel immersive but easy on the eyes. This mode echoes the ambience of being in the crowd under stage lighting.
+**Golden Seed Yellow (#E6C77A)**  
+Echoing heirloom seed packets and dried tomato seeds, this muted yellow adds a nostalgic touch without becoming overly bright. It works well for highlights, badges, and subtle decorative elements.
 
-By combining these brights with neutral light and dark foundations, Gig Vault maintains accessibility (AA contrast) while also capturing the vibrant, high-contrast lighting environment of live shows.
+**Light Mode Foundations (#FAF6EC background, #1A1A1A text)**  
+A parchment-like cream background provides excellent readability and a heritage feel. Paired with dark text, it achieves strong contrast while keeping the site warm and organic.
+
+**Dark Mode Foundations (#1B1A18 deep soil brown, #F2EDE5 text)**  
+Inspired by soil, hessian sacks, and old greenhouse shelving. This dark palette supports low-light browsing while maintaining the rustic tone of the brand.
+
+By combining warm reds, earthy greens, and vintage cream foundations, the Heritage Tomato Club presents a friendly, accessible, and distinctly horticultural aesthetic that aligns closely with its theme — all while maintaining WCAG AA contrast throughout.
+
 
 ### Typography
 
-- [Modern Thrash](https://thebrandedquotes.sellfy.store/p/modern-thrash-font/) was used for the primary headers and titles. This font evokes heavy metal artwork, festival branding and live posters, with sharp edges and a distorted aesthetic that ties directly into the live music scene and the energy it creates.
-- System ui font has been used for the body to keep it readable and clear on all devices. 
+- [Modern Thrash](https://thebrandedquotes.sellfy.store/p/modern-thrash-font/) 
+The typography choices for the Heritage Tomato Club were selected to evoke the feel of vintage seed packets, traditional gardening guides, and classic printed ephemera — all while maintaining clear readability across devices.
+
+**Headings — Bitter (Serif)**  
+Bitter provides a strong, traditional serif style that feels rooted in heritage print design. Its sturdy letterforms pair well with the gardening theme while remaining highly readable on screens.  
+Used for: all headings (H1–H6), key section titles, and feature highlights.
+
+**Body Text — Lora (Serif)**  
+Lora offers a warm, humanist serif that complements Bitter without competing with it. It is softer and more fluid, making longer paragraphs comfortable to read.  
+Used for: paragraphs, descriptions, seed profile text, and general content areas.
+
+**Why These Fonts Work Together**  
+- Both typefaces reflect the tone of vintage horticultural publications.  
+- Bitter establishes hierarchy and presence, giving pages a confident, editorial feel.  
+- Lora supports readability, offering a gentle contrast that prevents the site from feeling overly formal or dense.  
+- Together, they reinforce the club’s identity: friendly, traditional, and inspired by classic gardening design.
+
+**Accessibility Considerations**  
+- Typography sizes are increased slightly for comfortable reading on mobile.  
+- Line heights and spacing are chosen to reduce visual strain.  
+- Both fonts maintain high clarity at small sizes due to their modern web-optimized design.
+
+The final result is a cohesive type system that feels authentic to the heritage gardening theme while providing a clean and accessible reading experience.
 
 ## Wireframes
 
