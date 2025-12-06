@@ -256,25 +256,29 @@ The final result is a cohesive type system that feels authentic to the heritage 
 
 ## Tools & Technologies
 
+### Technologies Used
+
 | Tool / Tech | Use |
 | --- | --- |
-| [![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://markdown.2bn.dev) | Generate README and TESTING templates. |
-| [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) | Version control. (`git add`, `git commit`, `git push`) |
-| [![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) | Secure online code storage. |
-| [![badge](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) | Main site content and layout. |
-| [![badge](https://img.shields.io/badge/CSS-grey?logo=css&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) | Design and layout. |
-| [![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) | User interaction on the site. |
-| [![badge](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) | User interaction on the site. |
-| [![badge](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) | Back-end programming language. |
-| [![badge](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) | Hosting the deployed back-end site. |
-| [![badge](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) | Front-end CSS framework for modern responsiveness and pre-built components. |
-| [![badge](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20)](https://www.djangoproject.com) | Python framework for the site. |
-| [![badge](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1)](https://www.postgresql.org) | Relational database management. |
-| [![badge](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5)](https://cloudinary.com) | Online static file storage. |
-| [![badge](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF)](https://whitenoise.readthedocs.io) | Serving static files with Heroku. |
-| [![badge](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC)](https://www.canva.com/p/canvawireframes) | Creating wireframes. |
-| [![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) | Icons. |
-| [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, research, code logic and pair program. |
+| ![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000) | Generate README and TESTING templates. |
+| ![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717) | Version control and remote code storage. |
+| ![badge](https://img.shields.io/badge/HTML5-grey?logo=html5&logoColor=E34F26) | Structure and semantic layout of the site. |
+| ![badge](https://img.shields.io/badge/CSS3-grey?logo=css3&logoColor=1572B6) | Basic styling before Tailwind processing. |
+| ![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E) | Interactive front-end behaviour (filters, form enhancement). |
+| ![badge](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB) | Core back-end programming for Django. |
+| ![badge](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20) | The main web framework powering the application. |
+| ![badge](https://img.shields.io/badge/Django_Allauth-grey?logo=django&logoColor=092E20) | User authentication (signup, login, logout). |
+| ![badge](https://img.shields.io/badge/Tailwind_CSS-grey?logo=tailwindcss&logoColor=06B6D4) | Utility-first CSS framework for styling, integrated via Tailwind CLI. |
+| ![badge](https://img.shields.io/badge/DaisyUI-grey?logo=daisyui&logoColor=FF9900) | Tailwind component library providing accessible UI components and theming. |
+| ![badge](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=626CD9) | Secure payment processing for membership tiers. |
+| ![badge](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5) | Media storage for tomato variety images. |
+| ![badge](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF) | Serving static files in production (with Django). |
+| ![badge](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1) | Relational database used for production deployments. |
+| ![badge](https://img.shields.io/badge/VPS-grey?logo=linux&logoColor=FCC624) | Production hosting environment (Hostinger VPS). |
+| ![badge](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC) | Wireframing and visual planning. |
+| ![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7) | Iconography across the site. |
+| ![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C) | Assistance with debugging, research, content drafting, and pair programming. |
+
 
 ## Database Design
 
