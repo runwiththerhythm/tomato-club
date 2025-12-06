@@ -5,6 +5,7 @@
 
 {% block content %}
 <main class="max-w-6xl mx-auto px-4 py-10 space-y-8">
+  <!-- Page heading -->
   <section class="space-y-3">
     <h1 class="text-3xl md:text-4xl font-bold">Seed Library</h1>
     <p class="text-base md:text-lg max-w-3xl">
@@ -13,11 +14,161 @@
     </p>
   </section>
 
+  <!-- Filter controls (pills + search + sort) -->
+  <section class="card bg-base-100 shadow border border-base-300/60">
+    <div class="card-body space-y-4">
+      <form method="get" id="filter-form" class="space-y-4">
+
+        <!-- Search + sort row -->
+        <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <!-- Search -->
+          <label class="form-control w-full md:max-w-xs">
+            <span class="label-text">Search by name or origin</span>
+            <input
+              type="text"
+              name="q"
+              value="{{ current_filters.q }}"
+              placeholder="e.g. Brandywine, Russian, Cornwall…"
+              class="input input-bordered w-full"
+            />
+          </label>
+
+          <!-- Sort pills -->
+          <div class="w-full md:w-auto">
+            <span class="label-text block mb-1">Sort by</span>
+            <div class="flex flex-wrap gap-2">
+              {% for value, label in sort_choices %}
+                {% if current_filters.sort == value %}
+                  <button
+                    type="button"
+                    class="btn btn-sm rounded-full btn-primary"
+                    data-filter-name="sort"
+                    data-filter-value="{{ value }}"
+                    aria-pressed="true"
+                  >
+                    {{ label }}
+                  </button>
+                {% else %}
+                  <button
+                    type="button"
+                    class="btn btn-sm rounded-full btn-outline"
+                    data-filter-name="sort"
+                    data-filter-value="{{ value }}"
+                    aria-pressed="false"
+                  >
+                    {{ label }}
+                  </button>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Pills groups -->
+        <div class="space-y-3">
+          <!-- Colour pills -->
+<div>
+  <span class="label-text block mb-1">Fruit colour</span>
+  <div class="flex flex-wrap gap-2">
+    {% for value, label in colour_choices %}
+      {% if current_filters.colour == value %}
+        <button
+          type="button"
+          class="btn btn-xs md:btn-sm rounded-full btn-primary"
+          data-filter-name="colour"
+          data-filter-value="{{ value }}"
+          data-colour="{{ value }}"
+          aria-pressed="true"
+        >
+          {{ label }}
+        </button>
+      {% else %}
+        <button
+          type="button"
+          class="btn btn-xs md:btn-sm rounded-full btn-outline"
+          data-filter-name="colour"
+          data-filter-value="{{ value }}"
+          data-colour="{{ value }}"
+          aria-pressed="false"
+        >
+          {{ label }}
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+          <!-- Growth habit pills -->
+          <div>
+            <span class="label-text block mb-1">Growth habit</span>
+            <div class="flex flex-wrap gap-2">
+              {% for value, label in habit_choices %}
+                {% if current_filters.habit == value %}
+                  <button
+                    type="button"
+                    class="btn btn-xs md:btn-sm rounded-full btn-primary"
+                    data-filter-name="habit"
+                    data-filter-value="{{ value }}"
+                    aria-pressed="true"
+                  >
+                    {{ label }}
+                  </button>
+                {% else %}
+                  <button
+                    type="button"
+                    class="btn btn-xs md:btn-sm rounded-full btn-outline"
+                    data-filter-name="habit"
+                    data-filter-value="{{ value }}"
+                    aria-pressed="false"
+                  >
+                    {{ label }}
+                  </button>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden inputs that actually hold the filter values -->
+        <input type="hidden" name="colour" id="filter-colour" value="{{ current_filters.colour }}">
+        <input type="hidden" name="habit" id="filter-habit" value="{{ current_filters.habit }}">
+        <input type="hidden" name="sort" id="filter-sort" value="{{ current_filters.sort|default:'name' }}">
+
+        <!-- Buttons row (fallback / manual apply) -->
+        <div class="flex flex-wrap gap-2 justify-end pt-1">
+          <a href="{% url 'seeds:variety_list' %}" class="btn btn-ghost btn-sm">
+            Clear filters
+          </a>
+          <button type="submit" class="btn btn-primary btn-sm">
+            Apply
+          </button>
+        </div>
+      </form>
+
+      <!-- Active filters summary -->
+      {% if current_filters.colour or current_filters.habit or current_filters.q %}
+        <div class="mt-1 flex flex-wrap gap-2 text-sm items-center">
+          <span class="font-semibold">Active filters:</span>
+          {% if current_filters.q %}
+            <span class="badge badge-outline">Search: “{{ current_filters.q }}”</span>
+          {% endif %}
+          {% if current_filters.colour %}
+            <span class="badge badge-outline">Colour: {{ current_filters.colour|title }}</span>
+          {% endif %}
+          {% if current_filters.habit %}
+            <span class="badge badge-outline">Habit: {{ current_filters.habit|title }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
   {% if varieties %}
+    <!-- Varieties grid -->
     <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {% for variety in varieties %}
         <article class="card bg-base-100 shadow-md border border-base-300/60">
-
           <!-- Image / placeholder -->
           <figure class="h-40 md:h-48 overflow-hidden border-b border-base-300/60">
             {% if variety.image %}
@@ -85,6 +236,7 @@
       {% endfor %}
     </section>
 
+    <!-- Pagination -->
     {% if is_paginated %}
       <div class="mt-6 flex justify-center">
         <div class="join">
@@ -111,4 +263,75 @@
     </p>
   {% endif %}
 </main>
+
+<!-- JS: pills -> hidden inputs + auto-submit -->
+<script>
+  (function () {
+    const form = document.getElementById("filter-form");
+    if (!form) return;
+
+    const hiddenInputs = {
+      colour: document.getElementById("filter-colour"),
+      habit: document.getElementById("filter-habit"),
+      sort: document.getElementById("filter-sort"),
+    };
+
+    function setHiddenValue(filterName, value) {
+      const input = hiddenInputs[filterName];
+      if (!input) return;
+      input.value = value || "";
+    }
+
+    function clearPageParam() {
+      const pageInput = form.querySelector('input[name="page"]');
+      if (pageInput) {
+        pageInput.remove();
+      }
+    }
+
+    function autoSubmit() {
+      clearPageParam();
+      if (form.requestSubmit) {
+        form.requestSubmit();
+      } else {
+        form.submit();
+      }
+    }
+
+    form.addEventListener("click", function (event) {
+      const btn = event.target.closest("[data-filter-name]");
+      if (!btn) return;
+
+      event.preventDefault();
+
+      const filterName = btn.getAttribute("data-filter-name");
+      const filterValue = btn.getAttribute("data-filter-value");
+      const hidden = hiddenInputs[filterName];
+      if (!hidden) return;
+
+      const currentlyActive = hidden.value === filterValue;
+
+      // Toggle value: clicking an active pill clears it
+      if (currentlyActive) {
+        setHiddenValue(filterName, "");
+      } else {
+        setHiddenValue(filterName, filterValue);
+      }
+
+      // Update styles for all buttons in this group
+      const groupButtons = form.querySelectorAll(
+        '[data-filter-name="' + filterName + '"]'
+      );
+      groupButtons.forEach(function (b) {
+        const val = b.getAttribute("data-filter-value");
+        const isActive = !currentlyActive && val === filterValue;
+        b.classList.toggle("btn-primary", isActive);
+        b.classList.toggle("btn-outline", !isActive);
+        b.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      autoSubmit();
+    });
+  })();
+</script>
 {% endblock content %}
