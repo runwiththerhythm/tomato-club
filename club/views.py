@@ -1,6 +1,4 @@
 # club/views.py
-from django.views.decorators.csrf import csrf_exempt
-
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
@@ -17,11 +15,9 @@ from .forms import ContactForm, NewsletterSignupForm
 
 import stripe
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.generic import TemplateView
 
 from .models import MembershipTier, Membership
-
 
 
 def home(request):
@@ -59,11 +55,21 @@ class ContactView(FormView):
     form_class = ContactForm
     success_url = reverse_lazy("club:contact")
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs
+
     def form_valid(self, form):
-        name = form.cleaned_data["name"]
-        email = form.cleaned_data["email"]
         subject = form.cleaned_data.get("subject") or "Heritage Tomato Club contact form"
         message = form.cleaned_data["message"]
+
+        if self.request.user.is_authenticated:
+            name = (self.request.user.get_full_name() or self.request.user.username).strip()
+            email = (self.request.user.email or "").strip()
+        else:
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
 
         full_message = (
             f"Message from: {name} <{email}>\n\n"
@@ -76,7 +82,7 @@ class ContactView(FormView):
             message=full_message,
             from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
             recipient_list=[getattr(settings, "DEFAULT_FROM_EMAIL", "admin@example.com")],
-            fail_silently=True,  # console backend in dev anyway
+            fail_silently=True,
         )
 
         messages.success(
@@ -118,8 +124,7 @@ def newsletter_signup(request):
     return redirect("club:resources")
 
 
-@csrf_exempt
-@csrf_exempt
+@require_POST
 @login_required
 def create_membership_checkout_session(request, slug):
     """

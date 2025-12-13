@@ -88,21 +88,24 @@ INSTALLED_APPS = [
     "profiles.apps.ProfilesConfig",
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # must be right after SecurityMiddleware
-
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # right after SecurityMiddleware
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    # Redirect logged-in users away from login/signup
+    'club.middleware.RedirectAuthenticatedUsersMiddleware',
+
+    # allauth helpers (email verification, etc.)
+    'allauth.account.middleware.AccountMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    "allauth.account.middleware.AccountMiddleware",
-
 ]
 
 ROOT_URLCONF = 'config.urls'

@@ -2,7 +2,6 @@ from django import forms
 from .models import NewsletterSubscriber
 
 
-
 BASE_INPUT_CLASSES = (
     "input input-bordered w-full "
     "border border-base-300 "
@@ -60,6 +59,12 @@ class ContactForm(forms.Form):
             }
         ),
     )
+
+    def __init__(self, *args, user=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        if user and user.is_authenticated:
+            self.fields.pop("name", None)
+            self.fields.pop("email", None)
 
 
 class NewsletterSignupForm(forms.ModelForm):
