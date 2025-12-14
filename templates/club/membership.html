@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
 <main class="max-w-5xl mx-auto px-4 py-12">
@@ -126,10 +128,12 @@
               type="button"
               class="btn {% if forloop.first %}btn-primary{% else %}btn-outline btn-accent{% endif %} w-full join-tier-btn"
               data-tier-slug="{{ tier.slug }}"
+              data-checkout-url-template="{% url 'club:membership_checkout' slug='__SLUG__' %}"
             >
               Join {{ tier.name }}
             </button>
           </div>
+
         </div>
       </article>
     {% endfor %}
@@ -149,65 +153,7 @@
 </main>
 
 <script src="https://js.stripe.com/v3/"></script>
-<script>
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      const cookies = document.cookie.split(";");
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + "=")) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
+<script defer src="{% static 'js/membership.js' %}"></script>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".join-tier-btn");
-    const csrftoken = getCookie("csrftoken");
-
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", async () => {
-        const slug = btn.dataset.tierSlug;
-        const url = "{% url 'club:membership_checkout' slug='__SLUG__' %}".replace("__SLUG__", slug);
-
-        try {
-          const response = await fetch(url, {
-            method: "POST",
-            headers: {
-              "X-Requested-With": "XMLHttpRequest",
-              "X-CSRFToken": csrftoken,
-            },
-          });
-
-          if (!response.ok) {
-            const text = await response.text();
-            console.error("Checkout error", response.status, text);
-            alert("Something went wrong when starting the checkout.");
-            return;
-          }
-
-          const data = await response.json();
-          const stripe = Stripe(data.publicKey);
-
-          const { error } = await stripe.redirectToCheckout({
-            sessionId: data.sessionId,
-          });
-
-          if (error) {
-            console.error(error);
-            alert(error.message);
-          }
-        } catch (err) {
-          console.error("Network or JS error", err);
-          alert("Network error, please try again.");
-        }
-      });
-    });
-  });
-</script>
 
 {% endblock content %}

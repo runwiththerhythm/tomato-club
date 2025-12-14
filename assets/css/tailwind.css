@@ -14,6 +14,7 @@
     --color-pink-50: oklch(97.1% 0.014 343.198);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-black: #000;
+    --color-white: #fff;
     --spacing: 0.25rem;
     --container-xs: 20rem;
     --container-md: 28rem;
@@ -2625,6 +2626,9 @@
   }
   .text-warning-content {
     color: var(--color-warning-content);
+  }
+  .text-white {
+    color: var(--color-white);
   }
   .normal-case {
     text-transform: none;
