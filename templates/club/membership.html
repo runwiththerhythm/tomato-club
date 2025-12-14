@@ -89,9 +89,10 @@
         <div class="card-body {% if forloop.first %}pt-8{% endif %}">
           <h2 class="card-title flex items-center justify-between">
             {{ tier.name }}
-            <span class="badge badge-outline badge-primary">
-              Seed drops by post
-            </span>
+            <span class="badge badge-outline badge-primary whitespace-nowrap text-xs leading-none px-3">
+  Seed drops by post
+</span>
+
           </h2>
 
           {% if tier.short_tagline %}
