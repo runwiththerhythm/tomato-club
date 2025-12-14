@@ -14,6 +14,13 @@
       Questions about membership, the Seed Library, or growing heritage tomatoes
       in the UK? Use the form below and we’ll get back to you as soon as we can.
     </p>
+
+    {% if request.user.is_authenticated %}
+      <p class="text-sm text-base-content/70">
+        You’re signed in as <span class="font-medium">{{ request.user.email|default:request.user.username }}</span> —
+        we’ll use this for our reply.
+      </p>
+    {% endif %}
   </section>
 
   <section class="grid gap-8 md:grid-cols-3 items-start">
@@ -29,6 +36,7 @@
             {% csrf_token %}
             {{ form.non_field_errors }}
 
+            {% if form.name %}
             <!-- Name -->
             <div class="form-control">
               <label class="label" for="{{ form.name.id_for_label }}">
@@ -42,7 +50,9 @@
                 <p class="text-error text-sm mt-1">{{ error }}</p>
               {% endfor %}
             </div>
+            {% endif %}
 
+            {% if form.email %}
             <!-- Email -->
             <div class="form-control">
               <label class="label" for="{{ form.email.id_for_label }}">
@@ -56,6 +66,7 @@
                 <p class="text-error text-sm mt-1">{{ error }}</p>
               {% endfor %}
             </div>
+            {% endif %}
 
             <!-- Subject -->
             <div class="form-control">
