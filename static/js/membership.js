@@ -1,4 +1,6 @@
 /* global Stripe */
+`/* jshint esversion: 11 */`
+
 
 (function () {
   "use strict";
