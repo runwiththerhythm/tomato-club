@@ -148,27 +148,27 @@ I used [coolors.co](https://coolors.co) to finalise my color palette.
 The Heritage Tomato Club colour palette takes inspiration from vintage seed packets, garden twine, soil, and the natural colours found in tomato plants.  
 Each hue contributes to a warm, earthy, accessible aesthetic that supports the brand identity.
 
-**<span style="color:#1D1D1B;font-weight:700;background:#F6F1E8;padding:2px 6px;">Dark Soil — #1D1D1B</span>**  
+⬛ **Dark Soil — `#1D1D1B`**  
 The deepest tone in the palette, inspired by rich garden soil and vintage ink.  
-Used for headings, text, and strong contrast elements.
+Used for headings, body text, and strong contrast elements.
 
-**<span style="color:#355E3B;font-weight:700;">Vine Green — #355E3B</span>**  
+🟩 **Vine Green — `#355E3B`**  
 A classic tomato-vine green offering balance and an organic feel.  
 Used for accents, badges, and supportive UI components.
 
-**<span style="color:#F6F1E8;font-weight:700;background:#1D1D1B;padding:2px 6px;">Seed Packet Cream — #F6F1E8</span>**  
+⬜ **Seed Packet Cream — `#F6F1E8`**  
 A warm, parchment-like neutral echoing traditional seed envelopes.  
 Used for page backgrounds and high-readability surfaces.
 
-**<span style="color:#C3423F;font-weight:700;">Pomodoro Red — #C3423F</span>**  
-A ripe tomato red used for buttons, CTAs, and key highlights.  
-Warm and inviting, without overwhelming the interface.
+🟥 **Pomodoro Red — `#C3423F`**  
+A ripe tomato red used for buttons, calls-to-action, and key highlights.  
+Warm and inviting without overwhelming the interface.
 
-**<span style="color:#D96F3B;font-weight:700;">Heirloom Orange — #D96F3B</span>**  
-Reflecting the colour of heirloom varieties like ‘Orange Banana’ and ‘Valencia’.  
-Used for warm accents and supportive emphasis elements.
+🟧 **Heirloom Orange — `#D96F3B`**  
+Reflecting the colour of heritage varieties such as *Orange Banana* and *Valencia*.  
+Used for warm accents and secondary emphasis elements.
 
-**<span style="color:#D6A84B;font-weight:700;">Golden Seed Yellow — #D6A84B</span>**  
+🟨 **Golden Seed Yellow — `#D6A84B`**  
 Inspired by dried tomato seeds and aged paper.  
 Used for highlights, decorative touches, and gentle emphasis.
 
@@ -207,60 +207,55 @@ The final result is a cohesive type system that feels authentic to the heritage 
 
 | Target | Expectation | Outcome |
 | --- | --- | --- |
-| As a first time visitor,|  I can view detailed information about the app without having to register, | so that I can decide if I want to use it. |
-| As a first time visitor, | I would like to be able to navigate the site easily | so that I can find relevant information quickly. |
-| As a new user | I can sign up easily using a registration form | so that I can create an account and start using the app. |
-| As a registered user | I can log in securely | so that I can access my private dashboard and saved gigs.|
-| As a user who forgot my password | I can reset it via email | so that I can regain access to my account.
-| As a logged in user,| I can log out, | so that I can end my session securely.|
-| As a user,| I can view a friendly error page if I hit a dead link | so that I’m not confused or lost. |
-| As a logged in user,| I want to add a gig I attended | so that I can manage user engagement effectively. |
-| As a logged in user, | I want the band field to autocomplete when typing| so I don’t create duplicate entries. |
-| As a logged in user, | I want to view the full details of a specific gig, | so I can revisit memories and see all the information I entered.|
-| As a logged in user, | I want to edit an existing gig,  | so I can fix mistakes or update information like venue, date, or notes.|
-| As a logged in user, |  I want to delete a gig, | so I can remove any accidental or unwanted entries.|
-| As a logged in user, | I want to view a list of all gigs I’ve entered,| so I can browse my gig history easily.|
-| As a logged in user, | I want to upload and manage images for a gig,| so I can visually document the concert experience.|
-| As a logged in user, |I want to record a festival as a gig that contains multiple band performances, | so I can document the full experience in one place.|
-| As a logged in user, | I want to add other artists who performed at the same gig,  | sso I can log the full lineup. |
-| As a logged in user,| I want to see relevant YouTube videos from a gig,| so I can relive the performance without having to manually search. |
-| As a logged in user, | I want to quickly see the setlist from the gig,| so I can remember what songs were played. |
-
+| As a first-time visitor, | I can view information about the Heritage Tomato Club without registering, | so that I can decide whether I want to join. |
+| As a first-time visitor, | I can easily navigate the site, | so that I can find seed varieties, resources, and membership information quickly. |
+| As a new user, | I can register for an account, | so that I can access member features. |
+| As a registered user, | I can log in securely, | so that I can access my profile and member-only content. |
+| As a logged-in user, | I can log out of my account, | so that my session ends securely. |
+| As a user who forgot my password, | I can reset my password via email, | so that I can regain access to my account. |
+| As a visitor or member, | I can view a friendly error page if I reach a broken link, | so that I am not confused or lost. |
+| As a visitor, | I can browse the Seed Library, | so that I can learn about different heritage tomato varieties. |
+| As a user, | I can view detailed information about a tomato variety, | so that I can understand its growth habit, origin, and characteristics. |
+| As a logged-in user, | I can purchase a membership tier, | so that I can support the club and access additional features. |
+| As a logged-in member, | I can manage my membership status, | so that I know whether my membership is active. |
+| As a logged-in user, | I can create a grow diary entry, | so that I can record the progress of my tomato plants. |
+| As a logged-in user, | I can edit a grow diary entry, | so that I can update notes or growth stages. |
+| As a logged-in user, | I can delete a grow diary entry, | so that I can remove incorrect or unwanted records. |
+| As a logged-in user, | I can upload photos to my grow diary entries, | so that I can visually document plant development. |
+| As a user, | I can browse tomato recipes, | so that I can find ideas for using harvested tomatoes. |
+| As a visitor, | I can sign up to the newsletter, | so that I can receive club updates and news. |
 ## Features
 
 ### Existing Features
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Register / Login / Logout | Handled by django-allauth, allowing users to create secure accounts, log in, and log out. | ![screenshot](documentation/features/register.png) |
-| Dashboard | The central hub showing upcoming gigs, attended gigs, and quick stats. | ![screenshot](documentation/features/dashboard.png) |
-| My Gigs | Full list view of all a user’s gigs with filtering for upcoming vs past gigs. Entries are displayed as cards with cover images and details. | ![screenshot](documentation/features/my-gigs.png) |
-|Add Gig | Users can log a gig they attended or are planning to attend. The form supports band autocomplete, venue search (Mapbox), gig date, status, and genre.| ![screenshot](documentation/features/add-new-gig1.png) |
-| Edit / Delete Gig | Existing gig entries can be updated or removed, giving users full control over their vault. | ![screenshot](documentation/features/edit-gig.png) |
-| Band Autocomplete | Powered by django-autocomplete-light, users can quickly search and select existing bands or add new ones via modal. | ![screenshot](documentation/features/band-autocomplete.png) |
-| Venue Search | Uses Mapbox Search JS to autocomplete venue details. Venue name, city, and country are stored without needing coordinates. | ![screenshot](documentation/features/venue.png) |
-| Image Uploads | Users can upload multiple gig images (via Cloudinary). One image can be marked as the cover, and previews are shown before saving. | ![screenshot](documentation/features/image-uploads.png) |
-| YouTube Integration | Users can auto-search YouTube for videos of their gig and link them directly into the entry. | ![screenshot](documentation/features/youtube.png) |
-| About Page | Introduces the Gig Vault project and its purpose.| ![screenshot](documentation/features/about.png) |
-| 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
-| Messages / Feedback | Django messages framework provides clear feedback for actions (e.g., gig created, updated, deleted). | ![screenshot](documentation/features/django-messages.png) |
-| Heroku Deployment | Fully deployed to Heroku with Postgres, Cloudinary, and Whitenoise. | ![screenshot](documentation/features/deployed-heroku.png) |
+| Register / Login / Logout | Handled by Django Allauth, allowing users to create secure accounts, log in, and log out. | ![screenshot](documentation/features/auth.png) |
+| Membership Tiers | Users can view available membership tiers, including free and paid options, with clear descriptions and pricing. | ![screenshot](documentation/features/membership-tiers.png) |
+| Stripe Checkout | Paid memberships are processed securely using Stripe Checkout. Users are redirected to a confirmation page on success. | ![screenshot](documentation/features/stripe-checkout.png) |
+| Membership Status | Logged-in users can see whether their membership is active and which tier they belong to. | ![screenshot](documentation/features/membership-status.png) |
+| Seed Library | Publicly accessible list of heritage tomato varieties with clean, card-based layout. | ![screenshot](documentation/features/seed-library.png) |
+| Variety Detail Pages | Each tomato variety has a dedicated page showing images, origin, growth habit, and descriptive notes. | ![screenshot](documentation/features/variety-detail.png) |
+| Filtering & Sorting | Users can filter tomato varieties by traits such as growth habit and colour, and sort alphabetically. | ![screenshot](documentation/features/filters.png) |
+| Grow Diary | Logged-in users can record the progress of their tomato plants through diary entries. | ![screenshot](documentation/features/grow-diary.png) |
+| Add Diary Entry | Users can create diary entries with growth stage, date, notes, and optional photo upload (Cloudinary). | ![screenshot](documentation/features/add-diary.png) |
+| Edit / Delete Diary Entries | Users have full control to update or remove their own grow diary entries. | ![screenshot](documentation/features/edit-diary.png) |
+| Recipes | Users can browse tomato-based recipes, including prep time, difficulty, and suitability for gluts. | ![screenshot](documentation/features/recipes.png) |
+| Newsletter Signup | Visitors can subscribe to the newsletter to receive updates from the club. | ![screenshot](documentation/features/newsletter.png) |
+| Feedback Messages | Django messages framework provides clear feedback for actions such as form submissions and membership changes. | ![screenshot](documentation/features/messages.png) |
+| Custom Error Pages | Friendly 404 and 500 error pages are provided to maintain a consistent user experience. | ![screenshot](documentation/features/404.png) |
+| Responsive Design | The site is fully responsive and optimised for mobile, tablet, and desktop devices. | ![screenshot](documentation/features/responsive.png) |
 
 ### Future Features
 
-- **Festival Child Gigs**: Ability to create a “parent” festival entry that contains multiple band performances as child gigs. Helps users track festival weekends in detail.
-- **Social Sharing**: Quick-share options for individual gig entries to platforms like Instagram, Facebook, and X (Twitter). Lets users show off their vault highlights.
-- **Dark Mode Toggle**:A built-in dark theme for night-time browsing, fitting the live music aesthetic and reducing eye strain.
-- **Advanced Stats**: A calendar-based view for upcoming gigs, making it easier to see what’s coming up at a glance.
-- **Calendar View**: Enable users to reply to comments, creating nested comment threads for better discussions.
-- **Notifications / Reminders**: Email or dashboard notifications reminding users about upcoming gigs or anniversaries of past ones.
-- **Export / Import**: IAbility to export a user’s gig history to CSV/JSON or import past gig data from external services.
-- **Email Subscriptions**: Allow users to subscribe to receive email notifications for new features, updates, and newsletter.
-- **Analytics**: For better understanding of how the user uses the site to better future improvements.
-- **Multilingual Support**: Add the ability to write and view in multiple languages, broadening the audience.
-- **Mobile PWA**: Progressive Web App mode for offline access and quick “Add to Home Screen” installs on iOS/Android.
-- **SEO Optimization**: Implement features for SEO, such as meta tags, custom URLs, and keywords for better search engine ranking.
-- **Custom Themes for Users**: Allow users to customize the visual theme of the site (colors, fonts, etc.) to suit their preferences.
+- **Seed Swapping**: Allow members to request and exchange seeds with other club members.
+- **Advanced Grow Diary Insights**: Visual timelines and summaries showing plant progress over time.
+- **Member-Only Recipes**: Restrict certain premium recipes to paid membership tiers.
+- **Events & Meetups**: Promote seed swaps, talks, and local gardening events.
+- **Notifications**: Email reminders for diary updates, seasonal tips, or membership renewal.
+- **Search**: Full-text search across seed varieties, diary entries, and recipes.
+- **Admin Analytics**: Insights into popular varieties, active members, and site usage.
+- **Accessibility Enhancements**: Continued improvements toward WCAG AAA compliance.
 
 ## Tools & Technologies
 

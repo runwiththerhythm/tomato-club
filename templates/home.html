@@ -2,91 +2,155 @@
 {% load static %}
 
 {% block content %}
-<main class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+<main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
 
-  <!-- HERO SECTION -->
-  <section 
-    class="hero min-h-[70vh] bg-cover bg-center relative"
+  <!-- HERO (photo stays visible, highlighted copy) -->
+  <section
+    class="relative overflow-hidden rounded-3xl border border-base-300 shadow-xl min-h-[70vh] bg-cover bg-center"
     style="background-image: url('{% static 'img/heritage-tomatoes.jpg' %}');"
   >
-    <!-- dark overlay for contrast -->
-    <!-- <div class="absolute inset-0 bg-base-200/60"></div> -->
+    <!-- Light contrast layer -->
+    <div class="absolute inset-0 bg-black/15"></div>
 
-    <div class="hero-content relative z-10 text-white text-center md:text-left px-6">
-      <div class="max-w-2xl">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          Grow, Save & Share Heritage Tomatoes
+    <div class="relative z-10 min-h-[70vh] flex items-center px-6 py-10">
+      <div class="max-w-2xl space-y-5">
+
+        <div class="flex flex-wrap gap-2">
+          <span class="badge badge-outline border-white/60 text-white bg-black/10">UK community</span>
+          <span class="badge badge-outline border-white/60 text-white bg-black/10">Seed Library</span>
+          <span class="badge badge-outline border-white/60 text-white bg-black/10">Grow diary</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+          <span class="inline-block bg-orange-600/85 text-white px-4 py-2 rounded-xl">
+            Grow, Save & Share
+          </span>
+          <br />
+          <span class="inline-block bg-orange-600/85 text-white px-4 py-2 rounded-xl mt-2">
+            Heritage Tomatoes
+          </span>
         </h1>
 
-        <p class="text-base md:text-lg opacity-90 mb-6 leading-relaxed">
-          Join a friendly UK community of home growers passionate about preserving rare, flavourful
-          heirloom tomato varieties.
+        <p class="text-base md:text-lg leading-relaxed max-w-xl">
+          <span class="inline-block bg-orange-500/80 text-white px-4 py-2 rounded-xl">
+            Join a friendly UK community of home growers preserving rare, flavourful tomato varieties —
+            with a Seed Library, grow notes, and seasonal seed drops.
+          </span>
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a href="{% url 'seeds:variety_list' %}" 
-             class="btn btn-primary btn-lg">
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <a href="{% url 'seeds:variety_list' %}"
+             class="btn btn-primary btn-lg rounded-full shadow-md">
             Browse Varieties
           </a>
 
-          <a href="{% url 'club:membership' %}" 
-             class="btn btn-secondary btn-lg">
+          <a href="{% url 'club:membership' %}"
+             class="btn btn-outline btn-lg rounded-full bg-white/80 hover:bg-white text-base-content border-white">
             Join the Club
+          </a>
+
+          {% if user.is_authenticated %}
+            <a href="{% url 'diary:entry_list' %}"
+               class="btn btn-ghost btn-lg rounded-full text-white hover:bg-black/10">
+              Open grow diary
+            </a>
+          {% endif %}
+        </div>
+
+        <p class="text-sm text-white/90">
+          Seed drops planned for the UK sowing season: <span class="font-semibold">December–March</span>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (simple + clean, makes page feel “designed”) -->
+  <section class="grid gap-4 md:grid-cols-3">
+    <div class="card bg-base-100 border border-base-300/70 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-lg">Discover varieties</h2>
+        <p class="text-sm text-base-content/80">
+          Browse heritage tomatoes by fruit colour, growth habit, and origin — then dive into detail pages.
+        </p>
+        <div class="card-actions justify-end">
+          <a href="{% url 'seeds:variety_list' %}" class="btn btn-sm btn-outline rounded-full">
+            Explore Seed Library
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 border border-base-300/70 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-lg">Grow & keep notes</h2>
+        <p class="text-sm text-base-content/80">
+          Track sowing, potting-on, flowering and harvest — with photos — in your personal grow diary.
+        </p>
+        <div class="card-actions justify-end">
+          {% if user.is_authenticated %}
+            <a href="{% url 'diary:entry_list' %}" class="btn btn-sm btn-outline rounded-full">
+              Go to diary
+            </a>
+          {% else %}
+            <a href="{% url 'account_signup' %}" class="btn btn-sm btn-outline rounded-full">
+              Join free
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 border border-base-300/70 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-lg">Save & share seeds</h2>
+        <p class="text-sm text-base-content/80">
+          Help preserve genetic diversity by saving seed and supporting a small community seed swap.
+        </p>
+        <div class="card-actions justify-end">
+          <a href="{% url 'club:membership' %}" class="btn btn-sm btn-outline rounded-full">
+            See membership
           </a>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- Hero -->
-  <section class="space-y-4">
-    <h1 class="text-3xl md:text-4xl font-bold">
-      Heritage Tomato Seed Club
-    </h1>
-    <p class="text-base md:text-lg max-w-2xl">
-      Preserving rare tomato varieties and improving education on heritage seeds.
-    </p>
-
-    <div class="flex flex-wrap gap-3">
-      <button class="btn btn-primary">Join the Club</button>
-      <a href="{% url 'seeds:variety_list' %}" class="btn btn-secondary">
-        Browse Seeds
-      </a>
-      <a href="{% url 'club:about' %}" class="btn btn-accent">
-        Learn More
-      </a>
-    </div>
-  </section>
-
-  <!-- Featured varieties -->
+  <!-- FEATURED VARIETIES -->
   {% if featured_varieties %}
     <section class="space-y-4">
-      <div class="flex items-center justify-between gap-3 flex-wrap">
-        <h2 class="text-2xl md:text-3xl font-bold">
-          Featured varieties from the Seed Library
-        </h2>
-        <a href="{% url 'seeds:variety_list' %}" class="btn btn-sm btn-outline">
+      <div class="flex items-end justify-between gap-3 flex-wrap">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">
+            Featured varieties
+          </h2>
+          <p class="text-sm text-base-content/70">
+            A few favourites from the Seed Library — browse, filter, and discover more.
+          </p>
+        </div>
+
+        <a href="{% url 'seeds:variety_list' %}" class="btn btn-sm btn-outline rounded-full">
           View all varieties
         </a>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {% for variety in featured_varieties %}
-          <article class="card bg-base-100 shadow-md border border-base-300/70">
-            <!-- Image / placeholder -->
-            <figure class="h-40 md:h-48 overflow-hidden border-b border-base-300/60">
+          <article class="card bg-base-100 shadow-md border border-base-300/70 overflow-hidden hover:shadow-lg transition">
+            <figure class="h-44 md:h-52 overflow-hidden border-b border-base-300/60">
               {% if variety.image %}
                 <img
                   src="{{ variety.image.url }}"
                   alt="{{ variety.name }}"
                   class="w-full h-full object-cover"
+                  loading="lazy"
                 >
               {% else %}
                 <img
                   src="{% static 'img/placeholder-tomato.jpg' %}"
-                  alt="No photo available"
-                  class="w-full h-full object-cover opacity-80"
+                  alt="Tomato placeholder image"
+                  class="w-full h-full object-cover opacity-90"
+                  loading="lazy"
                 >
               {% endif %}
             </figure>
@@ -98,41 +162,26 @@
                 </a>
               </h3>
 
-              {% if variety.origin %}
-                <p class="text-sm opacity-80">
-                  Origin: {{ variety.origin }}
-                </p>
-              {% endif %}
-
-              <ul class="text-sm space-y-1 mt-2">
-                {% if variety.growth_habit %}
-                  <li>
-                    <span class="font-semibold">Habit:</span>
-                    {{ variety.get_growth_habit_display }}
-                  </li>
-                {% endif %}
+              <div class="flex flex-wrap gap-2 mt-1">
                 {% if variety.fruit_color %}
-                  <li>
-                    <span class="font-semibold">Fruit colour:</span>
-                    {{ variety.fruit_color }}
-                  </li>
+                  <span class="badge badge-outline">{{ variety.fruit_color }}</span>
                 {% endif %}
-                {% if variety.days_to_maturity %}
-                  <li>
-                    <span class="font-semibold">Days to maturity:</span>
-                    ~{{ variety.days_to_maturity }} days
-                  </li>
+                {% if variety.growth_habit %}
+                  <span class="badge badge-outline">{{ variety.get_growth_habit_display }}</span>
                 {% endif %}
-              </ul>
+                {% if variety.origin %}
+                  <span class="badge badge-outline">Origin: {{ variety.origin }}</span>
+                {% endif %}
+              </div>
 
               {% if variety.description %}
-                <p class="mt-3 text-sm">
+                <p class="mt-3 text-sm text-base-content/80">
                   {{ variety.description|truncatechars:140 }}
                 </p>
               {% endif %}
 
               <div class="card-actions justify-end mt-4">
-                <a href="{{ variety.get_absolute_url }}" class="btn btn-sm btn-primary">
+                <a href="{{ variety.get_absolute_url }}" class="btn btn-sm btn-primary rounded-full">
                   View details
                 </a>
               </div>
@@ -143,21 +192,19 @@
     </section>
   {% endif %}
 
-  <!-- Why heritage tomatoes -->
+  <!-- WHY HERITAGE -->
   <section class="grid gap-8 md:grid-cols-2 items-start">
     <div class="space-y-4">
       <h2 class="text-2xl md:text-3xl font-bold">
         Why heritage tomatoes?
       </h2>
       <p class="text-base md:text-lg">
-        Heritage and heirloom tomatoes often have deeper, more complex
-        flavours, beautiful shapes and colours, and stories attached to
-        how they were grown and passed down.
+        Heritage tomatoes often have deeper flavour, beautiful shapes and colours,
+        and stories attached to how they were grown and passed down.
       </p>
-      <p>
-        By growing and sharing them, we keep living genetic diversity alive
-        – a small but meaningful act against blandness in both gardens and
-        food systems.
+      <p class="text-base-content/80">
+        By growing and sharing them, we keep genetic diversity alive — a small but meaningful
+        act against blandness in gardens and food systems.
       </p>
       <a href="{% url 'club:about' %}" class="link link-primary font-medium">
         Learn more about the club →
@@ -165,10 +212,43 @@
     </div>
 
     <div class="space-y-4">
-      <div class="alert alert-info">
-        <span>New heritage varieties added for the spring sowing calendar.</span>
+      <div class="alert alert-info shadow-sm">
+        <span>New varieties are added seasonally — check back before sowing time.</span>
       </div>
-      <!-- You could add a small key dates / CTA card here later -->
+
+      <div class="card bg-base-100 border border-base-300/70 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-lg">Not sure where to start?</h3>
+          <p class="text-sm text-base-content/80">
+            Browse by fruit colour and habit, then save notes in your grow diary as you go.
+          </p>
+          <div class="card-actions justify-end">
+            <a href="{% url 'club:resources' %}" class="btn btn-sm btn-outline rounded-full">
+              Tomato growing resources
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA BAND -->
+  <section class="rounded-3xl border border-base-300 bg-base-100 shadow-sm p-6 md:p-10">
+    <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+      <div class="space-y-2">
+        <h2 class="text-2xl md:text-3xl font-bold">Ready to grow something special?</h2>
+        <p class="text-base-content/80 max-w-2xl">
+          Join free to start exploring, or choose a membership tier when you’re ready for seed drops and perks.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <a href="{% url 'account_signup' %}" class="btn btn-primary rounded-full w-full md:w-auto">
+          Join free
+        </a>
+        <a href="{% url 'club:membership' %}" class="btn btn-outline rounded-full w-full md:w-auto">
+          View membership
+        </a>
+      </div>
     </div>
   </section>
 
