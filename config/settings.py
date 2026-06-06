@@ -39,9 +39,11 @@ SITE_ID = 1
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-g%fijvts#vmdu%p3_$sdfcawc^v%#1)+r@)zpn6$y2y5f+g%)6")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY environment variable is required")
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "")
 

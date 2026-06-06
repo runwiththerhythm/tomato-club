@@ -125,14 +125,14 @@
           {% endif %}
 
           <div class="card-actions mt-6">
-            <button
-              type="button"
-              class="btn {% if forloop.first %}btn-primary{% else %}btn-outline btn-accent{% endif %} w-full join-tier-btn"
-              data-tier-slug="{{ tier.slug }}"
-              data-checkout-url-template="{% url 'club:membership_checkout' slug='__SLUG__' %}"
-            >
-              Join {{ tier.name }}
-            </button>
+          <a
+            href="{% url 'club:membership_checkout' slug=tier.slug %}"
+            class="btn {% if forloop.first %}btn-primary{% else %}btn-outline btn-accent{% endif %} w-full join-tier-btn"
+            data-tier-slug="{{ tier.slug }}"
+            data-checkout-url="{% url 'club:membership_checkout' slug=tier.slug %}"
+          >
+            Join {{ tier.name }}
+          </a>
           </div>
 
         </div>
