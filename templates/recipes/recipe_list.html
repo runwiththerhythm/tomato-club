@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Recipes – Heritage Tomato Club{% endblock title %}
+
+{% block content %}
+<main class="max-w-6xl mx-auto px-4 py-10 space-y-8">
+  <section class="space-y-3">
+    <h1 class="text-3xl md:text-4xl font-bold">
+      Tomato Recipes
+    </h1>
+    <p class="text-base md:text-lg max-w-3xl text-base-content/80">
+      Simple seasonal ideas for using heritage tomatoes, from fresh salads to
+      sauces and preserves. This recipe section is an early version and will
+      grow as the club develops.
+    </p>
+  </section>
+
+  <section class="grid gap-6 md:grid-cols-3">
+    {% for recipe in recipes %}
+      <article class="card bg-base-100 shadow-md border border-base-300/60">
+        <div class="card-body">
+          <div class="flex flex-wrap gap-2 mb-2">
+            <span class="badge badge-primary badge-outline">
+              {{ recipe.time }}
+            </span>
+            <span class="badge badge-ghost">
+              {{ recipe.difficulty }}
+            </span>
+          </div>
+
+          <h2 class="card-title">
+            {{ recipe.title }}
+          </h2>
+
+          <p class="text-sm font-semibold text-base-content/80">
+            {{ recipe.tagline }}
+          </p>
+
+          <p class="text-sm text-base-content/70">
+            {{ recipe.description }}
+          </p>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="alert bg-base-200 border border-base-300">
+    <div>
+      <h2 class="font-bold">More recipes coming soon</h2>
+      <p class="text-sm">
+        Future versions could include full recipe detail pages, member-submitted
+        recipes, preserving guides and links to suitable tomato varieties.
+      </p>
+    </div>
+  </section>
+</main>
+{% endblock content %}
