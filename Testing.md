@@ -37,19 +37,19 @@ Deployed site:
 
 HTML was checked using the [W3C Nu HTML Validator](https://validator.w3.org/nu/). The validator was used on rendered deployed pages rather than raw Django templates, because Django template tags are processed server-side before reaching the browser.
 
-| Page / Area         | URL Tested                                              | Result | Notes                                                                      |
-| ------------------- | ------------------------------------------------------- | ------ | -------------------------------------------------------------------------- |
-| Home                | `https://tomatoes.cassiterite.digital/`                 | Pass   | Main landing page rendered correctly.                                      |
-| About               | `https://tomatoes.cassiterite.digital/about/`           | Pass   | Informational content displayed correctly.                                 |
-| Membership          | `https://tomatoes.cassiterite.digital/membership/`      | Pass   | Membership tier cards and checkout forms rendered correctly.               |
-| Join                | `https://tomatoes.cassiterite.digital/join/`            | Pass   | Join page content and links rendered correctly.                            |
-| Resources           | `https://tomatoes.cassiterite.digital/resources/`       | Pass   | Resource page and newsletter form rendered correctly.                      |
-| Contact             | `https://tomatoes.cassiterite.digital/contact/`         | Pass   | Contact form rendered correctly.                                           |
-| Seed Library        | `https://tomatoes.cassiterite.digital/seeds/`           | Pass   | Filter form, sort buttons and variety cards rendered correctly.            |
-| Seed Variety Detail | Example variety detail page                             | Pass   | Individual tomato variety page rendered correctly.                         |
-| Login               | `https://tomatoes.cassiterite.digital/accounts/login/`  | Pass   | Login form rendered correctly.                                             |
-| Signup              | `https://tomatoes.cassiterite.digital/accounts/signup/` | Pass   | Signup form rendered correctly after removing unused social login section. |
-| 404 Page            | Invalid URL tested manually                             | Pass   | Custom 404 page displayed correctly.                                       |
+| Page / Area         | URL Tested                                                | Result | Notes                                                                      |
+| ------------------- | --------------------------------------------------------- | ------ | -------------------------------------------------------------------------- |
+| Home                | `https://tomatoes.cassiterite.digital/`                   | Pass   | Main landing page rendered correctly.                                      |
+| About               | `https://tomatoes.cassiterite.digital/about/`             | Pass   | Informational content displayed correctly.                                 |
+| Membership          | `https://tomatoes.cassiterite.digital/membership/`        | Pass   | Membership tier cards and checkout forms rendered correctly.               |
+| Join                | `https://tomatoes.cassiterite.digital/join/`              | Pass   | Join page content and links rendered correctly.                            |
+| Resources           | `https://tomatoes.cassiterite.digital/resources/`         | Pass   | Resource page and newsletter form rendered correctly.                      |
+| Contact             | `https://tomatoes.cassiterite.digital/contact/`           | Pass   | Contact form rendered correctly.                                           |
+| Seed Library        | `https://tomatoes.cassiterite.digital/seeds/`             | Pass   | Filter form, sort buttons and variety cards rendered correctly.            |
+| Seed Variety Detail | `https://tomatoes.cassiterite.digital/seeds/ailsa-craig/` | Pass   | Individual tomato variety page rendered correctly.                         |
+| Login               | `https://tomatoes.cassiterite.digital/accounts/login/`    | Pass   | Login form rendered correctly.                                             |
+| Signup              | `https://tomatoes.cassiterite.digital/accounts/signup/`   | Pass   | Signup form rendered correctly after removing unused social login section. |
+| 404 Page            | Invalid URL tested manually                               | Pass   | Custom 404 page displayed correctly.                                       |
 
 A validation issue was found in the redirect page meta refresh syntax:
 
@@ -129,8 +129,7 @@ The tests cover:
 
 Tests were run with:
 
-    bash
-
+```bash
 python3 manage.py test club seeds
 
 ### Result:
@@ -347,7 +346,4 @@ The deployed VPS version was tested after final fixes.
 There are no known blocking issues at the time of final testing.
 
 Automated test coverage is limited and focused on selected high-risk areas. The wider project functionality has also been verified through manual testing.
-
-```
-
 ```
