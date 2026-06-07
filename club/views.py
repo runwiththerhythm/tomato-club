@@ -37,9 +37,21 @@ class MembershipView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         tiers = MembershipTier.objects.filter(is_active=True)
         context["free_tiers"] = tiers.filter(price_per_year__lte=0)
         context["paid_tiers"] = tiers.filter(price_per_year__gt=0)
+
+        current_membership = None
+        if self.request.user.is_authenticated:
+            current_membership = (
+                Membership.objects
+                .select_related("tier")
+                .filter(user=self.request.user)
+                .first()
+            )
+
+        context["current_membership"] = current_membership
         return context
 
 

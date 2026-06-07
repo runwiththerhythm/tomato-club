@@ -15,6 +15,42 @@
     </p>
   </section>
 
+  {% if user.is_authenticated %}
+  <section class="mb-8">
+    <div class="card bg-base-200 border border-base-300 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-xl">
+          Your membership status
+        </h2>
+
+        {% if current_membership %}
+          <p class="text-sm text-base-content/80">
+            You are currently on the
+            <strong>{{ current_membership.tier.name }}</strong>
+            tier.
+          </p>
+
+          <p class="text-sm text-base-content/70">
+            Status:
+            {% if current_membership.active %}
+              <span class="badge badge-success badge-sm ml-1">Active</span>
+            {% else %}
+              <span class="badge badge-warning badge-sm ml-1">Pending</span>
+            {% endif %}
+          </p>
+        {% else %}
+          <p class="text-sm text-base-content/80">
+            You do not currently have an active paid membership.
+          </p>
+          <p class="text-sm text-base-content/70">
+            You can stay on the free tier or choose a paid tier below.
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
   <!-- Pricing grid -->
   <section class="grid gap-6 md:grid-cols-3">
     {# ---------- FREE TIER(S) ---------- #}
