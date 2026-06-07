@@ -16,14 +16,13 @@
       and we’re working to prune it back into shape.
     </p>
 
-    <div class="flex flex-wrap gap-3 justify-center">
-      <a href="{% url 'home' %}" class="btn btn-primary">
-        ← Back to the garden
-      </a>
-      <a href="{% url 'contact' %}" class="btn btn-ghost">
-        Contact the club
-      </a>
-    </div>
+    <a href="{% url 'club:home' %}" class="btn btn-primary">
+      ← Back to the garden
+    </a>
+
+    <a href="{% url 'club:contact' %}" class="btn btn-ghost" aria-label="Contact the Heritage Tomato Club">
+      Contact the club
+    </a>
 
     <p class="mt-6 text-sm text-base-content/60">
       If this keeps happening, feel free to let us know — we’ll compost the bug.
