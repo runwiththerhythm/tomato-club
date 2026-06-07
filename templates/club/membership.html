@@ -124,16 +124,23 @@
             </ul>
           {% endif %}
 
-          <div class="card-actions mt-6">
-          <a
-            href="{% url 'club:membership_checkout' slug=tier.slug %}"
-            class="btn {% if forloop.first %}btn-primary{% else %}btn-outline btn-accent{% endif %} w-full join-tier-btn"
-            data-tier-slug="{{ tier.slug }}"
-            data-checkout-url="{% url 'club:membership_checkout' slug=tier.slug %}"
+        <div class="card-actions mt-6">
+          <form
+            method="post"
+            action="{% url 'club:membership_checkout' slug=tier.slug %}"
+            class="w-full"
           >
-            Join {{ tier.name }}
-          </a>
-          </div>
+            {% csrf_token %}
+            <button
+              type="submit"
+              class="btn {% if forloop.first %}btn-primary{% else %}btn-outline btn-accent{% endif %} w-full join-tier-btn"
+              data-tier-slug="{{ tier.slug }}"
+              data-checkout-url="{% url 'club:membership_checkout' slug=tier.slug %}"
+            >
+              Join {{ tier.name }}
+            </button>
+          </form>
+        </div>
 
         </div>
       </article>

@@ -176,11 +176,23 @@ def create_membership_checkout_session(request, slug):
         print("Stripe error while creating Checkout Session:", repr(e))
         return JsonResponse({"error": str(e)}, status=500)
 
+    checkout_url = checkout_session.get("url")
+
+    if request.headers.get("x-requested-with") == "XMLHttpRequest":
+        return JsonResponse(
+            {
+                "sessionId": checkout_session["id"],
+                "publicKey": settings.STRIPE_PUBLISHABLE_KEY,
+                "checkoutUrl": checkout_url,
+            }
+        )
+
+    if checkout_url:
+        return redirect(checkout_url)
+
     return JsonResponse(
-        {
-            "sessionId": checkout_session["id"],
-            "publicKey": settings.STRIPE_PUBLISHABLE_KEY,
-        }
+        {"error": "Stripe checkout URL was not returned."},
+        status=500,
     )
 
 

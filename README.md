@@ -9,47 +9,46 @@ Developer: ([runwiththerhythm](https://www.github.com/runwiththerhythm))
 
 ## Table of Contents
 
-   * [Introduction](#introduction)
-   * [UX](#ux)
-      * [The 5 Planes of UX](#the-5-planes-of-ux)
-         * [1. Strategy](#1-strategy)
-         * [2. Scope](#2-scope)
-         * [3. Structure](#3-structure)
-         * [4. Skeleton](#4-skeleton)
-         * [5. Surface](#5-surface)
-      * [Colour Scheme](#colour-scheme)
-      * [Typography](#typography)
-   * [Wireframes](#wireframes)
-   * [User Stories](#user-stories)
-   * [Features](#features)
-      * [Existing Features](#existing-features)
-      * [Future Features](#future-features)
-   * [Tools &amp; Technologies](#tools--technologies)
-   * [Database Design](#database-design)
-      * [Data Model](#data-model)
-   * [Agile Development Process](#agile-development-process)
-      * [GitHub Projects](#github-projects)
-      * [GitHub Issues](#github-issues)
-   * [Testing](#testing)
-   * [Deployment](#deployment)
-      * [Heroku Deployment](#heroku-deployment)
-      * [Cloudinary API](#cloudinary-api)
-      * [PostgreSQL](#postgresql)
-      * [WhiteNoise](#whitenoise)
-      * [Local Development](#local-development)
-         * [Cloning](#cloning)
-         * [Forking](#forking)
-      * [Local VS Deployment](#local-vs-deployment)
-   * [Credits](#credits)
-      * [Content](#content)
-      * [Media](#media)
-      * [Acknowledgements](#acknowledgements)
+- [Introduction](#introduction)
+- [UX](#ux)
+  - [The 5 Planes of UX](#the-5-planes-of-ux)
+    - [1. Strategy](#1-strategy)
+    - [2. Scope](#2-scope)
+    - [3. Structure](#3-structure)
+    - [4. Skeleton](#4-skeleton)
+    - [5. Surface](#5-surface)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+- [Wireframes](#wireframes)
+- [User Stories](#user-stories)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Future Features](#future-features)
+- [Tools &amp; Technologies](#tools--technologies)
+- [Database Design](#database-design)
+  - [Data Model](#data-model)
+- [Agile Development Process](#agile-development-process)
+  - [GitHub Projects](#github-projects)
+  - [GitHub Issues](#github-issues)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Cloudinary API](#cloudinary-api)
+  - [PostgreSQL](#postgresql)
+  - [WhiteNoise](#whitenoise)
+  - [Local Development](#local-development)
+    - [Cloning](#cloning)
+    - [Forking](#forking)
+  - [Local VS Deployment](#local-vs-deployment)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
 **Site Mockup**
 ![screenshot](documentation/mockup.png)
 
 source: [tomato-club amiresponsive](https://ui.dev/amiresponsive?url=https://tomatoes.cassiterite.digital)
-
 
 ## Introduction
 
@@ -60,13 +59,11 @@ The site is designed to appeal to home gardeners interested in growing heritage 
 
 ## [View deployed version](https://tomatoes.cassiterite.digital)
 
-
 ## UX
 
 ### The 5 Planes of UX
 
 #### 1. Strategy
-
 
 **Purpose**
 
@@ -134,8 +131,8 @@ The site is designed to appeal to home gardeners interested in growing heritage 
 #### 5. Surface
 
 **Visual Design Elements**
-- **[Colours](#colour-scheme)** (see below)
-- **[Typography](#typography)** (see below)
+
+- **[Colours](#colour-scheme)**
 
 ### Colour Scheme
 
@@ -165,7 +162,7 @@ A ripe tomato red used for buttons, calls-to-action, and key highlights.
 Warm and inviting without overwhelming the interface.
 
 🟧 **Heirloom Orange — `#D96F3B`**  
-Reflecting the colour of heritage varieties such as *Orange Banana* and *Valencia*.  
+Reflecting the colour of heritage varieties such as _Orange Banana_ and _Valencia_.  
 Used for warm accents and secondary emphasis elements.
 
 🟨 **Golden Seed Yellow — `#D6A84B`**  
@@ -174,27 +171,29 @@ Used for highlights, decorative touches, and gentle emphasis.
 
 Together, these colours create a vintage-inspired, horticulturally grounded palette that enhances readability, brand warmth, and accessibility.
 
-### Typography
+### **[Typography](#typography)**
 
-- The typography choices for the Heritage Tomato Club were selected to evoke the feel of vintage seed packets, traditional gardening guides, and classic printed ephemera — all while maintaining clear readability across devices.
+The typography choices for the Heritage Tomato Club were selected to evoke the feel of vintage seed packets, traditional gardening guides and classic printed ephemera, all while maintaining clear readability across devices.
 
-**<span style="color:#C3423F;font-weight:700;">Headings — [Bitter](https://fonts.google.com/specimen/Bitter/) (Serif)</span>**  
-Bitter provides a strong, traditional serif style that feels rooted in heritage print design. Its sturdy letterforms pair well with the gardening theme while remaining highly readable on screens.  
-Used for: all headings (H1–H6), key section titles, and feature highlights.
+- **Headings — [Bitter](https://fonts.google.com/specimen/Bitter/) (Serif)**
+  Bitter provides a strong, traditional serif style that feels rooted in heritage print design. Its sturdy letterforms pair well with the gardening theme while remaining highly readable on screens.  
+  Used for: all headings (H1–H6), key section titles, and feature highlights.
 
-**<span style="color:#355E3B;font-weight:700;">Body Text — [Lora](https://fonts.google.com/specimen/Lora/) (Serif)</span>**  
-Lora offers a warm, humanist serif that complements Bitter without competing with it. It is softer and more fluid, making longer paragraphs comfortable to read.  
-Used for: paragraphs, descriptions, seed profile text, and general content areas.
+- **Body Text — [Lora](https://fonts.google.com/specimen/Lora/) (Serif)**  
+  Lora offers a warm, humanist serif that complements Bitter without competing with it. It is softer and more fluid, making longer paragraphs comfortable to read.  
+  Used for: paragraphs, descriptions, seed profile text, and general content areas.
 
-**Why These Fonts Work Together**  
-- Both typefaces reflect the tone of vintage horticultural publications.  
-- Bitter establishes hierarchy and presence, giving pages a confident, editorial feel.  
-- Lora supports readability, offering a gentle contrast that prevents the site from feeling overly formal or dense.  
+**Why These Fonts Work Together**
+
+- Both typefaces reflect the tone of vintage horticultural publications.
+- Bitter establishes hierarchy and presence, giving pages a confident, editorial feel.
+- Lora supports readability, offering a gentle contrast that prevents the site from feeling overly formal or dense.
 - Together, they reinforce the club’s identity: friendly, traditional, and inspired by classic gardening design.
 
-**Accessibility Considerations**  
-- Typography sizes are increased slightly for comfortable reading on mobile.  
-- Line heights and spacing are chosen to reduce visual strain.  
+**Accessibility Considerations**
+
+- Typography sizes are increased slightly for comfortable reading on mobile.
+- Line heights and spacing are chosen to reduce visual strain.
 - Both fonts maintain high clarity at small sizes due to their modern web-optimized design.
 
 The final result is a cohesive type system that feels authentic to the heritage gardening theme while providing a clean and accessible reading experience.
@@ -205,46 +204,47 @@ The final result is a cohesive type system that feels authentic to the heritage 
 
 ## User Stories
 
-| Target | Expectation | Outcome |
-| --- | --- | --- |
-| As a first-time visitor, | I can view information about the Heritage Tomato Club without registering, | so that I can decide whether I want to join. |
-| As a first-time visitor, | I can easily navigate the site, | so that I can find seed varieties, resources, and membership information quickly. |
-| As a new user, | I can register for an account, | so that I can access member features. |
-| As a registered user, | I can log in securely, | so that I can access my profile and member-only content. |
-| As a logged-in user, | I can log out of my account, | so that my session ends securely. |
-| As a user who forgot my password, | I can reset my password via email, | so that I can regain access to my account. |
-| As a visitor or member, | I can view a friendly error page if I reach a broken link, | so that I am not confused or lost. |
-| As a visitor, | I can browse the Seed Library, | so that I can learn about different heritage tomato varieties. |
-| As a user, | I can view detailed information about a tomato variety, | so that I can understand its growth habit, origin, and characteristics. |
-| As a logged-in user, | I can purchase a membership tier, | so that I can support the club and access additional features. |
-| As a logged-in member, | I can manage my membership status, | so that I know whether my membership is active. |
-| As a logged-in user, | I can create a grow diary entry, | so that I can record the progress of my tomato plants. |
-| As a logged-in user, | I can edit a grow diary entry, | so that I can update notes or growth stages. |
-| As a logged-in user, | I can delete a grow diary entry, | so that I can remove incorrect or unwanted records. |
-| As a logged-in user, | I can upload photos to my grow diary entries, | so that I can visually document plant development. |
-| As a user, | I can browse tomato recipes, | so that I can find ideas for using harvested tomatoes. |
-| As a visitor, | I can sign up to the newsletter, | so that I can receive club updates and news. |
+| Target                            | Expectation                                                                | Outcome                                                                           |
+| --------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| As a first-time visitor,          | I can view information about the Heritage Tomato Club without registering, | so that I can decide whether I want to join.                                      |
+| As a first-time visitor,          | I can easily navigate the site,                                            | so that I can find seed varieties, resources, and membership information quickly. |
+| As a new user,                    | I can register for an account,                                             | so that I can access member features.                                             |
+| As a registered user,             | I can log in securely,                                                     | so that I can access my profile and member-only content.                          |
+| As a logged-in user,              | I can log out of my account,                                               | so that my session ends securely.                                                 |
+| As a user who forgot my password, | I can reset my password via email,                                         | so that I can regain access to my account.                                        |
+| As a visitor or member,           | I can view a friendly error page if I reach a broken link,                 | so that I am not confused or lost.                                                |
+| As a visitor,                     | I can browse the Seed Library,                                             | so that I can learn about different heritage tomato varieties.                    |
+| As a user,                        | I can view detailed information about a tomato variety,                    | so that I can understand its growth habit, origin, and characteristics.           |
+| As a logged-in user,              | I can purchase a membership tier,                                          | so that I can support the club and access additional features.                    |
+| As a logged-in member,            | I can manage my membership status,                                         | so that I know whether my membership is active.                                   |
+| As a logged-in user,              | I can create a grow diary entry,                                           | so that I can record the progress of my tomato plants.                            |
+| As a logged-in user,              | I can edit a grow diary entry,                                             | so that I can update notes or growth stages.                                      |
+| As a logged-in user,              | I can delete a grow diary entry,                                           | so that I can remove incorrect or unwanted records.                               |
+| As a logged-in user,              | I can upload photos to my grow diary entries,                              | so that I can visually document plant development.                                |
+| As a user,                        | I can browse tomato recipes,                                               | so that I can find ideas for using harvested tomatoes.                            |
+| As a visitor,                     | I can sign up to the newsletter,                                           | so that I can receive club updates and news.                                      |
+
 ## Features
 
 ### Existing Features
 
-| Feature | Notes | Screenshot |
-| --- | --- | --- |
-| Register / Login / Logout | Handled by Django Allauth, allowing users to create secure accounts, log in, and log out. | ![screenshot](documentation/features/auth.png) |
-| Membership Tiers | Users can view available membership tiers, including free and paid options, with clear descriptions and pricing. | ![screenshot](documentation/features/membership-tiers.png) |
-| Stripe Checkout | Paid memberships are processed securely using Stripe Checkout. Users are redirected to a confirmation page on success. | ![screenshot](documentation/features/stripe-checkout.png) |
-| Membership Status | Logged-in users can see whether their membership is active and which tier they belong to. | ![screenshot](documentation/features/membership-status.png) |
-| Seed Library | Publicly accessible list of heritage tomato varieties with clean, card-based layout. | ![screenshot](documentation/features/seed-library.png) |
-| Variety Detail Pages | Each tomato variety has a dedicated page showing images, origin, growth habit, and descriptive notes. | ![screenshot](documentation/features/variety-detail.png) |
-| Filtering & Sorting | Users can filter tomato varieties by traits such as growth habit and colour, and sort alphabetically. | ![screenshot](documentation/features/filters.png) |
-| Grow Diary | Logged-in users can record the progress of their tomato plants through diary entries. | ![screenshot](documentation/features/grow-diary.png) |
-| Add Diary Entry | Users can create diary entries with growth stage, date, notes, and optional photo upload (Cloudinary). | ![screenshot](documentation/features/add-diary.png) |
-| Edit / Delete Diary Entries | Users have full control to update or remove their own grow diary entries. | ![screenshot](documentation/features/edit-diary.png) |
-| Recipes | Users can browse tomato-based recipes, including prep time, difficulty, and suitability for gluts. | ![screenshot](documentation/features/recipes.png) |
-| Newsletter Signup | Visitors can subscribe to the newsletter to receive updates from the club. | ![screenshot](documentation/features/newsletter.png) |
-| Feedback Messages | Django messages framework provides clear feedback for actions such as form submissions and membership changes. | ![screenshot](documentation/features/messages.png) |
-| Custom Error Pages | Friendly 404 and 500 error pages are provided to maintain a consistent user experience. | ![screenshot](documentation/features/404.png) |
-| Responsive Design | The site is fully responsive and optimised for mobile, tablet, and desktop devices. | ![screenshot](documentation/features/responsive.png) |
+| Feature                     | Notes                                                                                                                  | Screenshot                                                  |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Register / Login / Logout   | Handled by Django Allauth, allowing users to create secure accounts, log in, and log out.                              | ![screenshot](documentation/features/auth.png)              |
+| Membership Tiers            | Users can view available membership tiers, including free and paid options, with clear descriptions and pricing.       | ![screenshot](documentation/features/membership-tiers.png)  |
+| Stripe Checkout             | Paid memberships are processed securely using Stripe Checkout. Users are redirected to a confirmation page on success. | ![screenshot](documentation/features/stripe-checkout.png)   |
+| Membership Status           | Logged-in users can see whether their membership is active and which tier they belong to.                              | ![screenshot](documentation/features/membership-status.png) |
+| Seed Library                | Publicly accessible list of heritage tomato varieties with clean, card-based layout.                                   | ![screenshot](documentation/features/seed-library.png)      |
+| Variety Detail Pages        | Each tomato variety has a dedicated page showing images, origin, growth habit, and descriptive notes.                  | ![screenshot](documentation/features/variety-detail.png)    |
+| Filtering & Sorting         | Users can filter tomato varieties by traits such as growth habit and colour, and sort alphabetically.                  | ![screenshot](documentation/features/filters.png)           |
+| Grow Diary                  | Logged-in users can record the progress of their tomato plants through diary entries.                                  | ![screenshot](documentation/features/grow-diary.png)        |
+| Add Diary Entry             | Users can create diary entries with growth stage, date, notes, and optional photo upload (Cloudinary).                 | ![screenshot](documentation/features/add-diary.png)         |
+| Edit / Delete Diary Entries | Users have full control to update or remove their own grow diary entries.                                              | ![screenshot](documentation/features/edit-diary.png)        |
+| Recipes                     | Users can browse tomato-based recipes, including prep time, difficulty, and suitability for gluts.                     | ![screenshot](documentation/features/recipes.png)           |
+| Newsletter Signup           | Visitors can subscribe to the newsletter to receive updates from the club.                                             | ![screenshot](documentation/features/newsletter.png)        |
+| Feedback Messages           | Django messages framework provides clear feedback for actions such as form submissions and membership changes.         | ![screenshot](documentation/features/messages.png)          |
+| Custom Error Pages          | Friendly 404 and 500 error pages are provided to maintain a consistent user experience.                                | ![screenshot](documentation/features/404.png)               |
+| Responsive Design           | The site is fully responsive and optimised for mobile, tablet, and desktop devices.                                    | ![screenshot](documentation/features/responsive.png)        |
 
 ### Future Features
 
@@ -261,27 +261,26 @@ The final result is a cohesive type system that feels authentic to the heritage 
 
 ### Technologies Used
 
-| Tool / Tech | Use |
-| --- | --- |
-| ![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000) | Generate README and TESTING templates. |
-| ![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717) | Version control and remote code storage. |
-| ![badge](https://img.shields.io/badge/HTML5-grey?logo=html5&logoColor=E34F26) | Structure and semantic layout of the site. |
-| ![badge](https://img.shields.io/badge/CSS3-grey?logo=css3&logoColor=1572B6) | Basic styling before Tailwind processing. |
-| ![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E) | Interactive front-end behaviour (filters, form enhancement). |
-| ![badge](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB) | Core back-end programming for Django. |
-| ![badge](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20) | The main web framework powering the application. |
-| ![badge](https://img.shields.io/badge/Django_Allauth-grey?logo=django&logoColor=092E20) | User authentication (signup, login, logout). |
-| ![badge](https://img.shields.io/badge/Tailwind_CSS-grey?logo=tailwindcss&logoColor=06B6D4) | Utility-first CSS framework for styling, integrated via Tailwind CLI. |
-| ![badge](https://img.shields.io/badge/DaisyUI-grey?logo=daisyui&logoColor=FF9900) | Tailwind component library providing accessible UI components and theming. |
-| ![badge](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=626CD9) | Secure payment processing for membership tiers. |
-| ![badge](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5) | Media storage for tomato variety images. |
-| ![badge](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF) | Serving static files in production (with Django). |
-| ![badge](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1) | Relational database used for production deployments. |
-| ![badge](https://img.shields.io/badge/VPS-grey?logo=linux&logoColor=FCC624) | Production hosting environment (Hostinger VPS). |
-| ![badge](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC) | Wireframing and visual planning. |
-| ![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7) | Iconography across the site. |
-| ![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C) | Assistance with debugging, research, content drafting, and pair programming. |
-
+| Tool / Tech                                                                                 | Use                                                                          |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| ![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000) | Generate README and TESTING templates.                                       |
+| ![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)             | Version control and remote code storage.                                     |
+| ![badge](https://img.shields.io/badge/HTML5-grey?logo=html5&logoColor=E34F26)               | Structure and semantic layout of the site.                                   |
+| ![badge](https://img.shields.io/badge/CSS3-grey?logo=css3&logoColor=1572B6)                 | Basic styling before Tailwind processing.                                    |
+| ![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)     | Interactive front-end behaviour (filters, form enhancement).                 |
+| ![badge](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)             | Core back-end programming for Django.                                        |
+| ![badge](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20)             | The main web framework powering the application.                             |
+| ![badge](https://img.shields.io/badge/Django_Allauth-grey?logo=django&logoColor=092E20)     | User authentication (signup, login, logout).                                 |
+| ![badge](https://img.shields.io/badge/Tailwind_CSS-grey?logo=tailwindcss&logoColor=06B6D4)  | Utility-first CSS framework for styling, integrated via Tailwind CLI.        |
+| ![badge](https://img.shields.io/badge/DaisyUI-grey?logo=daisyui&logoColor=FF9900)           | Tailwind component library providing accessible UI components and theming.   |
+| ![badge](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=626CD9)             | Secure payment processing for membership tiers.                              |
+| ![badge](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5)     | Media storage for tomato variety images.                                     |
+| ![badge](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF)         | Serving static files in production (with Django).                            |
+| ![badge](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1)     | Relational database used for production deployments.                         |
+| ![badge](https://img.shields.io/badge/VPS-grey?logo=linux&logoColor=FCC624)                 | Production hosting environment (Hostinger VPS).                              |
+| ![badge](https://img.shields.io/badge/Canva-grey?logo=canva&logoColor=00C4CC)               | Wireframing and visual planning.                                             |
+| ![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)  | Iconography across the site.                                                 |
+| ![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)            | Assistance with debugging, research, content drafting, and pair programming. |
 
 ## Database Design
 
@@ -291,19 +290,22 @@ Heritage Tomato Club uses a relational schema built in PostgreSQL with models re
 
 ![screenshot](documentation/erd.png)
 
- [`Mermaid flowchart`](https://mermaid.live). 
+[`Mermaid flowchart`](https://mermaid.live).
 I have used `Mermaid` to generate an ERD of my project.
 
 ---
+
 config:
-  theme: forest
+theme: forest
+
 ---
+
 erDiagram
-    User {
-      int id PK
-      string username
-      string email
-    }
+User {
+int id PK
+string username
+string email
+}
 
     Profile {
       int id PK
@@ -407,9 +409,9 @@ source: [Mermaid](https://www.mermaidchart.com/play?utm_source=mermaid_live_edit
 
 [GitHub Issues](https://www.github.com/runwiththerhythm/tomato-club/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks and tracked any issues/bugs.
 
-| Link | Screenshot |
-| --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/issues) | ![screenshot](documentation/gh-issues-open.png) |
+| Link                                                                                                                                                                                     | Screenshot                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| [![GitHub issues](https://img.shields.io/github/issues/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/issues)                                        | ![screenshot](documentation/gh-issues-open.png)   |
 | [![GitHub closed issues](https://img.shields.io/github/issues-closed/runwiththerhythm/tomato-club)](https://www.github.com/runwiththerhythm/tomato-club/issues?q=is%3Aissue+is%3Aclosed) | ![screenshot](documentation/gh-issues-closed.png) |
 
 ## Testing
@@ -428,10 +430,10 @@ This project uses the [Cloudinary API](https://cloudinary.com) to store media as
 To obtain your own Cloudinary API key, create an account and log in.
 
 - For "Primary Interest", you can choose **Programmable Media for image and video API**.
-- *Optional*: edit your assigned cloud name to something more memorable.
+- _Optional_: edit your assigned cloud name to something more memorable.
 - On your Cloudinary Dashboard, you can copy your **API Environment Variable**.
 - Be sure to remove the leading `CLOUDINARY_URL=` as part of the API **value**; this is the **key**.
-    - `cloudinary://123456789012345:AbCdEfGhIjKlMnOpQrStuVwXyZa@1a2b3c4d5)`
+  - `cloudinary://123456789012345:AbCdEfGhIjKlMnOpQrStuVwXyZa@1a2b3c4d5)`
 - This will go into your own `env.py` file, and Heroku Config Vars, using the **key** of `CLOUDINARY_URL`.
 
 ### PostgreSQL
@@ -445,9 +447,9 @@ This project uses the [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/)
 To include WhiteNoise in your own projects:
 
 - Install the latest WhiteNoise package:
-    - `pip install whitenoise`
+  - `pip install whitenoise`
 - Update the `requirements.txt` file with the newly installed package:
-    - `pip freeze --local > requirements.txt`
+  - `pip freeze --local > requirements.txt`
 - Edit your `settings.py` file and add WhiteNoise to the `MIDDLEWARE` list, above all other middleware (apart from Django’s "SecurityMiddleware"):
 
 ```python
@@ -459,7 +461,6 @@ MIDDLEWARE = [
     # any additional middleware
 ]
 ```
-
 
 ### Local Development
 
@@ -490,18 +491,18 @@ os.environ.setdefault("DEBUG", "True")
 Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
 
 - Start the Django app: `python3 manage.py runserver`
-- Stop the app once it's loaded: `CTRL+C` (*Windows/Linux*) or `⌘+C` (*Mac*)
+- Stop the app once it's loaded: `CTRL+C` (_Windows/Linux_) or `⌘+C` (_Mac_)
 - Make any necessary migrations: `python3 manage.py makemigrations --dry-run` then `python3 manage.py makemigrations`
 - Migrate the data to the database: `python3 manage.py migrate --plan` then `python3 manage.py migrate`
 - Create a superuser: `python3 manage.py createsuperuser`
-- Load fixtures (*if applicable*): `python3 manage.py loaddata file-name.json` (*repeat for each file*)
+- Load fixtures (_if applicable_): `python3 manage.py loaddata file-name.json` (_repeat for each file_)
 - Everything should be ready now, so run the Django app again: `python3 manage.py runserver`
 
 If you'd like to backup your database models, use the following command for each model you'd like to create a fixture for:
 
 - `python3 manage.py dumpdata your-model > your-model.json`
-- *repeat this action for each model you wish to backup*
-- **NOTE**: You should never make a backup of the default *admin* or *users* data with confidential information.
+- _repeat this action for each model you wish to backup_
+- **NOTE**: You should never make a backup of the default _admin_ or _users_ data with confidential information.
 
 #### Cloning
 
@@ -513,7 +514,7 @@ You can clone the repository by following these steps:
 4. Open "Git Bash" or "Terminal".
 5. Change the current working directory to the location where you want the cloned directory.
 6. In your IDE Terminal, type the following command to clone the repository:
-	- `git clone https://www.github.com/runwiththerhythm/tomato-club.git`
+   - `git clone https://www.github.com/runwiththerhythm/tomato-club.git`
 7. Press "Enter" to create your local clone.
 
 #### Forking
@@ -532,26 +533,21 @@ There are no remaining major differences between the local version when compared
 
 ### Content
 
-
 ### Media
 
 - Images
-    - [Canva](https://www.canva.com)
+  - [Canva](https://www.canva.com)
 
-| Source | Notes |
-| --- | --- |
-| [favicon.io](https://favicon.io) | Generating the favicon |
+| Source                                  | Notes                          |
+| --------------------------------------- | ------------------------------ |
+| [favicon.io](https://favicon.io)        | Generating the favicon         |
 | [Font Awesome](https://fontawesome.com) | Icons used throughout the site |
 
 ### Acknowledgements
 
 - I would like to thank;
-The [Code Institute](https://codeinstitute.net) for their learning materials and project assignment.
-My Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN) for their support throughout development of this project.
-
-
-
-
+  The [Code Institute](https://codeinstitute.net) for their learning materials and project assignment.
+  My Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN) for their support throughout development of this project.
 
 ## 🚀 Deployment
 
@@ -573,17 +569,20 @@ The project was deployed using the following steps:
    ```bash
    pip install -r requirements.txt
    ```
+
 5. Apply database migrations:
 
    ```bash
    python manage.py migrate
    ```
+
 6. Build Tailwind CSS and collect static files:
 
    ```bash
    python manage.py tailwind build
    python manage.py collectstatic --noinput
    ```
+
 7. Configure **Gunicorn** as the application server using a systemd service.
 8. Configure **Nginx** as a reverse proxy to Gunicorn and enable HTTPS via Let’s Encrypt.
 9. Reload all services to complete deployment.

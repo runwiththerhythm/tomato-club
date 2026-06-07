@@ -62,6 +62,11 @@
 
           const data = await response.json();
 
+          if (data.checkoutUrl) {
+            window.location.href = data.checkoutUrl;
+            return;
+          }
+
           if (!data.publicKey || !data.sessionId) {
             console.error("Missing Stripe response data", data);
             alert("Checkout could not be started. Please try again.");
@@ -73,7 +78,7 @@
           const { error } = await stripe.redirectToCheckout({
             sessionId: data.sessionId,
           });
-
+          
           if (error) {
             console.error(error);
             alert(error.message);
