@@ -85,6 +85,16 @@ class TomatoVarietyListTests(TestCase):
         self.assertContains(response, "Ailsa Craig")
         self.assertNotContains(response, "Yellow Pear")
 
+    def test_seed_library_sorts_by_maturity(self):
+        response = self.client.get(
+            reverse("seeds:variety_list"),
+            {"sort": "maturity_asc"},
+        )
+
+        self.assertEqual(response.status_code, 200)
+        varieties = list(response.context["varieties"])
+        self.assertEqual(varieties[0].days_to_maturity, 75)
+
     def test_variety_detail_page_loads(self):
         response = self.client.get(
             reverse("seeds:variety_detail", kwargs={"slug": "ailsa-craig"})

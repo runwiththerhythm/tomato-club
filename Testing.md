@@ -139,7 +139,7 @@ System check identified no issues (0 silenced).
 
 ---
 
-Ran 5 tests in 5.639s
+Ran 16 tests in 7.357s
 
 OK
 
