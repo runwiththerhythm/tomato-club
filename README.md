@@ -240,7 +240,7 @@ The final result is a cohesive type system that feels authentic to the heritage 
 | Grow Diary                  | Logged-in users can record the progress of their tomato plants through diary entries.                                  | ![screenshot](documentation/features/grow-diary.png)        |
 | Add Diary Entry             | Users can create diary entries with growth stage, date, notes, and optional photo upload (Cloudinary).                 | ![screenshot](documentation/features/add-diary.png)         |
 | Edit / Delete Diary Entries | Users have full control to update or remove their own grow diary entries.                                              | ![screenshot](documentation/features/edit-diary.png)        |
-| Recipes                     | Users can browse tomato-based recipes, including prep time, difficulty, and suitability for gluts.                     | ![screenshot](documentation/features/recipes.png)           |
+|                             |
 | Newsletter Signup           | Visitors can subscribe to the newsletter to receive updates from the club.                                             | ![screenshot](documentation/features/newsletter.png)        |
 | Feedback Messages           | Django messages framework provides clear feedback for actions such as form submissions and membership changes.         | ![screenshot](documentation/features/messages.png)          |
 | Custom Error Pages          | Friendly 404 and 500 error pages are provided to maintain a consistent user experience.                                | ![screenshot](documentation/features/404.png)               |
