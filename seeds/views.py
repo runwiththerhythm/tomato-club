@@ -73,8 +73,8 @@ class TomatoVarietyListView(ListView):
         ]
 
         ctx["habit_choices"] = [
-            ("cordon", "Cordon / Indeterminate"),
-            ("bush", "Bush / Determinate"),
+            ("indeterminate", "Cordon / Indeterminate"),
+            ("determinate", "Bush / Determinate"),
             ("dwarf", "Dwarf"),
         ]
 

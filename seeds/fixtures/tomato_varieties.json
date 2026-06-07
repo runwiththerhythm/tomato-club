@@ -1,0 +1,470 @@
+[
+{
+  "model": "seeds.tomatovariety",
+  "pk": 1,
+  "fields": {
+    "name": "Wapsipinicon Peach",
+    "slug": "wapsipinicon-peach",
+    "image": "",
+    "origin": "",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 80,
+    "fruit_color": "yellow",
+    "description": "A distinctive pale yellow tomato with softly fuzzy skin, often described as peach-like. Fruits are mild, sweet and unusual, making it a memorable variety for salads, tasting tables and seed-saving displays.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2025-11-29T15:33:35.915Z",
+    "updated_at": "2025-11-29T15:33:35.915Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 2,
+  "fields": {
+    "name": "Golden Sunrise",
+    "slug": "golden-sunrise",
+    "image": "tomato_varieties/advanced-css.png",
+    "origin": "",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 78,
+    "fruit_color": "yellow",
+    "description": "A golden-yellow heritage tomato with medium-sized fruits and a mild, sweet flavour. Its bright colour makes it useful in mixed tomato salads and helps show the colour range available beyond standard red varieties.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2025-11-29T15:34:24.004Z",
+    "updated_at": "2025-11-29T22:09:54.180Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 3,
+  "fields": {
+    "name": "Klondike",
+    "slug": "klondike",
+    "image": "tomato_varieties/bloodstock-2025.jpg",
+    "origin": "",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 90,
+    "fruit_color": "orange",
+    "description": "An orange beefsteak-style tomato producing warm-coloured fruits with a mild, sweet flavour. A useful variety for adding orange colour to the Seed Library and for showing how heritage tomatoes can vary in both shape and tone.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2025-11-29T15:37:13.567Z",
+    "updated_at": "2025-12-01T00:23:30.158Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 4,
+  "fields": {
+    "name": "Chadwick Cherry",
+    "slug": "chadwick-cherry",
+    "image": "tomato_varieties/mower.png",
+    "origin": "",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 80,
+    "fruit_color": "red",
+    "description": "A vigorous heirloom cherry tomato named after organic gardening teacher Alan Chadwick. Plants produce generous clusters of bright red cherry tomatoes with a balanced sweet-tart flavour. A useful choice for salads, snacking and steady greenhouse harvests.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2025-11-29T16:43:40.355Z",
+    "updated_at": "2025-11-29T22:17:01.007Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 5,
+  "fields": {
+    "name": "Italian Spaghetti",
+    "slug": "italian-spaghetti",
+    "image": "",
+    "origin": "Italy",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 100,
+    "fruit_color": "red",
+    "description": "An elongated red paste tomato with dense flesh and a distinctive cigar-like shape. Useful for sauces, bottling, drying and cooking, while still being interesting enough to display as a heritage curiosity.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2025-11-29T18:25:48.413Z",
+    "updated_at": "2025-11-29T18:25:48.413Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 6,
+  "fields": {
+    "name": "Ailsa Craig",
+    "slug": "ailsa-craig",
+    "image": "",
+    "origin": "United Kingdom / Scotland",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 75,
+    "fruit_color": "red",
+    "description": "A classic British heritage tomato with neat, round red fruits and a reliable old-fashioned flavour. A useful all-rounder for salads, slicing and greenhouse growing.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 7,
+  "fields": {
+    "name": "Amish Paste",
+    "slug": "amish-paste",
+    "image": "",
+    "origin": "Amish communities, United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 85,
+    "fruit_color": "red",
+    "description": "A large paste tomato valued for sauces, passata and preserving. Fruits are meaty with fewer seeds than many slicers, while still having enough flavour for fresh use.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 8,
+  "fields": {
+    "name": "Aunt Ruby's German Green",
+    "slug": "aunt-rubys-german-green",
+    "image": "",
+    "origin": "German family heirloom, United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 85,
+    "fruit_color": "green",
+    "description": "A green-when-ripe beefsteak with a rich, sweet-tart flavour. Ripe fruits soften and develop a warm yellow-green blush, making it a useful variety for showing colour diversity.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 9,
+  "fields": {
+    "name": "Black Cherry",
+    "slug": "black-cherry",
+    "image": "",
+    "origin": "United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 70,
+    "fruit_color": "black red",
+    "description": "A dark cherry tomato with mahogany-red fruits and a deep, sweet flavour. Productive trusses make it useful for snacking, salads and showing that heritage tomatoes are not only large beefsteaks.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 10,
+  "fields": {
+    "name": "Black Krim",
+    "slug": "black-krim",
+    "image": "",
+    "origin": "Crimea / Black Sea region",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 80,
+    "fruit_color": "black red",
+    "description": "A famous dark beefsteak tomato with dusky red-brown fruits, green shoulders and a rich savoury flavour. Often grown for its dramatic colour and strong taste.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 11,
+  "fields": {
+    "name": "Brandywine",
+    "slug": "brandywine",
+    "image": "",
+    "origin": "United States, introduced in the late 19th century",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 80,
+    "fruit_color": "pink red",
+    "description": "One of the best-known heirloom beefsteak tomatoes, valued for large fruits and excellent flavour. A classic choice for slicing, sandwiches and heritage tomato displays.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 12,
+  "fields": {
+    "name": "Cherokee Purple",
+    "slug": "cherokee-purple",
+    "image": "",
+    "origin": "Tennessee, United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 80,
+    "fruit_color": "purple black pink",
+    "description": "A celebrated heirloom beefsteak with dusky rose-purple fruits and sweet, complex flavour. Its unusual colour and story make it a favourite among seed savers.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 13,
+  "fields": {
+    "name": "Costoluto Genovese",
+    "slug": "costoluto-genovese",
+    "image": "",
+    "origin": "Liguria, Italy",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 78,
+    "fruit_color": "red",
+    "description": "A deeply ribbed Italian tomato with dramatic, fluted fruits. Traditionally used for slicing and sauce, it brings a distinctive heritage shape to the Seed Library.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 14,
+  "fields": {
+    "name": "Dwarf Champion",
+    "slug": "dwarf-champion",
+    "image": "",
+    "origin": "United States, 19th century dwarf tomato line",
+    "growth_habit": "dwarf",
+    "days_to_maturity": 80,
+    "fruit_color": "pink red",
+    "description": "A compact historic dwarf tomato suited to smaller gardens and container growing. Useful for showing that heritage varieties can include space-saving plant forms as well as tall cordons.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 15,
+  "fields": {
+    "name": "Gardener's Delight",
+    "slug": "gardeners-delight",
+    "image": "",
+    "origin": "Germany / long-established UK garden favourite",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 65,
+    "fruit_color": "red",
+    "description": "A classic cherry tomato widely grown by home gardeners for sweet, bite-sized red fruits. A useful reliable variety for beginners and greenhouse growers.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 16,
+  "fields": {
+    "name": "Green Zebra",
+    "slug": "green-zebra",
+    "image": "",
+    "origin": "United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 75,
+    "fruit_color": "green striped",
+    "description": "A striking green tomato with yellow-green striping when ripe. Tangy, bright and decorative, it helps demonstrate the colour diversity of non-supermarket tomatoes.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 17,
+  "fields": {
+    "name": "Jaune Flammée",
+    "slug": "jaune-flammee",
+    "image": "",
+    "origin": "France",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 75,
+    "fruit_color": "orange",
+    "description": "A French orange tomato producing small, apricot-coloured fruits with a lively sweet-tart flavour. Good for salads, roasting and drying.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 18,
+  "fields": {
+    "name": "Marmande",
+    "slug": "marmande",
+    "image": "",
+    "origin": "Marmande, France",
+    "growth_habit": "determinate",
+    "days_to_maturity": 75,
+    "fruit_color": "red",
+    "description": "A traditional French beefsteak type with flattened, lightly ribbed red fruits. Often grown as a productive bush or semi-bush style tomato for salads and cooking.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 19,
+  "fields": {
+    "name": "Mortgage Lifter",
+    "slug": "mortgage-lifter",
+    "image": "",
+    "origin": "West Virginia, United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 85,
+    "fruit_color": "pink red",
+    "description": "A large pink beefsteak heirloom associated with Depression-era garden lore. Fruits can be very large, mild and meaty, making it a classic slicing tomato.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 20,
+  "fields": {
+    "name": "Orange Banana",
+    "slug": "orange-banana",
+    "image": "",
+    "origin": "Russia",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 85,
+    "fruit_color": "orange",
+    "description": "An elongated orange paste tomato with dense flesh and bright colour. Useful for sauces, drying and adding a warm colour contrast to preserved tomato mixes.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 21,
+  "fields": {
+    "name": "Pineapple",
+    "slug": "pineapple",
+    "image": "",
+    "origin": "United States",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 90,
+    "fruit_color": "yellow orange striped",
+    "description": "A large yellow-orange beefsteak with red marbling inside the fruit. Sweet, low-acid flavour and dramatic colouring make it a useful showpiece variety.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 22,
+  "fields": {
+    "name": "Principe Borghese",
+    "slug": "principe-borghese",
+    "image": "",
+    "origin": "Italy",
+    "growth_habit": "determinate",
+    "days_to_maturity": 75,
+    "fruit_color": "red",
+    "description": "A traditional Italian drying tomato producing clusters of small red fruits. Often grown for sun-drying, hanging trusses and concentrated tomato flavour.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 23,
+  "fields": {
+    "name": "Riesentraube",
+    "slug": "riesentraube",
+    "image": "",
+    "origin": "Germany",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 76,
+    "fruit_color": "red",
+    "description": "A prolific red cherry tomato whose name means giant bunch of grapes. Produces large clusters of small fruits with a bright, sweet-tart flavour.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 24,
+  "fields": {
+    "name": "San Marzano",
+    "slug": "san-marzano",
+    "image": "",
+    "origin": "Campania, Italy",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 80,
+    "fruit_color": "red",
+    "description": "A famous Italian plum tomato associated with sauce-making and preserving. Long red fruits have dense flesh and relatively few seeds, making them well suited to passata.",
+    "is_featured": true,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 25,
+  "fields": {
+    "name": "Tigerella",
+    "slug": "tigerella",
+    "image": "",
+    "origin": "United Kingdom",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 65,
+    "fruit_color": "red orange striped",
+    "description": "A striped salad tomato with red-orange fruits and golden markings. Early, decorative and useful for showing striped heritage-style tomatoes in the Seed Library.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+},
+{
+  "model": "seeds.tomatovariety",
+  "pk": 26,
+  "fields": {
+    "name": "Yellow Pear",
+    "slug": "yellow-pear",
+    "image": "",
+    "origin": "Historic European / American garden variety",
+    "growth_habit": "indeterminate",
+    "days_to_maturity": 75,
+    "fruit_color": "yellow",
+    "description": "A small pear-shaped yellow tomato grown for its cheerful colour and mild flavour. Good for salads, garnishes and introducing children to unusual tomato shapes.",
+    "is_featured": false,
+    "is_active": true,
+    "created_at": "2026-06-06T00:00:00Z",
+    "updated_at": "2026-06-06T00:00:00Z"
+  }
+}
+]
